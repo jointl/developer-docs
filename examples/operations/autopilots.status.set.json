@@ -1,0 +1,33 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict"
+  ],
+  "operationId": "autopilots.status.set",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "autopilotGroupId": "autopilotgroupid_example_01",
+        "expectedStatus": "ACTIVE",
+        "status": "ARCHIVED"
+      },
+      "operationId": "autopilots.status.set"
+    }
+  },
+  "success": {
+    "data": {
+      "changed": true,
+      "previousStatus": "active",
+      "recordId": "recordid_example_01",
+      "status": "active"
+    },
+    "requestId": "request_example_01"
+  }
+}

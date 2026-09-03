@@ -1,0 +1,28 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "references.list",
+  "request": {
+    "input": {
+      "applicantId": "applicantid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "applicantId": "applicantid_example_01",
+          "createdAt": "2026-01-15",
+          "id": "id_example_01",
+          "status": "active"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

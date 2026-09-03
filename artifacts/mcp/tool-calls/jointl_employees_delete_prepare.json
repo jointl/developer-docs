@@ -1,0 +1,36 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "employeeId": "employeeid_example_01",
+          "expectedStatus": "active"
+        }
+      },
+      "name": "jointl_employees_delete_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"deleted\":true,\"previousStatus\":\"active\",\"recordId\":\"recordid_example_01\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "deleted": true,
+          "previousStatus": "active",
+          "recordId": "recordid_example_01"
+        }
+      }
+    }
+  }
+}

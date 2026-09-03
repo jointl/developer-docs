@@ -1,0 +1,36 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "references.request",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "applicantId": "applicantid_example_01",
+        "referee": {
+          "email": "ada@example.test",
+          "name": "Ada Example"
+        },
+        "templateId": "templateid_example_01"
+      },
+      "operationId": "references.request"
+    }
+  },
+  "success": {
+    "data": {
+      "emailDispatch": {},
+      "meta": {},
+      "reference": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "design": {
+            "companyId": "company_example_01",
+            "jobTitle": "Software Engineer",
+            "title": "Example Hiring Flow",
+            "type": "HIRING_REVIEW"
+          }
+        }
+      },
+      "name": "jointl_flows_draft_create_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"configuration\":{},\"createdTemplateIds\":{},\"flowId\":\"flow_example_01\",\"publicProfilesEnabled\":true,\"revision\":\"2026-01-15T10:30:00.000Z\",\"status\":\"DRAFT\",\"talentPoolEnabled\":true,\"title\":\"Example Hiring Flow\",\"type\":\"HIRING_REVIEW\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "configuration": {},
+          "createdTemplateIds": {},
+          "flowId": "flow_example_01",
+          "publicProfilesEnabled": true,
+          "revision": "2026-01-15T10:30:00.000Z",
+          "status": "DRAFT",
+          "talentPoolEnabled": true,
+          "title": "Example Hiring Flow",
+          "type": "HIRING_REVIEW"
+        }
+      }
+    }
+  }
+}

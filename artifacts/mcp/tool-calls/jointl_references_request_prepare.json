@@ -1,0 +1,40 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "applicantId": "applicantid_example_01",
+          "referee": {
+            "email": "ada@example.test",
+            "name": "Ada Example"
+          },
+          "templateId": "templateid_example_01"
+        }
+      },
+      "name": "jointl_references_request_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"emailDispatch\":{},\"meta\":{},\"reference\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "emailDispatch": {},
+          "meta": {},
+          "reference": {}
+        }
+      }
+    }
+  }
+}

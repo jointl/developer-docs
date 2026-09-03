@@ -1,0 +1,38 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "expectedStatus": "new",
+          "status": "archived",
+          "talentId": "talentid_example_01"
+        }
+      },
+      "name": "jointl_talents_status_set_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"changed\":true,\"previousStatus\":\"active\",\"recordId\":\"recordid_example_01\",\"status\":\"active\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "changed": true,
+          "previousStatus": "active",
+          "recordId": "recordid_example_01",
+          "status": "active"
+        }
+      }
+    }
+  }
+}

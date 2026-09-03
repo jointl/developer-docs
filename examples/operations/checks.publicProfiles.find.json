@@ -1,0 +1,34 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "checks.publicProfiles.find",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "applicantId": "applicantid_example_01"
+      },
+      "operationId": "checks.publicProfiles.find"
+    }
+  },
+  "success": {
+    "data": {
+      "alreadyRunning": false,
+      "applicantId": "applicantid_example_01",
+      "matchCount": 1,
+      "rescored": false,
+      "runId": "runid_example_01",
+      "status": "active"
+    },
+    "requestId": "request_example_01"
+  }
+}

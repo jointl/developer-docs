@@ -1,0 +1,14 @@
+{
+  "authorization_servers": [
+    "https://api.join.tl/oauth"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "resource": "https://mcp.join.tl",
+  "resource_name": "Jointl MCP",
+  "scopes_supported": [
+    "workspace.read",
+    "workspace.write"
+  ]
+}

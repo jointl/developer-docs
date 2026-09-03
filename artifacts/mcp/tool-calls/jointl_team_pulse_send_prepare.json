@@ -1,0 +1,35 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "flowId": "flowid_example_01"
+        }
+      },
+      "name": "jointl_team_pulse_send_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"flowId\":\"flowid_example_01\",\"queued\":true,\"scheduledFor\":\"2026-01-15T10:30:00.000Z\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "flowId": "flowid_example_01",
+          "queued": true,
+          "scheduledFor": "2026-01-15T10:30:00.000Z"
+        }
+      }
+    }
+  }
+}

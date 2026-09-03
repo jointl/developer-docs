@@ -1,0 +1,34 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "outcomeUnknown"
+  ],
+  "operationId": "autopilots.delete",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "autopilotGroupId": "autopilotgroupid_example_01",
+        "expectedStatus": "ACTIVE"
+      },
+      "operationId": "autopilots.delete"
+    }
+  },
+  "success": {
+    "data": {
+      "deleted": true,
+      "deletedCheckCount": 1,
+      "deletedLinkCount": 1,
+      "previousStatus": "active",
+      "recordId": "recordid_example_01"
+    },
+    "requestId": "request_example_01"
+  }
+}

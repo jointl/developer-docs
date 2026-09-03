@@ -1,0 +1,26 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "talents.list",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "_id": "_id_example_01",
+          "firstName": "Ada",
+          "lastName": "Example",
+          "status": "active"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

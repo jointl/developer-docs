@@ -1,0 +1,70 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "employees": [
+            {
+              "companyId": "company_example_01",
+              "email": "ada@example.test",
+              "fullName": "Ada Example",
+              "positionTitle": "Software Engineer",
+              "sourceRowNumber": 1,
+              "startAt": "2026-01-15"
+            }
+          ]
+        }
+      },
+      "name": "jointl_employees_bulk_import_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"createdCount\":1,\"employees\":[{\"email\":\"ada@example.test\",\"employeeId\":\"employee_example_01\",\"fullName\":\"Ada Example\",\"outcome\":\"created\",\"positionIds\":[\"position_example_01\"],\"rows\":[1],\"status\":\"active\",\"workRecords\":[{\"companyId\":\"company_example_01\",\"companyName\":\"Example Company\",\"positionId\":\"position_example_01\",\"positionTitle\":\"Software Engineer\",\"startAt\":\"2026-01-15\"}]}],\"errorCount\":0,\"errors\":[],\"unchangedCount\":0,\"updatedCount\":0}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "createdCount": 1,
+          "employees": [
+            {
+              "email": "ada@example.test",
+              "employeeId": "employee_example_01",
+              "fullName": "Ada Example",
+              "outcome": "created",
+              "positionIds": [
+                "position_example_01"
+              ],
+              "rows": [
+                1
+              ],
+              "status": "active",
+              "workRecords": [
+                {
+                  "companyId": "company_example_01",
+                  "companyName": "Example Company",
+                  "positionId": "position_example_01",
+                  "positionTitle": "Software Engineer",
+                  "startAt": "2026-01-15"
+                }
+              ]
+            }
+          ],
+          "errorCount": 0,
+          "errors": [],
+          "unchangedCount": 0,
+          "updatedCount": 0
+        }
+      }
+    }
+  }
+}

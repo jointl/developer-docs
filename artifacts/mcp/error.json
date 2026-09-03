@@ -1,0 +1,13 @@
+{
+  "id": 12,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "not-authorized: You are not allowed to perform this action.",
+        "type": "text"
+      }
+    ],
+    "isError": true
+  }
+}

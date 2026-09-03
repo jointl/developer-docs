@@ -1,0 +1,12 @@
+{
+  "requestHeaders": {
+    "Authorization": "Bearer YOUR_JOINTL_CREDENTIAL",
+    "Content-Type": "application/json"
+  },
+  "successEnvelope": {
+    "data": {
+      "example": "value"
+    },
+    "requestId": "request_example_01"
+  }
+}

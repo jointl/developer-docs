@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET"
+  },
+  "success": [
+    {
+      "partner_test_id": "flow_example_01",
+      "partner_test_name": "Example Hiring Flow"
+    }
+  ]
+}

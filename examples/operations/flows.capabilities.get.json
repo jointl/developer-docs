@@ -1,0 +1,35 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.capabilities.get",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "authoringProtocol": [
+        "example"
+      ],
+      "decisionSupport": {},
+      "draftWriteSupport": {},
+      "flowTypes": [
+        {}
+      ],
+      "liveAccess": {},
+      "protectedActions": [
+        "example"
+      ],
+      "sections": [
+        {}
+      ],
+      "structuredReferenceQuestionTypes": [
+        {}
+      ],
+      "supportedAuthoredQuestionTypes": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

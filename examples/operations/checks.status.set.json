@@ -1,0 +1,34 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "checks.status.set",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "applicantId": "applicantid_example_01",
+        "expectedStatus": "new",
+        "status": "archived"
+      },
+      "operationId": "checks.status.set"
+    }
+  },
+  "success": {
+    "data": {
+      "changed": true,
+      "previousStatus": "active",
+      "recordId": "recordid_example_01",
+      "status": "active"
+    },
+    "requestId": "request_example_01"
+  }
+}

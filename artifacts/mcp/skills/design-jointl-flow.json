@@ -1,0 +1,23 @@
+{
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+    "skill": {
+      "frontmatter": {
+        "description": "Design, create, revise, publish, archive, or operate a complete Jointl Flow for Hiring Review, Exit Intelligence, or Performance (Glow Moments and Team Pulse). Use for role assessments, pre-screening, Tests, references, exit feedback, Employee participants, cadence, cycle sends, Autopilot links, or improving an existing Flow. Do not use merely to find or summarize a Flow.",
+        "name": "design-jointl-flow"
+      },
+      "resources": [
+        {
+          "digest": "sha256:4b736e14241f7c0be775e53846efdf458a3ab84b56e501f351f5f9356a33c85c",
+          "uri": "skill://jointl/design-jointl-flow/references/flow-design-playbook.md"
+        },
+        {
+          "digest": "sha256:16287b4b4a2e4eccf304dc925d68cc35ada98a3f33f8e86cc7e7d7fbdc94c5d1",
+          "uri": "skill://jointl/design-jointl-flow/SKILL.md"
+        }
+      ],
+      "uri": "skill://jointl/design-jointl-flow/SKILL.md"
+    }
+  }
+}

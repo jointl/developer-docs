@@ -1,0 +1,22 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "performance.operations.get",
+  "request": {
+    "input": {
+      "flowId": "flowid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "capabilityWarning": "Treat returned URLs as private bearer capabilities and share them only with the intended recipient.",
+      "flow": {},
+      "glowMoments": {},
+      "teamPulse": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

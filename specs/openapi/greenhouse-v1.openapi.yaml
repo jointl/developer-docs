@@ -1,0 +1,700 @@
+openapi: 3.1.2
+info:
+  title: Jointl Greenhouse Integration API
+  version: 1.0.0
+  description: Jointl endpoints used by Greenhouse Recruiting webhooks and the assessment-partner integration.
+  contact:
+    name: Jointl Support
+    url: https://join.tl
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+servers:
+  - url: https://api.join.tl
+    description: Jointl production API
+externalDocs:
+  description: Greenhouse Harvest API documentation for upstream dependencies
+  url: https://developers.greenhouse.io/harvest.html
+paths:
+  /api/apps/greenhouse/v1/webhook/{installationId}:
+    post:
+      operationId: receiveGreenhouseWebhook
+      summary: Receive a signed Greenhouse webhook
+      description: Validates Signature over the raw body and requires a durable Greenhouse-Event-ID for replay protection.
+      security:
+        - GreenhouseWebhookSignature: []
+      parameters:
+        - name: installationId
+          in: path
+          required: true
+          schema:
+            type: string
+            pattern: ^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz]{17}$
+        - name: Greenhouse-Event-ID
+          in: header
+          required: true
+          schema:
+            type: string
+          description: Stable event identity. Preserve it unchanged across retries.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: ping
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: job_created
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: job_deleted
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: new_candidate_application
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: application_updated
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: candidate_stage_change
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: hire_candidate
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: unhire_candidate
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: reject_candidate
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: unreject_candidate
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+                - type: object
+                  properties:
+                    action:
+                      type: string
+                      const: delete_candidate
+                    payload:
+                      type: object
+                      additionalProperties: true
+                  required:
+                    - action
+                    - payload
+                  additionalProperties: false
+              discriminator:
+                propertyName: action
+            examples:
+              application_updated:
+                summary: application_updated
+                value:
+                  action: application_updated
+                  payload:
+                    application:
+                      candidate:
+                        email_addresses:
+                          - type: work
+                            value: ada@example.test
+                        first_name: Ada
+                        id: 20001
+                        last_name: Example
+                        photo_url: https://example.com/images/ada.png
+                        url: https://example.com/candidates/20001
+                      current_stage:
+                        id: 40001
+                        name: Jointl Review
+                      id: 10001
+                      jobs:
+                        - id: 30001
+                      prospect: false
+                      status: active
+              candidate_stage_change:
+                summary: candidate_stage_change
+                value:
+                  action: candidate_stage_change
+                  payload:
+                    application:
+                      candidate:
+                        email_addresses:
+                          - type: work
+                            value: ada@example.test
+                        first_name: Ada
+                        id: 20001
+                        last_name: Example
+                        photo_url: https://example.com/images/ada.png
+                        url: https://example.com/candidates/20001
+                      current_stage:
+                        id: 40001
+                        name: Jointl Review
+                      id: 10001
+                      jobs:
+                        - id: 30001
+                      prospect: false
+                      status: active
+              delete_candidate:
+                summary: delete_candidate
+                value:
+                  action: delete_candidate
+                  payload:
+                    person:
+                      id: 20001
+              hire_candidate:
+                summary: hire_candidate
+                value:
+                  action: hire_candidate
+                  payload:
+                    application:
+                      candidate:
+                        id: 20001
+                      id: 10001
+              job_created:
+                summary: job_created
+                value:
+                  action: job_created
+                  payload:
+                    job:
+                      id: 30001
+                      name: Example Software Engineer
+              job_deleted:
+                summary: job_deleted
+                value:
+                  action: job_deleted
+                  payload:
+                    job:
+                      id: 30001
+                      name: Example Software Engineer
+              new_candidate_application:
+                summary: new_candidate_application
+                value:
+                  action: new_candidate_application
+                  payload:
+                    application:
+                      candidate:
+                        email_addresses:
+                          - type: work
+                            value: ada@example.test
+                        first_name: Ada
+                        id: 20001
+                        last_name: Example
+                        photo_url: https://example.com/images/ada.png
+                        url: https://example.com/candidates/20001
+                      current_stage:
+                        id: 40001
+                        name: Jointl Review
+                      id: 10001
+                      jobs:
+                        - id: 30001
+                      prospect: false
+                      status: active
+              ping:
+                summary: ping
+                value:
+                  action: ping
+                  payload: {}
+              reject_candidate:
+                summary: reject_candidate
+                value:
+                  action: reject_candidate
+                  payload:
+                    application:
+                      candidate:
+                        id: 20001
+                      id: 10001
+              unhire_candidate:
+                summary: unhire_candidate
+                value:
+                  action: unhire_candidate
+                  payload:
+                    application:
+                      candidate:
+                        id: 20001
+                      id: 10001
+              unreject_candidate:
+                summary: unreject_candidate
+                value:
+                  action: unreject_candidate
+                  payload:
+                    application:
+                      candidate:
+                        id: 20001
+                      id: 10001
+      responses:
+        "200":
+          description: Processed or exact duplicate acknowledged.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: OK
+        "400":
+          description: Invalid JSON object, signature, event identity, or action.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Invalid signature
+        "404":
+          description: Installation not found. Empty body.
+        "409":
+          description: Event ID was reused with a different body.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Webhook event conflict
+        "413":
+          description: Request exceeds one MiB.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Request body is too large
+        "429":
+          description: Rate limited.
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+        "500":
+          description: Processing failed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Greenhouse webhook processing failed.
+        "503":
+          description: The same event is already processing.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Webhook event is already processing
+      x-jointl-replay-identity:
+        - Greenhouse-Event-ID
+        - SHA-256 of raw request body
+  /api/apps/greenhouse/v1/assessment/list_tests:
+    get:
+      operationId: listGreenhouseAssessmentTests
+      summary: List active Jointl hiring Flows as assessment tests
+      security:
+        - GreenhouseAssessmentBasic: []
+      responses:
+        "200":
+          description: Available tests.
+          content:
+            application/json:
+              schema:
+                type: array
+                maxItems: 1000
+                items:
+                  $ref: "#/components/schemas/GreenhouseTest"
+              example:
+                - partner_test_id: flow_example_01
+                  partner_test_name: Example Hiring Flow
+        "401":
+          description: Invalid assessment API key.
+        "429":
+          description: Rate limited.
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+        "500":
+          description: The request could not be processed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Greenhouse request could not be processed
+        "503":
+          description: The test list is temporarily unavailable.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: OK
+  /api/apps/greenhouse/v1/assessment/send_test:
+    post:
+      operationId: sendGreenhouseAssessmentTest
+      summary: Create or reconcile a Jointl assessment request
+      security:
+        - GreenhouseAssessmentBasic: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GreenhouseSendTestRequest"
+            example:
+              application:
+                id: 10001
+              candidate:
+                email: ada@example.test
+                first_name: Ada
+                greenhouse_profile_url: https://example.com/candidates/20001
+                id: 20001
+                last_name: Example
+              partner_test_id: flow_example_01
+              url: https://example.com/assessment/complete
+      responses:
+        "200":
+          description: Assessment request created or reconciled.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GreenhouseSendTestResponse"
+              example:
+                partner_interview_id: request_example_01
+        "400":
+          description: Invalid JSON object, test, candidate, or completion URL.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Invalid test identity
+        "401":
+          description: Invalid assessment API key.
+        "404":
+          description: Active in-scope Flow not found.
+        "413":
+          description: Request exceeds one MiB.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Request body is too large
+        "429":
+          description: Rate limited.
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+        "500":
+          description: The request could not be processed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Greenhouse request could not be processed
+  /api/apps/greenhouse/v1/assessment/test_status:
+    get:
+      operationId: getGreenhouseAssessmentStatus
+      summary: Get Jointl assessment status
+      security:
+        - GreenhouseAssessmentBasic: []
+      parameters:
+        - name: partner_interview_id
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: ^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz]{17}$
+      responses:
+        "200":
+          description: Current assessment status.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GreenhouseTestStatus"
+              example:
+                metadata:
+                  Started At: Thu, Jan 15 2026, 10:30
+                partner_profile_url: https://join.tl/checks/check_example_01/overview
+                partner_score: 75
+                partner_status: in_progress
+        "401":
+          description: Invalid assessment API key.
+        "404":
+          description: Visible assessment request not found.
+        "429":
+          description: Rate limited.
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+        "500":
+          description: The request could not be processed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Greenhouse request could not be processed
+  /api/apps/greenhouse/v1/assessment/response_error:
+    post:
+      operationId: reportGreenhouseAssessmentResponseError
+      summary: Acknowledge a Greenhouse response-processing error
+      security:
+        - GreenhouseAssessmentBasic: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GreenhouseResponseError"
+            example:
+              error: invalid_response
+      responses:
+        "200":
+          description: Error notification acknowledged.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: OK
+        "400":
+          description: Request body is not a valid JSON object.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Request body must be a JSON object
+        "401":
+          description: Invalid assessment API key.
+        "413":
+          description: Request exceeds one MiB.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Request body is too large
+        "429":
+          description: Rate limited.
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+        "500":
+          description: The request could not be processed.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: Greenhouse request could not be processed
+components:
+  securitySchemes:
+    GreenhouseWebhookSignature:
+      type: apiKey
+      in: header
+      name: Signature
+      description: Greenhouse signature verified against the installation webhook secret.
+    GreenhouseAssessmentBasic:
+      type: http
+      scheme: basic
+      description: Installation-specific Greenhouse assessment API key via HTTP Basic authentication.
+  schemas:
+    GreenhouseTest:
+      type: object
+      properties:
+        partner_test_id:
+          type: string
+        partner_test_name:
+          type: string
+      required:
+        - partner_test_id
+        - partner_test_name
+      additionalProperties: false
+    GreenhouseSendTestRequest:
+      type: object
+      properties:
+        partner_test_id:
+          type: string
+        application:
+          type: object
+          properties:
+            id:
+              type:
+                - integer
+                - string
+          required:
+            - id
+          additionalProperties: true
+        candidate:
+          type: object
+          properties:
+            id:
+              type:
+                - integer
+                - string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            email:
+              type: string
+              format: email
+            greenhouse_profile_url:
+              type: string
+              format: uri
+          required:
+            - id
+            - first_name
+            - last_name
+            - email
+            - greenhouse_profile_url
+          additionalProperties: true
+        url:
+          type: string
+          format: uri
+          description: Greenhouse-provided completion callback URL.
+      required:
+        - partner_test_id
+        - application
+        - candidate
+        - url
+      additionalProperties: true
+    GreenhouseSendTestResponse:
+      type: object
+      properties:
+        partner_interview_id:
+          type: string
+      required:
+        - partner_interview_id
+      additionalProperties: false
+    GreenhouseTestStatus:
+      type: object
+      properties:
+        partner_status:
+          type: string
+          enum:
+            - in_progress
+            - complete
+        partner_profile_url:
+          type: string
+          format: uri
+        partner_score:
+          type: integer
+          minimum: 0
+          maximum: 100
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - partner_status
+        - partner_profile_url
+        - partner_score
+        - metadata
+      additionalProperties: false
+    GreenhouseResponseError:
+      type: object
+      properties:
+        error:
+          type: string
+          maxLength: 64
+        code:
+          type: string
+          maxLength: 64
+      anyOf:
+        - required:
+            - error
+        - required:
+            - code
+      additionalProperties: true
+x-jointl-limits:
+  assessmentMutationRequestsPerMinute: 20
+  assessmentReadRequestsPerMinute: 120
+  maxRequestBytes: 1048576
+  networkRequestsPerMinute: 600
+  webhookInstallationRequestsPerMinute: 300
+x-jointl-webhook-actions:
+  - ping
+  - job_created
+  - job_deleted
+  - new_candidate_application
+  - application_updated
+  - candidate_stage_change
+  - hire_candidate
+  - unhire_candidate
+  - reject_candidate
+  - unreject_candidate
+  - delete_candidate

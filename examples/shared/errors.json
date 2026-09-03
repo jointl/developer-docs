@@ -1,0 +1,75 @@
+{
+  "confirmationExpired": {
+    "body": {
+      "error": {
+        "code": "external-confirmation-expired",
+        "message": "The confirmation has expired."
+      },
+      "requestId": "request_example_05"
+    },
+    "status": 409
+  },
+  "idempotencyConflict": {
+    "body": {
+      "error": {
+        "code": "external-idempotency-conflict",
+        "message": "The idempotency identity was reused for different input."
+      },
+      "requestId": "request_example_08"
+    },
+    "status": 409
+  },
+  "invalidInput": {
+    "body": {
+      "error": {
+        "code": "invalid-external-operation-input",
+        "message": "The operation input is invalid."
+      },
+      "requestId": "request_example_02"
+    },
+    "status": 400
+  },
+  "notAuthorized": {
+    "body": {
+      "error": {
+        "code": "not-authorized",
+        "message": "You are not allowed to perform this action."
+      },
+      "requestId": "request_example_03"
+    },
+    "status": 403
+  },
+  "outcomeUnknown": {
+    "body": {
+      "error": {
+        "code": "external-action-outcome-unknown",
+        "message": "The action outcome is unknown."
+      },
+      "requestId": "request_example_07"
+    },
+    "status": 503
+  },
+  "rateLimited": {
+    "body": {
+      "error": {
+        "code": "too-many-requests",
+        "message": "Too many requests."
+      },
+      "requestId": "request_example_04"
+    },
+    "headers": {
+      "Retry-After": "60"
+    },
+    "status": 429
+  },
+  "stateConflict": {
+    "body": {
+      "error": {
+        "code": "external-action-conflict",
+        "message": "The record changed after preparation."
+      },
+      "requestId": "request_example_06"
+    },
+    "status": 409
+  }
+}

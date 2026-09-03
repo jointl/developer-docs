@@ -1,0 +1,46 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_flows_capabilities_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"authoringProtocol\":[\"example\"],\"decisionSupport\":{},\"draftWriteSupport\":{},\"flowTypes\":[{}],\"liveAccess\":{},\"protectedActions\":[\"example\"],\"sections\":[{}],\"structuredReferenceQuestionTypes\":[{}],\"supportedAuthoredQuestionTypes\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "authoringProtocol": [
+            "example"
+          ],
+          "decisionSupport": {},
+          "draftWriteSupport": {},
+          "flowTypes": [
+            {}
+          ],
+          "liveAccess": {},
+          "protectedActions": [
+            "example"
+          ],
+          "sections": [
+            {}
+          ],
+          "structuredReferenceQuestionTypes": [
+            {}
+          ],
+          "supportedAuthoredQuestionTypes": {}
+        }
+      }
+    }
+  }
+}

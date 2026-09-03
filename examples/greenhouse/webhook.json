@@ -1,0 +1,206 @@
+{
+  "actions": {
+    "application_updated": {
+      "action": "application_updated",
+      "payload": {
+        "application": {
+          "candidate": {
+            "email_addresses": [
+              {
+                "type": "work",
+                "value": "ada@example.test"
+              }
+            ],
+            "first_name": "Ada",
+            "id": 20001,
+            "last_name": "Example",
+            "photo_url": "https://example.com/images/ada.png",
+            "url": "https://example.com/candidates/20001"
+          },
+          "current_stage": {
+            "id": 40001,
+            "name": "Jointl Review"
+          },
+          "id": 10001,
+          "jobs": [
+            {
+              "id": 30001
+            }
+          ],
+          "prospect": false,
+          "status": "active"
+        }
+      }
+    },
+    "candidate_stage_change": {
+      "action": "candidate_stage_change",
+      "payload": {
+        "application": {
+          "candidate": {
+            "email_addresses": [
+              {
+                "type": "work",
+                "value": "ada@example.test"
+              }
+            ],
+            "first_name": "Ada",
+            "id": 20001,
+            "last_name": "Example",
+            "photo_url": "https://example.com/images/ada.png",
+            "url": "https://example.com/candidates/20001"
+          },
+          "current_stage": {
+            "id": 40001,
+            "name": "Jointl Review"
+          },
+          "id": 10001,
+          "jobs": [
+            {
+              "id": 30001
+            }
+          ],
+          "prospect": false,
+          "status": "active"
+        }
+      }
+    },
+    "delete_candidate": {
+      "action": "delete_candidate",
+      "payload": {
+        "person": {
+          "id": 20001
+        }
+      }
+    },
+    "hire_candidate": {
+      "action": "hire_candidate",
+      "payload": {
+        "application": {
+          "candidate": {
+            "id": 20001
+          },
+          "id": 10001
+        }
+      }
+    },
+    "job_created": {
+      "action": "job_created",
+      "payload": {
+        "job": {
+          "id": 30001,
+          "name": "Example Software Engineer"
+        }
+      }
+    },
+    "job_deleted": {
+      "action": "job_deleted",
+      "payload": {
+        "job": {
+          "id": 30001,
+          "name": "Example Software Engineer"
+        }
+      }
+    },
+    "new_candidate_application": {
+      "action": "new_candidate_application",
+      "payload": {
+        "application": {
+          "candidate": {
+            "email_addresses": [
+              {
+                "type": "work",
+                "value": "ada@example.test"
+              }
+            ],
+            "first_name": "Ada",
+            "id": 20001,
+            "last_name": "Example",
+            "photo_url": "https://example.com/images/ada.png",
+            "url": "https://example.com/candidates/20001"
+          },
+          "current_stage": {
+            "id": 40001,
+            "name": "Jointl Review"
+          },
+          "id": 10001,
+          "jobs": [
+            {
+              "id": 30001
+            }
+          ],
+          "prospect": false,
+          "status": "active"
+        }
+      }
+    },
+    "ping": {
+      "action": "ping",
+      "payload": {}
+    },
+    "reject_candidate": {
+      "action": "reject_candidate",
+      "payload": {
+        "application": {
+          "candidate": {
+            "id": 20001
+          },
+          "id": 10001
+        }
+      }
+    },
+    "unhire_candidate": {
+      "action": "unhire_candidate",
+      "payload": {
+        "application": {
+          "candidate": {
+            "id": 20001
+          },
+          "id": 10001
+        }
+      }
+    },
+    "unreject_candidate": {
+      "action": "unreject_candidate",
+      "payload": {
+        "application": {
+          "candidate": {
+            "id": 20001
+          },
+          "id": 10001
+        }
+      }
+    }
+  },
+  "conflict": {
+    "body": "Webhook event conflict",
+    "status": 409
+  },
+  "request": {
+    "body": {
+      "action": "candidate_stage_change",
+      "payload": {
+        "application": {
+          "id": 10001
+        },
+        "candidate": {
+          "email_addresses": [
+            {
+              "value": "ada@example.test"
+            }
+          ],
+          "first_name": "Ada",
+          "id": 20001,
+          "last_name": "Example"
+        }
+      }
+    },
+    "headers": {
+      "Greenhouse-Event-ID": "greenhouse-event-example-01",
+      "Signature": "sha256=EXAMPLE_SIGNATURE"
+    }
+  },
+  "success": {
+    "body": "OK",
+    "status": 200
+  }
+}

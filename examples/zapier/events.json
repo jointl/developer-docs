@@ -1,0 +1,22 @@
+{
+  "hookDelivery": {
+    "id": "event_example_01"
+  },
+  "hydratedEvent": {
+    "check_id": "check_example_01",
+    "company_ids": [
+      "company_example_01"
+    ],
+    "data": {
+      "id": "check_example_01",
+      "status": "new"
+    },
+    "entity_id": "check_example_01",
+    "entity_type": "check",
+    "event_type": "check.created",
+    "id": "event_example_01",
+    "jointl_url": "https://join.tl/checks/check_example_01",
+    "occurred_at": "2026-01-15T10:30:00.000Z",
+    "record_name": "Ada Example"
+  }
+}

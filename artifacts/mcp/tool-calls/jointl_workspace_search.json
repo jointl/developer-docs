@@ -1,0 +1,67 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "query": "Ada Example"
+      },
+      "name": "jointl_workspace_search"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"exhaustive\":false,\"items\":[{\"entityId\":\"applicant_example_01\",\"entityType\":\"applicant\",\"followUpOperations\":[{\"input\":{\"applicantId\":\"applicant_example_01\",\"includeEvidence\":true},\"operationId\":\"checks.get\"}],\"label\":\"Ada Example\",\"sourceRecords\":[{\"applicantId\":\"applicant_example_01\",\"companyName\":\"Example Company\",\"entityId\":\"applicant_example_01\",\"entityType\":\"applicant\",\"label\":\"Applicant\",\"primary\":\"Software Engineer\",\"route\":\"/checks/applicant_example_01\",\"statusLabels\":[{\"className\":\"new\",\"label\":\"New\",\"value\":\"new\"}]}]}],\"query\":\"Ada Example\",\"resultLimit\":30,\"returnedCount\":1}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "exhaustive": false,
+          "items": [
+            {
+              "entityId": "applicant_example_01",
+              "entityType": "applicant",
+              "followUpOperations": [
+                {
+                  "input": {
+                    "applicantId": "applicant_example_01",
+                    "includeEvidence": true
+                  },
+                  "operationId": "checks.get"
+                }
+              ],
+              "label": "Ada Example",
+              "sourceRecords": [
+                {
+                  "applicantId": "applicant_example_01",
+                  "companyName": "Example Company",
+                  "entityId": "applicant_example_01",
+                  "entityType": "applicant",
+                  "label": "Applicant",
+                  "primary": "Software Engineer",
+                  "route": "/checks/applicant_example_01",
+                  "statusLabels": [
+                    {
+                      "className": "new",
+                      "label": "New",
+                      "value": "new"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "query": "Ada Example",
+          "resultLimit": 30,
+          "returnedCount": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "companies.list",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "_id": "_id_example_01",
+          "name": "Ada Example",
+          "status": "active"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

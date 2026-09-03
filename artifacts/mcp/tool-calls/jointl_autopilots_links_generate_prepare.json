@@ -1,0 +1,39 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "autopilotGroupId": "autopilotgroupid_example_01"
+        }
+      },
+      "name": "jointl_autopilots_links_generate_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"autopilotGroupId\":\"autopilotgroupid_example_01\",\"capabilityWarning\":\"Treat returned URLs as private bearer capabilities and share them only with the intended recipient.\",\"flowId\":\"flowid_example_01\",\"flowTitle\":\"Example title\",\"publicLinks\":[\"example\"]}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "autopilotGroupId": "autopilotgroupid_example_01",
+          "capabilityWarning": "Treat returned URLs as private bearer capabilities and share them only with the intended recipient.",
+          "flowId": "flowid_example_01",
+          "flowTitle": "Example title",
+          "publicLinks": [
+            "example"
+          ]
+        }
+      }
+    }
+  }
+}

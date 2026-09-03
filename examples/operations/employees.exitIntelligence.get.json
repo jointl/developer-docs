@@ -1,0 +1,22 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "employees.exitIntelligence.get",
+  "request": {
+    "input": {
+      "employeeId": "employeeid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "employee": {},
+      "requests": [
+        {}
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

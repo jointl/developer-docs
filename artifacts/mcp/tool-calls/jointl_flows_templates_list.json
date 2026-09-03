@@ -1,0 +1,36 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "kind": "preScreening"
+      },
+      "name": "jointl_flows_templates_list"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"catalogScanTruncated\":false,\"hasMore\":false,\"items\":[{}],\"kind\":\"private\",\"totalMatchedInScan\":1}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "catalogScanTruncated": false,
+          "hasMore": false,
+          "items": [
+            {}
+          ],
+          "kind": "private",
+          "totalMatchedInScan": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "outcomeUnknown"
+  ],
+  "operationId": "glowMoments.send",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "flowId": "flowid_example_01"
+      },
+      "operationId": "glowMoments.send"
+    }
+  },
+  "success": {
+    "data": {
+      "flowId": "flowid_example_01",
+      "queued": true,
+      "scheduledFor": "2026-01-15T10:30:00.000Z"
+    },
+    "requestId": "request_example_01"
+  }
+}

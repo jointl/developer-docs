@@ -1,0 +1,50 @@
+asyncapi: 3.0.0
+info:
+  title: Jointl Zapier Event Delivery
+  version: 1.0.0
+  description: Opaque event-ID delivery from Jointl to an active Zapier REST-hook target. Hydrate the event with events.get.
+defaultContentType: application/json
+servers:
+  jointlProduction:
+    host: api.join.tl
+    protocol: https
+    description: Subscription management origin. Event delivery targets an allowlisted Zapier hook URL.
+channels:
+  zapierHook:
+    address: allowlisted-zapier-hook-url
+    messages:
+      opaqueEvent:
+        $ref: "#/components/messages/OpaqueEvent"
+    description: Target URL registered through POST /api/v1/webhook-subscriptions.
+operations:
+  receiveJointlEvent:
+    action: receive
+    channel:
+      $ref: "#/channels/zapierHook"
+    summary: Receive an opaque Jointl event ID
+    description: Acknowledge promptly, then hydrate the ID through the Zapier-only events.get operation. Exact duplicate delivery is possible.
+    messages:
+      - $ref: "#/channels/zapierHook/messages/opaqueEvent"
+components:
+  messages:
+    OpaqueEvent:
+      name: OpaqueEvent
+      title: Jointl opaque event notification
+      summary: Contains only a durable event identifier.
+      payload:
+        type: object
+        properties:
+          id:
+            type: string
+        required:
+          - id
+        additionalProperties: false
+      examples:
+        - name: checkCreated
+          payload:
+            id: event_example_01
+x-jointl-delivery:
+  subscriptionLeaseDays: 21
+  eventRetentionDays: 30
+  hydrationOperation: events.get
+  deliverySemantics: at-least-once notification with durable event hydration

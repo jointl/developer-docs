@@ -1,0 +1,44 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "checks.bulkCreate",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "applicants": [
+          {
+            "email": "ada@example.test",
+            "fullName": "Ada Example",
+            "sourceRowNumber": 1
+          }
+        ],
+        "flowId": "flow_example_01"
+      },
+      "operationId": "checks.bulkCreate"
+    }
+  },
+  "success": {
+    "data": {
+      "checks": [
+        {
+          "applicantId": "applicant_example_01",
+          "invitationStatus": "queued",
+          "sourceRowNumber": 1
+        }
+      ],
+      "createdCount": 1,
+      "errorCount": 0
+    },
+    "requestId": "request_example_01"
+  }
+}

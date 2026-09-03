@@ -1,0 +1,89 @@
+arazzo: 1.1.0
+info:
+  title: Jointl connection workflows
+  version: 1.0.0
+  summary: OAuth, REST, write approval, and Zapier event workflows.
+sourceDescriptions:
+  - name: jointlApi
+    url: ../openapi/jointl-api-v1.openapi.yaml
+    type: openapi
+  - name: zapierEvents
+    url: ../asyncapi/zapier-events-v1.asyncapi.yaml
+    type: asyncapi
+workflows:
+  - workflowId: oauthPkce
+    summary: Authorize a registered client with PKCE S256
+    inputs:
+      type: object
+      properties:
+        clientId:
+          type: string
+        redirectUri:
+          type: string
+          format: uri
+        resource:
+          type: string
+          format: uri
+      required:
+        - clientId
+        - redirectUri
+        - resource
+    steps:
+      - stepId: authorize
+        operationId: authorizeOAuthClient
+        description: Open the authorization URL with state, PKCE challenge, scopes, and exact resource.
+        successCriteria:
+          - condition: $statusCode == 302
+      - stepId: exchange
+        operationId: exchangeOAuthToken
+        description: Exchange the returned code using the matching PKCE verifier.
+        successCriteria:
+          - condition: $statusCode == 200
+  - workflowId: readOperation
+    summary: Discover and call a permission-available read operation
+    steps:
+      - stepId: discover
+        operationId: listAvailableOperations
+        successCriteria:
+          - condition: $statusCode == 200
+      - stepId: read
+        operationId: executeReadOperationById
+        description: Call only an operation returned by discovery using its exact input schema.
+        successCriteria:
+          - condition: $statusCode == 200
+  - workflowId: prepareApproveConfirm
+    summary: Prepare, explicitly approve, and confirm a protected write
+    steps:
+      - stepId: prepare
+        operationId: prepareAction
+        successCriteria:
+          - condition: $statusCode == 200
+        outputs:
+          confirmationToken: $response.body#/data/confirmationToken
+          preview: $response.body#/data/preview
+      - stepId: humanApproval
+        operationId: prepareAction
+        description: Present the exact preview and wait until the requesting human explicitly approves it. This approval checkpoint does not send an HTTP request.
+        x-jointl-human-approval-required: true
+        successCriteria:
+          - condition: $statusCode == 200
+      - stepId: confirm
+        operationId: confirmAction
+        description: Confirm once before the five-minute token expiry. Never infer approval.
+        successCriteria:
+          - condition: $statusCode == 200
+  - workflowId: zapierSubscribeDeliverHydrate
+    summary: Subscribe, receive an opaque event ID, and hydrate it
+    steps:
+      - stepId: subscribe
+        operationId: createZapierWebhookSubscription
+        successCriteria:
+          - condition: $statusCode == 201
+      - stepId: delivery
+        operationId: receiveJointlEvent
+        description: Receive `{id}` at the allowlisted Zapier hook URL.
+      - stepId: hydrate
+        operationId: executeReadOperationById
+        description: Call events.get with the opaque ID before its 30-day retention expires.
+        successCriteria:
+          - condition: $statusCode == 200

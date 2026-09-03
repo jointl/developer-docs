@@ -1,0 +1,21 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "talents.get",
+  "request": {
+    "input": {
+      "talentId": "talentid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "evidence": {},
+      "evidenceIncluded": false,
+      "profile": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

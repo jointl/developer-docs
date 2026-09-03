@@ -1,0 +1,22 @@
+# Jointl Developer Documentation
+
+> API references and integration guides for the Jointl REST API, OAuth, MCP,
+> Zapier integration, Greenhouse integration, and supported AI clients.
+
+## Start
+
+- [Choose access](./docs/getting-started/choose-access.md)
+- [REST API](./docs/api/index.md)
+- [Operation reference](./docs/api/operations.md)
+- [MCP](./docs/mcp/index.md)
+- [Zapier](./docs/integrations/zapier/index.md)
+- [Greenhouse](./docs/integrations/greenhouse/index.md)
+- [AI clients](./docs/integrations/ai-clients/index.md)
+## Machine-readable contracts
+
+- [Jointl OpenAPI](./openapi/jointl-api-v1.openapi.yaml)
+- [Greenhouse OpenAPI](./openapi/greenhouse-v1.openapi.yaml)
+- [Zapier AsyncAPI](./asyncapi/zapier-events-v1.asyncapi.yaml)
+- [Arazzo workflows](./arazzo/jointl-workflows-v1.arazzo.yaml)
+- [JSON Schema](./json-schema/jointl-operations-v1.schema.json)
+- [MCP tool catalog](./mcp/tools-list.json)

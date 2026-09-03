@@ -1,0 +1,38 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_checks_list"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"hasMore\":false,\"items\":[{\"_id\":\"_id_example_01\",\"firstName\":\"Ada\",\"flowId\":\"flowid_example_01\",\"lastName\":\"Example\",\"status\":\"active\"}],\"nextCursor\":null}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "hasMore": false,
+          "items": [
+            {
+              "_id": "_id_example_01",
+              "firstName": "Ada",
+              "flowId": "flowid_example_01",
+              "lastName": "Example",
+              "status": "active"
+            }
+          ],
+          "nextCursor": null
+        }
+      }
+    }
+  }
+}

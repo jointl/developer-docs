@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+    "skill": {
+      "frontmatter": {
+        "description": "Search and retrieve authorized Jointl companies, Flows, Checks, Employees, Talent Pool profiles, and Autopilots. Use to find a person, Flow, or Autopilot, look up an email, attribute, company, tag, or job title, browse a domain, or get factual detail for a known record. Do not use for cohort ranking or bulk imports.",
+        "name": "find-jointl-records"
+      },
+      "resources": [
+        {
+          "digest": "sha256:2071b4e5a20bef1c87f701ab244ac883dea2aaa9b9bf3e0156fdb03b2c290fb3",
+          "uri": "skill://jointl/find-jointl-records/SKILL.md"
+        }
+      ],
+      "uri": "skill://jointl/find-jointl-records/SKILL.md"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+    "skill": {
+      "frontmatter": {
+        "description": "Validate an uploaded spreadsheet or structured rows and prepare bulk Jointl Checks or Employee imports. Use when the user wants to run Checks for many candidates or create or update many Employees. Do not use for a single record or for files the user has not supplied.",
+        "name": "import-jointl-people"
+      },
+      "resources": [
+        {
+          "digest": "sha256:ccdf6175ec88e42b8ec5a972dbe2fecb183b4ea064516809308ac6e70a2ab0f7",
+          "uri": "skill://jointl/import-jointl-people/SKILL.md"
+        }
+      ],
+      "uri": "skill://jointl/import-jointl-people/SKILL.md"
+    }
+  }
+}

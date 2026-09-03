@@ -1,0 +1,24 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "talents.references.list",
+  "request": {
+    "input": {
+      "talentId": "talentid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "avgMetrics": [
+        {}
+      ],
+      "references": [
+        {}
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "request": {
+    "application": {
+      "id": 10001
+    },
+    "candidate": {
+      "email": "ada@example.test",
+      "first_name": "Ada",
+      "greenhouse_profile_url": "https://example.com/candidates/20001",
+      "id": 20001,
+      "last_name": "Example"
+    },
+    "partner_test_id": "flow_example_01",
+    "url": "https://example.com/assessment/complete"
+  },
+  "success": {
+    "partner_interview_id": "request_example_01"
+  }
+}

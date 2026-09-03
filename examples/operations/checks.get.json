@@ -1,0 +1,21 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "checks.get",
+  "request": {
+    "input": {
+      "applicantId": "applicantid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "evidence": {},
+      "evidenceIncluded": false,
+      "profile": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

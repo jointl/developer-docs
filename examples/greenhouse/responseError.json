@@ -1,0 +1,9 @@
+{
+  "request": {
+    "error": "invalid_response"
+  },
+  "success": {
+    "body": "OK",
+    "status": 200
+  }
+}

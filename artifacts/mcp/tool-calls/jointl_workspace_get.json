@@ -1,0 +1,40 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_workspace_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"companyScope\":{\"mode\":\"all\"},\"grantedPermissions\":[\"flows.view\"],\"member\":{\"id\":\"member_example_01\",\"name\":\"Ada Example\",\"roleId\":\"owner\"},\"name\":\"Example Workspace\",\"workspaceId\":\"workspace_example_01\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "companyScope": {
+            "mode": "all"
+          },
+          "grantedPermissions": [
+            "flows.view"
+          ],
+          "member": {
+            "id": "member_example_01",
+            "name": "Ada Example",
+            "roleId": "owner"
+          },
+          "name": "Example Workspace",
+          "workspaceId": "workspace_example_01"
+        }
+      }
+    }
+  }
+}

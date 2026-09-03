@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+    "skill": {
+      "frontmatter": {
+        "description": "Analyze authorized Jointl Employee, workforce, and Insights evidence. Use for workspace activity, completion or satisfaction metrics, performance ranking, strengths, needs-attention, Team Pulse, Glow Moments, workload, manager support, Exit Intelligence, date-range dashboards, or individual Employee detail. Do not use to make disciplinary or termination decisions.",
+        "name": "analyze-jointl-employees"
+      },
+      "resources": [
+        {
+          "digest": "sha256:913d8fd37bf6243907c05c734314adddde0daab47c9f638b3bec7802bf2b2a0b",
+          "uri": "skill://jointl/analyze-jointl-employees/SKILL.md"
+        }
+      ],
+      "uri": "skill://jointl/analyze-jointl-employees/SKILL.md"
+    }
+  }
+}

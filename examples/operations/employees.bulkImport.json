@@ -1,0 +1,66 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "employees.bulkImport",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "employees": [
+          {
+            "companyId": "company_example_01",
+            "email": "ada@example.test",
+            "fullName": "Ada Example",
+            "positionTitle": "Software Engineer",
+            "sourceRowNumber": 1,
+            "startAt": "2026-01-15"
+          }
+        ]
+      },
+      "operationId": "employees.bulkImport"
+    }
+  },
+  "success": {
+    "data": {
+      "createdCount": 1,
+      "employees": [
+        {
+          "email": "ada@example.test",
+          "employeeId": "employee_example_01",
+          "fullName": "Ada Example",
+          "outcome": "created",
+          "positionIds": [
+            "position_example_01"
+          ],
+          "rows": [
+            1
+          ],
+          "status": "active",
+          "workRecords": [
+            {
+              "companyId": "company_example_01",
+              "companyName": "Example Company",
+              "positionId": "position_example_01",
+              "positionTitle": "Software Engineer",
+              "startAt": "2026-01-15"
+            }
+          ]
+        }
+      ],
+      "errorCount": 0,
+      "errors": [],
+      "unchangedCount": 0,
+      "updatedCount": 0
+    },
+    "requestId": "request_example_01"
+  }
+}

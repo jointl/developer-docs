@@ -1,0 +1,28 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "idempotencyConflict"
+  ],
+  "operationId": "checks.addNote",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "applicantId": "applicantid_example_01",
+        "text": "Follow up during the next scheduled review."
+      },
+      "operationId": "checks.addNote"
+    }
+  },
+  "success": {
+    "data": true,
+    "requestId": "request_example_01"
+  }
+}

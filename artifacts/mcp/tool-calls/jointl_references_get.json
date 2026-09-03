@@ -1,0 +1,28 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "referenceId": "referenceid_example_01"
+      },
+      "name": "jointl_references_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {}
+      }
+    }
+  }
+}

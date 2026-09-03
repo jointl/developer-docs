@@ -1,0 +1,33 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "employees.analytics",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "evaluatedEmployeeCount": 1,
+      "evidenceWindow": {
+        "endDate": "2026-01-15",
+        "inclusive": true,
+        "startDate": "2026-01-15",
+        "timeZone": "UTC"
+      },
+      "exactCohort": false,
+      "hasMore": false,
+      "items": [
+        {}
+      ],
+      "nextOffset": 1,
+      "offset": 1,
+      "returnedEmployeeCount": 1,
+      "safety": {},
+      "scoredEmployeeCount": 75
+    },
+    "requestId": "request_example_01"
+  }
+}

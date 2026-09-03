@@ -1,0 +1,32 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "flowId": "flowid_example_01"
+      },
+      "name": "jointl_flows_reference_templates_list"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"items\":[{}]}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "items": [
+            {}
+          ]
+        }
+      }
+    }
+  }
+}

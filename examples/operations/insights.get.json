@@ -1,0 +1,34 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "insights.get",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "data": {
+        "summary": {
+          "activeChecks": 12,
+          "activeEmployees": 34
+        }
+      },
+      "dateRange": {
+        "endDate": "2026-01-15",
+        "inclusive": true,
+        "startDate": "2025-07-15",
+        "timeZone": "UTC"
+      },
+      "filters": {
+        "companyIds": [],
+        "flowIds": [],
+        "roleTitles": []
+      },
+      "view": "general"
+    },
+    "requestId": "request_example_01"
+  }
+}

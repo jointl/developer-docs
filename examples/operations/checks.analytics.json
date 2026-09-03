@@ -1,0 +1,38 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "checks.analytics",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "evaluatedCandidateCount": 1,
+      "exactCohort": false,
+      "flowCohorts": [
+        {}
+      ],
+      "hasMore": false,
+      "items": [
+        {
+          "applicantId": "applicantid_example_01",
+          "detailOperation": "checks.get",
+          "evidenceSummary": "evidencesummary_example_01",
+          "matchingScore": 75,
+          "matchingScorePercent": 75,
+          "name": "Ada Example",
+          "rankWithinFlow": 1,
+          "scoredCandidateCount": 75
+        }
+      ],
+      "nextOffset": 1,
+      "offset": 1,
+      "returnedCandidateCount": 1,
+      "safety": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

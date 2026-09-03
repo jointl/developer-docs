@@ -1,0 +1,30 @@
+{
+  "request": {
+    "id": 11,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+      },
+      "name": "jointl_confirm_action"
+    }
+  },
+  "response": {
+    "id": 11,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"state\":\"completed\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "state": "completed"
+        }
+      }
+    }
+  }
+}

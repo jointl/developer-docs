@@ -1,0 +1,38 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "autopilotGroupId": "autopilotgroupid_example_01",
+          "expectedStatus": "ACTIVE",
+          "status": "ARCHIVED"
+        }
+      },
+      "name": "jointl_autopilots_status_set_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"changed\":true,\"previousStatus\":\"active\",\"recordId\":\"recordid_example_01\",\"status\":\"active\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "changed": true,
+          "previousStatus": "active",
+          "recordId": "recordid_example_01",
+          "status": "active"
+        }
+      }
+    }
+  }
+}

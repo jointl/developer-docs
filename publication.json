@@ -1,0 +1,16 @@
+{
+  "canonicalUrl": "https://docs.join.tl",
+  "contentDigest": "sha256:5cdd38437fe1c0c6fc888451511e9b2da45b0e9102fcea27d8c9aa8ccd264a29",
+  "coverage": {
+    "greenhouseEndpoints": 5,
+    "greenhouseWebhookActions": 11,
+    "mcpSkills": 5,
+    "mcpTools": 50,
+    "operations": 56,
+    "zapierActions": 14,
+    "zapierSearches": 7,
+    "zapierTriggers": 16
+  },
+  "schemaVersion": 1,
+  "version": "1.0.0"
+}

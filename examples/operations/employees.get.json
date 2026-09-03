@@ -1,0 +1,21 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "employees.get",
+  "request": {
+    "input": {
+      "employeeId": "employeeid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "evidence": {},
+      "evidenceIncluded": false,
+      "profile": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

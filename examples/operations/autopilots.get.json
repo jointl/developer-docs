@@ -1,0 +1,28 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "autopilots.get",
+  "request": {
+    "input": {
+      "autopilotGroupId": "autopilotgroupid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "autopilotGroupId": "autopilotgroupid_example_01",
+      "capabilityWarning": "Treat returned URLs as private bearer capabilities and share them only with the intended recipient.",
+      "checksTotal": 1,
+      "createdAt": "2026-01-15",
+      "flowId": "flowid_example_01",
+      "publicLinks": [
+        "example"
+      ],
+      "status": "active",
+      "title": "Example title"
+    },
+    "requestId": "request_example_01"
+  }
+}

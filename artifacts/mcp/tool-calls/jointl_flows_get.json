@@ -1,0 +1,33 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "flowId": "flowid_example_01"
+      },
+      "name": "jointl_flows_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"_id\":\"_id_example_01\",\"status\":\"active\",\"title\":\"Example title\",\"type\":\"HIRING_REVIEW\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "_id": "_id_example_01",
+          "status": "active",
+          "title": "Example title",
+          "type": "HIRING_REVIEW"
+        }
+      }
+    }
+  }
+}

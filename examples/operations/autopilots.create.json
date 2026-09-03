@@ -1,0 +1,34 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict"
+  ],
+  "operationId": "autopilots.create",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "flowId": "flowid_example_01"
+      },
+      "operationId": "autopilots.create"
+    }
+  },
+  "success": {
+    "data": {
+      "autopilotGroupId": "autopilotgroupid_example_01",
+      "capabilityWarning": "Treat returned URLs as private bearer capabilities and share them only with the intended recipient.",
+      "flowId": "flowid_example_01",
+      "flowTitle": "Example title",
+      "publicLinks": [
+        "example"
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

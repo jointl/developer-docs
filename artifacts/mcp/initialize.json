@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "jsonrpc": "2.0",
+  "result": {
+    "capabilities": {
+      "extensions": {
+        "io.modelcontextprotocol/skills": {}
+      },
+      "resources": {},
+      "tools": {}
+    },
+    "instructions": "Use Jointl tools within the connected member’s current permissions. Every write requires an exact prepare preview and explicit human approval before confirmation.",
+    "protocolVersion": "2025-11-25",
+    "serverInfo": {
+      "name": "jointl",
+      "version": "3.2.0"
+    }
+  }
+}

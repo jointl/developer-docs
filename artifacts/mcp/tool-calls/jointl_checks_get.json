@@ -1,0 +1,32 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "applicantId": "applicantid_example_01"
+      },
+      "name": "jointl_checks_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"evidence\":{},\"evidenceIncluded\":false,\"profile\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "evidence": {},
+          "evidenceIncluded": false,
+          "profile": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": 4,
+  "jsonrpc": "2.0",
+  "result": {
+    "skill": {
+      "frontmatter": {
+        "description": "Analyze authorized Jointl Checks and candidate evidence. Use for top-candidate, ranking, score, strengths, weaknesses, verification, reference, assessment, pre-screening, or individual Check-report requests. Do not use to make or automate hiring decisions.",
+        "name": "analyze-jointl-checks"
+      },
+      "resources": [
+        {
+          "digest": "sha256:f83625900f9916b4d6fbb388475534b65e44817ca4c089027651958f7c4cb31e",
+          "uri": "skill://jointl/analyze-jointl-checks/SKILL.md"
+        }
+      ],
+      "uri": "skill://jointl/analyze-jointl-checks/SKILL.md"
+    }
+  }
+}

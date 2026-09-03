@@ -1,0 +1,45 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_insights_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"data\":{\"summary\":{\"activeChecks\":12,\"activeEmployees\":34}},\"dateRange\":{\"endDate\":\"2026-01-15\",\"inclusive\":true,\"startDate\":\"2025-07-15\",\"timeZone\":\"UTC\"},\"filters\":{\"companyIds\":[],\"flowIds\":[],\"roleTitles\":[]},\"view\":\"general\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "data": {
+            "summary": {
+              "activeChecks": 12,
+              "activeEmployees": 34
+            }
+          },
+          "dateRange": {
+            "endDate": "2026-01-15",
+            "inclusive": true,
+            "startDate": "2025-07-15",
+            "timeZone": "UTC"
+          },
+          "filters": {
+            "companyIds": [],
+            "flowIds": [],
+            "roleTitles": []
+          },
+          "view": "general"
+        }
+      }
+    }
+  }
+}

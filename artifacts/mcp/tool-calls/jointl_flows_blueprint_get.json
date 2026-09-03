@@ -1,0 +1,34 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "flowId": "flowid_example_01"
+      },
+      "name": "jointl_flows_blueprint_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"design\":{},\"editableDesign\":{},\"flow\":{},\"revision\":\"2026-01-15T10:30:00.000Z\",\"safety\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "design": {},
+          "editableDesign": {},
+          "flow": {},
+          "revision": "2026-01-15T10:30:00.000Z",
+          "safety": {}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "workspace.get",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "companyScope": {
+        "mode": "all"
+      },
+      "grantedPermissions": [
+        "flows.view"
+      ],
+      "member": {
+        "id": "member_example_01",
+        "name": "Ada Example",
+        "roleId": "owner"
+      },
+      "name": "Example Workspace",
+      "workspaceId": "workspace_example_01"
+    },
+    "requestId": "request_example_01"
+  }
+}

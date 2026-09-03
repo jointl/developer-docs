@@ -1,0 +1,77 @@
+{
+  "id": 3,
+  "jsonrpc": "2.0",
+  "result": {
+    "skills": [
+      {
+        "frontmatter": {
+          "description": "Analyze authorized Jointl Checks and candidate evidence. Use for top-candidate, ranking, score, strengths, weaknesses, verification, reference, assessment, pre-screening, or individual Check-report requests. Do not use to make or automate hiring decisions.",
+          "name": "analyze-jointl-checks"
+        },
+        "resources": [
+          {
+            "digest": "sha256:f83625900f9916b4d6fbb388475534b65e44817ca4c089027651958f7c4cb31e",
+            "uri": "skill://jointl/analyze-jointl-checks/SKILL.md"
+          }
+        ],
+        "uri": "skill://jointl/analyze-jointl-checks/SKILL.md"
+      },
+      {
+        "frontmatter": {
+          "description": "Analyze authorized Jointl Employee, workforce, and Insights evidence. Use for workspace activity, completion or satisfaction metrics, performance ranking, strengths, needs-attention, Team Pulse, Glow Moments, workload, manager support, Exit Intelligence, date-range dashboards, or individual Employee detail. Do not use to make disciplinary or termination decisions.",
+          "name": "analyze-jointl-employees"
+        },
+        "resources": [
+          {
+            "digest": "sha256:913d8fd37bf6243907c05c734314adddde0daab47c9f638b3bec7802bf2b2a0b",
+            "uri": "skill://jointl/analyze-jointl-employees/SKILL.md"
+          }
+        ],
+        "uri": "skill://jointl/analyze-jointl-employees/SKILL.md"
+      },
+      {
+        "frontmatter": {
+          "description": "Design, create, revise, publish, archive, or operate a complete Jointl Flow for Hiring Review, Exit Intelligence, or Performance (Glow Moments and Team Pulse). Use for role assessments, pre-screening, Tests, references, exit feedback, Employee participants, cadence, cycle sends, Autopilot links, or improving an existing Flow. Do not use merely to find or summarize a Flow.",
+          "name": "design-jointl-flow"
+        },
+        "resources": [
+          {
+            "digest": "sha256:4b736e14241f7c0be775e53846efdf458a3ab84b56e501f351f5f9356a33c85c",
+            "uri": "skill://jointl/design-jointl-flow/references/flow-design-playbook.md"
+          },
+          {
+            "digest": "sha256:16287b4b4a2e4eccf304dc925d68cc35ada98a3f33f8e86cc7e7d7fbdc94c5d1",
+            "uri": "skill://jointl/design-jointl-flow/SKILL.md"
+          }
+        ],
+        "uri": "skill://jointl/design-jointl-flow/SKILL.md"
+      },
+      {
+        "frontmatter": {
+          "description": "Search and retrieve authorized Jointl companies, Flows, Checks, Employees, Talent Pool profiles, and Autopilots. Use to find a person, Flow, or Autopilot, look up an email, attribute, company, tag, or job title, browse a domain, or get factual detail for a known record. Do not use for cohort ranking or bulk imports.",
+          "name": "find-jointl-records"
+        },
+        "resources": [
+          {
+            "digest": "sha256:2071b4e5a20bef1c87f701ab244ac883dea2aaa9b9bf3e0156fdb03b2c290fb3",
+            "uri": "skill://jointl/find-jointl-records/SKILL.md"
+          }
+        ],
+        "uri": "skill://jointl/find-jointl-records/SKILL.md"
+      },
+      {
+        "frontmatter": {
+          "description": "Validate an uploaded spreadsheet or structured rows and prepare bulk Jointl Checks or Employee imports. Use when the user wants to run Checks for many candidates or create or update many Employees. Do not use for a single record or for files the user has not supplied.",
+          "name": "import-jointl-people"
+        },
+        "resources": [
+          {
+            "digest": "sha256:ccdf6175ec88e42b8ec5a972dbe2fecb183b4ea064516809308ac6e70a2ab0f7",
+            "uri": "skill://jointl/import-jointl-people/SKILL.md"
+          }
+        ],
+        "uri": "skill://jointl/import-jointl-people/SKILL.md"
+      }
+    ]
+  }
+}

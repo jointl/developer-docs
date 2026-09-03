@@ -1,0 +1,45 @@
+{
+  "linkset": [
+    {
+      "anchor": "urn:jointl:developer-docs:v1.0.0",
+      "describedby": [
+        {
+          "href": "./specs/json-schema/jointl-operations-v1.schema.json",
+          "type": "application/schema+json"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "./specs/openapi/jointl-api-v1.openapi.yaml",
+          "type": "application/vnd.oai.openapi"
+        },
+        {
+          "href": "./specs/openapi/greenhouse-v1.openapi.yaml",
+          "type": "application/vnd.oai.openapi"
+        },
+        {
+          "href": "./specs/asyncapi/zapier-events-v1.asyncapi.yaml",
+          "type": "application/yaml"
+        },
+        {
+          "href": "./artifacts/mcp/tools-list.json",
+          "type": "application/json"
+        },
+        {
+          "href": "./artifacts/mcp/oauth-protected-resource.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "./getting-started/index",
+          "type": "text/markdown"
+        },
+        {
+          "href": "./jointl-mcp/index",
+          "type": "text/markdown"
+        }
+      ]
+    }
+  ]
+}

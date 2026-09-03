@@ -1,0 +1,32 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict",
+    "outcomeUnknown"
+  ],
+  "operationId": "flows.delete",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "expectedStatus": "ACTIVE",
+        "flowId": "flowid_example_01"
+      },
+      "operationId": "flows.delete"
+    }
+  },
+  "success": {
+    "data": {
+      "deleted": true,
+      "previousStatus": "active",
+      "recordId": "recordid_example_01"
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "query": "Ada Example"
+      },
+      "name": "jointl_flows_questions_search"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"catalogScanTruncated\":false,\"hasMore\":false,\"items\":[{}],\"searchedQuestionCount\":1,\"searchedTemplateCount\":1,\"totalMatchedInScan\":1,\"truncatedKinds\":[\"example\"]}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "catalogScanTruncated": false,
+          "hasMore": false,
+          "items": [
+            {}
+          ],
+          "searchedQuestionCount": 1,
+          "searchedTemplateCount": 1,
+          "totalMatchedInScan": 1,
+          "truncatedKinds": [
+            "example"
+          ]
+        }
+      }
+    }
+  }
+}

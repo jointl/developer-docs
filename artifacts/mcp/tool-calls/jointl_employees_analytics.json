@@ -1,0 +1,44 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_employees_analytics"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"evaluatedEmployeeCount\":1,\"evidenceWindow\":{\"endDate\":\"2026-01-15\",\"inclusive\":true,\"startDate\":\"2026-01-15\",\"timeZone\":\"UTC\"},\"exactCohort\":false,\"hasMore\":false,\"items\":[{}],\"nextOffset\":1,\"offset\":1,\"returnedEmployeeCount\":1,\"safety\":{},\"scoredEmployeeCount\":75}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "evaluatedEmployeeCount": 1,
+          "evidenceWindow": {
+            "endDate": "2026-01-15",
+            "inclusive": true,
+            "startDate": "2026-01-15",
+            "timeZone": "UTC"
+          },
+          "exactCohort": false,
+          "hasMore": false,
+          "items": [
+            {}
+          ],
+          "nextOffset": 1,
+          "offset": 1,
+          "returnedEmployeeCount": 1,
+          "safety": {},
+          "scoredEmployeeCount": 75
+        }
+      }
+    }
+  }
+}

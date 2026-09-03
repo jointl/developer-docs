@@ -1,0 +1,43 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict"
+  ],
+  "operationId": "flows.draft.revise",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "design": {
+          "companyId": "company_example_01",
+          "jobTitle": "Software Engineer",
+          "title": "Example Hiring Flow",
+          "type": "HIRING_REVIEW"
+        },
+        "expectedRevision": "2026-01-15T10:30:00.000Z",
+        "flowId": "flow_example_01"
+      },
+      "operationId": "flows.draft.revise"
+    }
+  },
+  "success": {
+    "data": {
+      "configuration": {},
+      "createdTemplateIds": {},
+      "flowId": "flow_example_01",
+      "publicProfilesEnabled": true,
+      "revision": "2026-01-15T10:30:00.000Z",
+      "status": "DRAFT",
+      "talentPoolEnabled": true,
+      "title": "Example Hiring Flow",
+      "type": "HIRING_REVIEW"
+    },
+    "requestId": "request_example_01"
+  }
+}

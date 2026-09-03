@@ -1,0 +1,22 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.get",
+  "request": {
+    "input": {
+      "flowId": "flowid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "_id": "_id_example_01",
+      "status": "active",
+      "title": "Example title",
+      "type": "HIRING_REVIEW"
+    },
+    "requestId": "request_example_01"
+  }
+}

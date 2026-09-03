@@ -1,0 +1,17 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "references.get",
+  "request": {
+    "input": {
+      "referenceId": "referenceid_example_01"
+    }
+  },
+  "success": {
+    "data": {},
+    "requestId": "request_example_01"
+  }
+}

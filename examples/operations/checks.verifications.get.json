@@ -1,0 +1,25 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "checks.verifications.get",
+  "request": {
+    "input": {
+      "applicantId": "applicantid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "applicantId": "applicantid_example_01",
+      "canRunAny": false,
+      "serviceUnavailable": false,
+      "verificationEligibility": {},
+      "verifications": [
+        {}
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

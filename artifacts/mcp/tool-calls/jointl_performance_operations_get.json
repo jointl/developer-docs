@@ -1,0 +1,33 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "flowId": "flowid_example_01"
+      },
+      "name": "jointl_performance_operations_get"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"capabilityWarning\":\"Treat returned URLs as private bearer capabilities and share them only with the intended recipient.\",\"flow\":{},\"glowMoments\":{},\"teamPulse\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "capabilityWarning": "Treat returned URLs as private bearer capabilities and share them only with the intended recipient.",
+          "flow": {},
+          "glowMoments": {},
+          "teamPulse": {}
+        }
+      }
+    }
+  }
+}

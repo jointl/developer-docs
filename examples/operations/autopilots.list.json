@@ -1,0 +1,27 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "autopilots.list",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "_id": "_id_example_01",
+          "checksTotal": 1,
+          "flowId": "flowid_example_01",
+          "status": "active",
+          "title": "Example title"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

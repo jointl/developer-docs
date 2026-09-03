@@ -1,0 +1,27 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "employees.list",
+  "request": {
+    "input": {}
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "_id": "_id_example_01",
+          "companyId": "companyid_example_01",
+          "fullName": "Ada Example",
+          "positionTitle": "Example title",
+          "status": "active"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

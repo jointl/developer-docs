@@ -1,0 +1,23 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.blueprint.get",
+  "request": {
+    "input": {
+      "flowId": "flowid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "design": {},
+      "editableDesign": {},
+      "flow": {},
+      "revision": "2026-01-15T10:30:00.000Z",
+      "safety": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "workspace.search",
+  "request": {
+    "input": {
+      "query": "Ada Example"
+    }
+  },
+  "success": {
+    "data": {
+      "exhaustive": false,
+      "items": [
+        {
+          "entityId": "applicant_example_01",
+          "entityType": "applicant",
+          "followUpOperations": [
+            {
+              "input": {
+                "applicantId": "applicant_example_01",
+                "includeEvidence": true
+              },
+              "operationId": "checks.get"
+            }
+          ],
+          "label": "Ada Example",
+          "sourceRecords": [
+            {
+              "applicantId": "applicant_example_01",
+              "companyName": "Example Company",
+              "entityId": "applicant_example_01",
+              "entityType": "applicant",
+              "label": "Applicant",
+              "primary": "Software Engineer",
+              "route": "/checks/applicant_example_01",
+              "statusLabels": [
+                {
+                  "className": "new",
+                  "label": "New",
+                  "value": "new"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "query": "Ada Example",
+      "resultLimit": 30,
+      "returnedCount": 1
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "checks.publicProfiles.get",
+  "request": {
+    "input": {
+      "applicantId": "applicantid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "entitled": false,
+      "latestRun": {},
+      "previousCompletedRun": {},
+      "serviceUnavailable": false,
+      "subjectRef": {}
+    },
+    "requestId": "request_example_01"
+  }
+}

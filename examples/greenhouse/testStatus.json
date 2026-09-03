@@ -1,0 +1,13 @@
+{
+  "request": {
+    "partner_interview_id": "request_example_01"
+  },
+  "success": {
+    "metadata": {
+      "Started At": "Thu, Jan 15 2026, 10:30"
+    },
+    "partner_profile_url": "https://join.tl/checks/check_example_01/overview",
+    "partner_score": 75,
+    "partner_status": "in_progress"
+  }
+}

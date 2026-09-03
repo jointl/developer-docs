@@ -1,0 +1,25 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.templates.list",
+  "request": {
+    "input": {
+      "kind": "preScreening"
+    }
+  },
+  "success": {
+    "data": {
+      "catalogScanTruncated": false,
+      "hasMore": false,
+      "items": [
+        {}
+      ],
+      "kind": "private",
+      "totalMatchedInScan": 1
+    },
+    "requestId": "request_example_01"
+  }
+}

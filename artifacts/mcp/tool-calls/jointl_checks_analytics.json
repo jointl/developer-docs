@@ -1,0 +1,49 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {},
+      "name": "jointl_checks_analytics"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"evaluatedCandidateCount\":1,\"exactCohort\":false,\"flowCohorts\":[{}],\"hasMore\":false,\"items\":[{\"applicantId\":\"applicantid_example_01\",\"detailOperation\":\"checks.get\",\"evidenceSummary\":\"evidencesummary_example_01\",\"matchingScore\":75,\"matchingScorePercent\":75,\"name\":\"Ada Example\",\"rankWithinFlow\":1,\"scoredCandidateCount\":75}],\"nextOffset\":1,\"offset\":1,\"returnedCandidateCount\":1,\"safety\":{}}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "evaluatedCandidateCount": 1,
+          "exactCohort": false,
+          "flowCohorts": [
+            {}
+          ],
+          "hasMore": false,
+          "items": [
+            {
+              "applicantId": "applicantid_example_01",
+              "detailOperation": "checks.get",
+              "evidenceSummary": "evidencesummary_example_01",
+              "matchingScore": 75,
+              "matchingScorePercent": 75,
+              "name": "Ada Example",
+              "rankWithinFlow": 1,
+              "scoredCandidateCount": 75
+            }
+          ],
+          "nextOffset": 1,
+          "offset": 1,
+          "returnedCandidateCount": 1,
+          "safety": {}
+        }
+      }
+    }
+  }
+}

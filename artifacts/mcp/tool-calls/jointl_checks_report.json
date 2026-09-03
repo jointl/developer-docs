@@ -1,0 +1,47 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "applicantId": "applicantid_example_01"
+      },
+      "name": "jointl_checks_report"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"assessment\":{},\"company\":{},\"crossVerifiedAttributeScores\":[{}],\"flow\":{},\"flowRequest\":{},\"keyAchievements\":[{}],\"matchingScore\":75,\"preScreening\":{},\"references\":[{}],\"referencesAvgMetrics\":[{}]}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "assessment": {},
+          "company": {},
+          "crossVerifiedAttributeScores": [
+            {}
+          ],
+          "flow": {},
+          "flowRequest": {},
+          "keyAchievements": [
+            {}
+          ],
+          "matchingScore": 75,
+          "preScreening": {},
+          "references": [
+            {}
+          ],
+          "referencesAvgMetrics": [
+            {}
+          ]
+        }
+      }
+    }
+  }
+}

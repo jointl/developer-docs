@@ -1,0 +1,179 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Jointl Developer Documentation",
+  "description": "Build secure integrations with the Jointl REST API, OAuth, MCP, Zapier, and Greenhouse.",
+  "colors": {
+    "primary": "#0B8190",
+    "light": "#0B8190",
+    "dark": "#3FDAED"
+  },
+  "favicon": "/assets/favicon.svg",
+  "logo": {
+    "light": "/assets/logo.svg",
+    "dark": "/assets/logo-dark.svg",
+    "href": "https://docs.join.tl"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Jointl",
+        "href": "https://join.tl"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Open Jointl",
+      "href": "https://join.tl/login"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "index"
+            ]
+          },
+          {
+            "group": "Getting started",
+            "pages": [
+              "getting-started/index",
+              "getting-started/choose-access",
+              "getting-started/first-api-call"
+            ]
+          },
+          {
+            "group": "Core concepts",
+            "pages": [
+              "concepts/authentication",
+              "concepts/permissions",
+              "concepts/errors-retries",
+              "concepts/pagination-idempotency",
+              "concepts/safe-writes",
+              "concepts/standards",
+              "concepts/versioning"
+            ]
+          },
+          {
+            "group": "REST API",
+            "pages": [
+              "rest-api/index",
+              "rest-api/http-endpoints",
+              "rest-api/operations"
+            ]
+          },
+          {
+            "group": "Jointl MCP",
+            "pages": [
+              "jointl-mcp/index",
+              "jointl-mcp/reference"
+            ]
+          },
+          {
+            "group": "Updates",
+            "pages": [
+              "changelog/index",
+              "changelog/v1.0.0"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "Jointl REST API and OAuth",
+            "openapi": "specs/openapi/jointl-api-v1.openapi.yaml"
+          },
+          {
+            "group": "Greenhouse integration",
+            "openapi": "specs/openapi/greenhouse-v1.openapi.yaml"
+          },
+          {
+            "group": "Zapier event delivery",
+            "asyncapi": "specs/asyncapi/zapier-events-v1.asyncapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Integrations",
+        "icon": "plug",
+        "groups": [
+          {
+            "group": "Zapier",
+            "pages": [
+              "integrations/zapier/index",
+              "integrations/zapier/reference"
+            ]
+          },
+          {
+            "group": "Greenhouse",
+            "pages": [
+              "integrations/greenhouse/index",
+              "integrations/greenhouse/reference"
+            ]
+          },
+          {
+            "group": "AI clients",
+            "pages": [
+              "integrations/ai-clients/index",
+              "integrations/ai-clients/chatgpt",
+              "integrations/ai-clients/claude",
+              "integrations/ai-clients/codex",
+              "integrations/ai-clients/generic-mcp"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "api": {
+    "playground": {
+      "display": "simple",
+      "proxy": false,
+      "credentials": false
+    },
+    "url": "full",
+    "examples": {
+      "languages": [
+        "curl",
+        "javascript",
+        "python"
+      ],
+      "defaults": "required",
+      "prefill": false,
+      "autogenerate": true
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "download-spec"
+    ],
+    "display": "header"
+  },
+  "seo": {
+    "indexing": "navigable",
+    "metatags": {
+      "canonical": "https://docs.join.tl",
+      "og:site_name": "Jointl Developer Documentation"
+    }
+  },
+  "search": {
+    "prompt": "Search Jointl developer docs..."
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/jointl"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited",
+    "confirmationExpired",
+    "stateConflict"
+  ],
+  "operationId": "glowMoments.cycle.status.set",
+  "request": {
+    "confirm": {
+      "confirmationToken": "jtl_confirm_23456789ABCDEFGHJ.example_confirmation_token_000000000000"
+    },
+    "prepare": {
+      "idempotencyKey": "intent.example.0001",
+      "input": {
+        "cycleId": "cycleid_example_01",
+        "enabled": true,
+        "expectedStatus": "CANCELLED"
+      },
+      "operationId": "glowMoments.cycle.status.set"
+    }
+  },
+  "success": {
+    "data": {
+      "changed": true,
+      "cycleId": "cycleid_example_01",
+      "enabled": true,
+      "flowId": "flowid_example_01",
+      "previousStatus": "active",
+      "status": "active"
+    },
+    "requestId": "request_example_01"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "applicantId": "applicantid_example_01"
+      },
+      "name": "jointl_references_list"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"hasMore\":false,\"items\":[{\"applicantId\":\"applicantid_example_01\",\"createdAt\":\"2026-01-15\",\"id\":\"id_example_01\",\"status\":\"active\"}],\"nextCursor\":null}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "hasMore": false,
+          "items": [
+            {
+              "applicantId": "applicantid_example_01",
+              "createdAt": "2026-01-15",
+              "id": "id_example_01",
+              "status": "active"
+            }
+          ],
+          "nextCursor": null
+        }
+      }
+    }
+  }
+}

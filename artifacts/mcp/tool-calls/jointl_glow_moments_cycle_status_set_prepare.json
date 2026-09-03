@@ -1,0 +1,40 @@
+{
+  "request": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+      "arguments": {
+        "idempotencyKey": "intent.example.0001",
+        "input": {
+          "cycleId": "cycleid_example_01",
+          "enabled": true,
+          "expectedStatus": "CANCELLED"
+        }
+      },
+      "name": "jointl_glow_moments_cycle_status_set_prepare"
+    }
+  },
+  "response": {
+    "id": 10,
+    "jsonrpc": "2.0",
+    "result": {
+      "content": [
+        {
+          "text": "{\"result\":{\"changed\":true,\"cycleId\":\"cycleid_example_01\",\"enabled\":true,\"flowId\":\"flowid_example_01\",\"previousStatus\":\"active\",\"status\":\"active\"}}",
+          "type": "text"
+        }
+      ],
+      "structuredContent": {
+        "result": {
+          "changed": true,
+          "cycleId": "cycleid_example_01",
+          "enabled": true,
+          "flowId": "flowid_example_01",
+          "previousStatus": "active",
+          "status": "active"
+        }
+      }
+    }
+  }
+}

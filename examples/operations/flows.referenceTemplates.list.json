@@ -1,0 +1,21 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.referenceTemplates.list",
+  "request": {
+    "input": {
+      "flowId": "flowid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "items": [
+        {}
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

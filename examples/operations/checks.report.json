@@ -1,0 +1,36 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "checks.report",
+  "request": {
+    "input": {
+      "applicantId": "applicantid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "assessment": {},
+      "company": {},
+      "crossVerifiedAttributeScores": [
+        {}
+      ],
+      "flow": {},
+      "flowRequest": {},
+      "keyAchievements": [
+        {}
+      ],
+      "matchingScore": 75,
+      "preScreening": {},
+      "references": [
+        {}
+      ],
+      "referencesAvgMetrics": [
+        {}
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}

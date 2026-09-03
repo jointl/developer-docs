@@ -1,0 +1,29 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "flows.questions.search",
+  "request": {
+    "input": {
+      "query": "Ada Example"
+    }
+  },
+  "success": {
+    "data": {
+      "catalogScanTruncated": false,
+      "hasMore": false,
+      "items": [
+        {}
+      ],
+      "searchedQuestionCount": 1,
+      "searchedTemplateCount": 1,
+      "totalMatchedInScan": 1,
+      "truncatedKinds": [
+        "example"
+      ]
+    },
+    "requestId": "request_example_01"
+  }
+}
