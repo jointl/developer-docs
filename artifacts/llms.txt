@@ -8,6 +8,8 @@
 - [Choose access](./docs/getting-started/choose-access.md)
 - [REST API](./docs/api/index.md)
 - [Operation reference](./docs/api/operations.md)
+- [Greenhouse app endpoints](./docs/api/greenhouse-app-endpoints.md)
+- [Zapier webhook event delivery](./docs/api/zapier-webhook-event-delivery.md)
 - [MCP](./docs/mcp/index.md)
 - [Zapier](./docs/integrations/zapier/index.md)
 - [Greenhouse](./docs/integrations/greenhouse/index.md)

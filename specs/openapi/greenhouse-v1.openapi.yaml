@@ -13,9 +13,16 @@ servers:
 externalDocs:
   description: Greenhouse Harvest API documentation for upstream dependencies
   url: https://developers.greenhouse.io/harvest.html
+tags:
+  - name: Webhook delivery
+    description: Signed event delivery for provisioned Jointl Greenhouse installations.
+  - name: Assessment API
+    description: Assessment-partner endpoints for provisioned Jointl Greenhouse installations.
 paths:
   /api/apps/greenhouse/v1/webhook/{installationId}:
     post:
+      tags:
+        - Webhook delivery
       operationId: receiveGreenhouseWebhook
       summary: Receive a signed Greenhouse webhook
       description: Validates Signature over the raw body and requires a durable Greenhouse-Event-ID for replay protection.
@@ -362,8 +369,11 @@ paths:
       x-jointl-replay-identity:
         - Greenhouse-Event-ID
         - SHA-256 of raw request body
+      x-jointl-access: provisioned-greenhouse-installation
   /api/apps/greenhouse/v1/assessment/list_tests:
     get:
+      tags:
+        - Assessment API
       operationId: listGreenhouseAssessmentTests
       summary: List active Jointl hiring Flows as assessment tests
       security:
@@ -403,8 +413,11 @@ paths:
               schema:
                 type: string
               example: OK
+      x-jointl-access: provisioned-greenhouse-installation
   /api/apps/greenhouse/v1/assessment/send_test:
     post:
+      tags:
+        - Assessment API
       operationId: sendGreenhouseAssessmentTest
       summary: Create or reconcile a Jointl assessment request
       security:
@@ -466,8 +479,11 @@ paths:
               schema:
                 type: string
               example: Greenhouse request could not be processed
+      x-jointl-access: provisioned-greenhouse-installation
   /api/apps/greenhouse/v1/assessment/test_status:
     get:
+      tags:
+        - Assessment API
       operationId: getGreenhouseAssessmentStatus
       summary: Get Jointl assessment status
       security:
@@ -509,8 +525,11 @@ paths:
               schema:
                 type: string
               example: Greenhouse request could not be processed
+      x-jointl-access: provisioned-greenhouse-installation
   /api/apps/greenhouse/v1/assessment/response_error:
     post:
+      tags:
+        - Assessment API
       operationId: reportGreenhouseAssessmentResponseError
       summary: Acknowledge a Greenhouse response-processing error
       security:
@@ -560,6 +579,7 @@ paths:
               schema:
                 type: string
               example: Greenhouse request could not be processed
+      x-jointl-access: provisioned-greenhouse-installation
 components:
   securitySchemes:
     GreenhouseWebhookSignature:

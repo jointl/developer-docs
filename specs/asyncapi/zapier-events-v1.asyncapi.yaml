@@ -36,6 +36,7 @@ components:
         properties:
           id:
             type: string
+            description: Durable opaque event identifier used with events.get.
         required:
           - id
         additionalProperties: false

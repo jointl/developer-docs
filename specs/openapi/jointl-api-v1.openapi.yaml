@@ -21,8 +21,8 @@ tags:
     description: Permission-filtered read operations.
   - name: Actions
     description: Prepare, human approval, and confirmation.
-  - name: Zapier
-    description: Endpoints restricted to the approved Jointl Zapier app.
+  - name: Zapier app endpoints
+    description: Endpoints restricted to the official Jointl Zapier app. Personal keys, service accounts, and other OAuth clients cannot call them.
 paths:
   /oauth/authorize:
     get:
@@ -1608,17 +1608,18 @@ paths:
   /api/v1/operations/checks.verifications.get:
     post:
       tags:
-        - Operations
+        - Zapier app endpoints
       operationId: executeChecksVerificationsGet
       summary: Get verification results for a Check
       description: |-
+        Available only to the official Jointl Zapier app.
+
         Return the verification types available to the member and their latest results for one authorized Check. Image content is not returned.
 
         Use when: Use after a verification.completed or verification.failed Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details. Returns: verification types available through the member’s permissions and workspace plan, the latest run status and findings for each type, and Check eligibility state.
       security:
         - JointlOAuth:
             - workspace.read
-        - JointlApiKey: []
       requestBody:
         required: true
         content:
@@ -1679,6 +1680,8 @@ paths:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: false
       x-jointl-destructive: false
@@ -1689,17 +1692,18 @@ paths:
   /api/v1/operations/checks.publicProfiles.get:
     post:
       tags:
-        - Operations
+        - Zapier app endpoints
       operationId: executeChecksPublicProfilesGet
       summary: Get public profile results for a Check
       description: |-
+        Available only to the official Jointl Zapier app.
+
         Return the latest public-profile discovery results visible for one authorized Check. Image content is not returned.
 
         Use when: Use after a public_profiles.completed or public_profiles.failed Zapier event, or to inspect a previously completed public-profile discovery run. Returns: the latest and previous completed discovery states, public profile matches available to the member, graph summary, and availability state.
       security:
         - JointlOAuth:
             - workspace.read
-        - JointlApiKey: []
       requestBody:
         required: true
         content:
@@ -1759,6 +1763,8 @@ paths:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: false
       x-jointl-destructive: false
@@ -2175,17 +2181,18 @@ paths:
   /api/v1/operations/employees.exitIntelligence.get:
     post:
       tags:
-        - Operations
+        - Zapier app endpoints
       operationId: executeEmployeesExitIntelligenceGet
       summary: Get Exit Intelligence result
       description: |-
+        Available only to the official Jointl Zapier app.
+
         Return the latest or one exact authorized Exit Intelligence request for a visible Employee, including completed answers and calculated metrics. Public access tokens are never returned.
 
         Use when: Use after an exit_intelligence.completed Zapier event, passing its request ID when available so a later request cannot replace the intended result. Returns: the visible Employee summary and zero or one non-cancelled Exit Intelligence request with its Flow, form, metrics, and answered questions.
       security:
         - JointlOAuth:
             - workspace.read
-        - JointlApiKey: []
       requestBody:
         required: true
         content:
@@ -2243,6 +2250,8 @@ paths:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: false
       x-jointl-destructive: false
@@ -2745,17 +2754,18 @@ paths:
   /api/v1/operations/events.list:
     post:
       tags:
-        - Operations
+        - Zapier app endpoints
       operationId: executeEventsList
       summary: List recent Zapier events
       description: |-
+        Available only to the official Jointl Zapier app.
+
         Return up to three recent events that the connected member can access, matching one Zapier trigger and its filters.
 
         Use when: Use when Zapier tests or configures a trigger before new events are available. Returns: newest-first trigger payloads with the same shape returned after a Zapier webhook notification.
       security:
         - JointlOAuth:
             - workspace.read
-        - JointlApiKey: []
       requestBody:
         required: true
         content:
@@ -2824,6 +2834,8 @@ paths:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: false
       x-jointl-destructive: false
@@ -2834,17 +2846,18 @@ paths:
   /api/v1/operations/events.get:
     post:
       tags:
-        - Operations
+        - Zapier app endpoints
       operationId: executeEventsGet
       summary: Get one Zapier event
       description: |-
+        Available only to the official Jointl Zapier app.
+
         Retrieve the full payload for one opaque event notification through the member’s current Jointl permissions.
 
         Use when: Use only after an instant Zapier hook receives an event ID. Returns: one authorized trigger payload; revoked or inaccessible records are not returned.
       security:
         - JointlOAuth:
             - workspace.read
-        - JointlApiKey: []
       requestBody:
         required: true
         content:
@@ -2912,6 +2925,8 @@ paths:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: false
       x-jointl-destructive: false
@@ -3041,10 +3056,10 @@ paths:
   /api/v1/actions/execute:
     post:
       tags:
-        - Zapier
+        - Zapier app endpoints
       operationId: executeStandingZapierAction
-      summary: Execute an approved Zapier action
-      description: Execution available only to the installed Zapier app for approved, non-destructive, idempotent operations.
+      summary: Execute a permitted Zapier action
+      description: Available only to the official Jointl Zapier app for non-destructive, idempotent operations enabled for the connection. Personal keys, service accounts, and other OAuth clients cannot call this endpoint.
       security:
         - JointlOAuth:
             - workspace.write
@@ -3102,13 +3117,15 @@ paths:
           $ref: "#/components/responses/ServerError"
         "503":
           $ref: "#/components/responses/Unavailable"
+      x-jointl-app-bound-to:
+        - ZAPIER
   /api/v1/webhook-subscriptions:
     post:
       tags:
-        - Zapier
+        - Zapier app endpoints
       operationId: createZapierWebhookSubscription
       summary: Create or renew a Zapier webhook subscription
-      description: Creates a 21-day Zapier-owned subscription. Target origins are allowlisted by Jointl.
+      description: Available only to the official Jointl Zapier app. Creates a 21-day Zapier-owned subscription whose target origin is allowlisted by Jointl.
       security:
         - JointlOAuth:
             - workspace.read
@@ -3161,12 +3178,15 @@ paths:
           $ref: "#/components/responses/ServerError"
         "503":
           $ref: "#/components/responses/Unavailable"
+      x-jointl-app-bound-to:
+        - ZAPIER
   /api/v1/webhook-subscriptions/{id}:
     delete:
       tags:
-        - Zapier
+        - Zapier app endpoints
       operationId: deleteZapierWebhookSubscription
       summary: Disable a Zapier webhook subscription
+      description: Available only to the official Jointl Zapier app. Disables a subscription owned by the current Zapier installation.
       security:
         - JointlOAuth:
             - workspace.read
@@ -3222,6 +3242,8 @@ paths:
           $ref: "#/components/responses/ServerError"
         "503":
           $ref: "#/components/responses/Unavailable"
+      x-jointl-app-bound-to:
+        - ZAPIER
 components:
   securitySchemes:
     JointlOAuth:
@@ -5008,6 +5030,8 @@ components:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to: &a1
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: true
       x-jointl-destructive: false
@@ -5032,6 +5056,7 @@ components:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to: *a1
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: true
       x-jointl-destructive: false
@@ -5169,6 +5194,8 @@ components:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to: &a2
+        - ZAPIER
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: true
       x-jointl-destructive: false
@@ -5193,6 +5220,7 @@ components:
       x-jointl-audiences:
         - rest
         - zapier
+      x-jointl-app-bound-to: *a2
       x-jointl-mcp-exposed: false
       x-jointl-confirmation-required: true
       x-jointl-destructive: false

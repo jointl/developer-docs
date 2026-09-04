@@ -4,7 +4,7 @@ description: Jointl's Zapier app is an approved OAuth client with event triggers
 ---
 
 Jointl's Zapier app is an approved OAuth client with event triggers, selectable searches,
-and Zapier-specific actions. The [Zapier reference](/integrations/zapier/reference) lists every public
+and Zapier-specific actions. The [Zapier component reference](/integrations/zapier/reference) lists every public
 component and its fields.
 
 ## Event delivery
@@ -30,11 +30,11 @@ identity from it; a different payload under the same identity is rejected as a c
 
 ## Actions
 
-Zapier actions use `/api/v1/actions/execute`, which is available only to the installed
-Zapier app. Only operations that are non-destructive, idempotent, approved for Zapier,
+Zapier actions use `/api/v1/actions/execute`, which is available only to the official
+Jointl Zapier app. Only operations that are non-destructive, idempotent, enabled for Zapier,
 and available to the connected member can run this way. General clients must use
 prepare, human approval, and confirm.
 
 Use the [component reference](/integrations/zapier/reference) for every available trigger, search, action,
-field, and sample result. The [event contract](/specs/asyncapi/zapier-events-v1.asyncapi.yaml)
-describes subscription delivery and hydration.
+field, and sample result. The [webhook event delivery reference](/rest-api/zapier-webhook-event-delivery)
+describes the notification envelope, hydration, and delivery behavior.
