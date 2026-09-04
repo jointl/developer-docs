@@ -5,7 +5,7 @@ description: The Jointl Greenhouse integration receives selected recruiting webh
 
 The Jointl Greenhouse integration receives selected recruiting webhooks and implements
 the Greenhouse assessment-partner API. Its five Jointl endpoints are defined in the
-[Greenhouse OpenAPI reference](/integrations/greenhouse/reference). Greenhouse Harvest is an
+[Greenhouse app endpoint reference](/rest-api/greenhouse-app-endpoints). Greenhouse Harvest is an
 upstream dependency; use [Greenhouse's official Harvest API documentation](https://developers.greenhouse.io/harvest.html)
 for those APIs.
 
