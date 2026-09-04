@@ -78,6 +78,7 @@
             "group": "Updates",
             "pages": [
               "changelog/index",
+              "changelog/2026-09-04",
               "changelog/v1.0.0"
             ]
           }
@@ -89,15 +90,114 @@
         "groups": [
           {
             "group": "Jointl REST API and OAuth",
-            "openapi": "specs/openapi/jointl-api-v1.openapi.yaml"
+            "openapi": "specs/openapi/jointl-api-v1.openapi.yaml",
+            "pages": [
+              {
+                "group": "OAuth",
+                "pages": [
+                  "GET /oauth/authorize",
+                  "POST /oauth/token",
+                  "POST /oauth/revoke",
+                  "GET /oauth/jwks",
+                  "GET /oauth/userinfo"
+                ]
+              },
+              {
+                "group": "Discovery",
+                "pages": [
+                  "GET /.well-known/oauth-authorization-server/oauth",
+                  "GET /.well-known/openid-configuration/oauth",
+                  "GET /.well-known/oauth-protected-resource/api/v1"
+                ]
+              },
+              {
+                "group": "Read operations",
+                "pages": [
+                  "GET /api/v1/operations",
+                  "POST /api/v1/operations/{operationId}",
+                  "POST /api/v1/operations/workspace.get",
+                  "POST /api/v1/operations/workspace.search",
+                  "POST /api/v1/operations/companies.list",
+                  "POST /api/v1/operations/flows.list",
+                  "POST /api/v1/operations/flows.get",
+                  "POST /api/v1/operations/flows.capabilities.get",
+                  "POST /api/v1/operations/flows.templates.list",
+                  "POST /api/v1/operations/flows.questions.search",
+                  "POST /api/v1/operations/flows.referenceTemplates.list",
+                  "POST /api/v1/operations/flows.blueprint.get",
+                  "POST /api/v1/operations/performance.operations.get",
+                  "POST /api/v1/operations/checks.list",
+                  "POST /api/v1/operations/checks.analytics",
+                  "POST /api/v1/operations/checks.get",
+                  "POST /api/v1/operations/checks.report",
+                  "POST /api/v1/operations/references.list",
+                  "POST /api/v1/operations/references.get",
+                  "POST /api/v1/operations/employees.list",
+                  "POST /api/v1/operations/employees.analytics",
+                  "POST /api/v1/operations/employees.get",
+                  "POST /api/v1/operations/talents.list",
+                  "POST /api/v1/operations/talents.get",
+                  "POST /api/v1/operations/talents.references.list",
+                  "POST /api/v1/operations/autopilots.list",
+                  "POST /api/v1/operations/autopilots.get",
+                  "POST /api/v1/operations/insights.get"
+                ]
+              },
+              {
+                "group": "Protected actions",
+                "pages": [
+                  "POST /api/v1/actions/prepare",
+                  "POST /api/v1/actions/confirm"
+                ]
+              }
+            ]
           },
           {
-            "group": "Greenhouse integration",
-            "openapi": "specs/openapi/greenhouse-v1.openapi.yaml"
+            "group": "App-bound endpoints",
+            "pages": [
+              {
+                "group": "Zapier app endpoints",
+                "openapi": "specs/openapi/jointl-api-v1.openapi.yaml",
+                "pages": [
+                  "POST /api/v1/operations/checks.verifications.get",
+                  "POST /api/v1/operations/checks.publicProfiles.get",
+                  "POST /api/v1/operations/employees.exitIntelligence.get",
+                  "POST /api/v1/operations/events.list",
+                  "POST /api/v1/operations/events.get",
+                  "POST /api/v1/actions/execute",
+                  "POST /api/v1/webhook-subscriptions",
+                  "DELETE /api/v1/webhook-subscriptions/{id}"
+                ]
+              },
+              {
+                "group": "Greenhouse app endpoints",
+                "openapi": "specs/openapi/greenhouse-v1.openapi.yaml",
+                "pages": [
+                  "rest-api/greenhouse-app-endpoints",
+                  {
+                    "group": "Webhook delivery",
+                    "pages": [
+                      "POST /api/apps/greenhouse/v1/webhook/{installationId}"
+                    ]
+                  },
+                  {
+                    "group": "Assessment API",
+                    "pages": [
+                      "GET /api/apps/greenhouse/v1/assessment/list_tests",
+                      "POST /api/apps/greenhouse/v1/assessment/send_test",
+                      "GET /api/apps/greenhouse/v1/assessment/test_status",
+                      "POST /api/apps/greenhouse/v1/assessment/response_error"
+                    ]
+                  }
+                ]
+              }
+            ]
           },
           {
-            "group": "Zapier event delivery",
-            "asyncapi": "specs/asyncapi/zapier-events-v1.asyncapi.yaml"
+            "group": "Event and webhook contracts",
+            "pages": [
+              "rest-api/zapier-webhook-event-delivery"
+            ]
           }
         ]
       },
@@ -115,8 +215,7 @@
           {
             "group": "Greenhouse",
             "pages": [
-              "integrations/greenhouse/index",
-              "integrations/greenhouse/reference"
+              "integrations/greenhouse/index"
             ]
           },
           {

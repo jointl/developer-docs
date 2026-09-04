@@ -27,6 +27,8 @@ workflows, connect AI clients, and integrate Jointl with Zapier or Greenhouse.
 - [REST API](/rest-api/index)
 - [HTTP endpoints](/rest-api/http-endpoints)
 - [Logical operations](/rest-api/operations)
+- [Greenhouse app endpoints](/rest-api/greenhouse-app-endpoints)
+- [Zapier webhook event delivery](/rest-api/zapier-webhook-event-delivery)
 - [MCP](/jointl-mcp/index)
 - [MCP tool and skill reference](/jointl-mcp/reference)
 
@@ -35,7 +37,6 @@ workflows, connect AI clients, and integrate Jointl with Zapier or Greenhouse.
 - [Zapier](/integrations/zapier/index)
 - [Zapier component reference](/integrations/zapier/reference)
 - [Greenhouse](/integrations/greenhouse/index)
-- [Greenhouse endpoint reference](/integrations/greenhouse/reference)
 - [AI clients](/integrations/ai-clients/index)
 
 ## Updates

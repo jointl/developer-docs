@@ -2829,4 +2829,4 @@ Adds a note to one Talent.
 
 ## Delivery contract
 
-Jointl posts only `{ "id": "event_example_01" }`. Zapier hydrates the event through `events.get`. The AsyncAPI document defines delivery, while the REST OpenAPI document defines subscription creation, deletion, and hydration.
+See [Zapier webhook event delivery](/rest-api/zapier-webhook-event-delivery) for the notification envelope, delivery behavior, and links to the machine-readable contracts.

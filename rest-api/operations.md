@@ -9,64 +9,64 @@ Read operations use `POST /api/v1/operations/{operationId}`. Writes use `POST /a
 
 ## Index
 
-| Operation | Kind | Scope | MCP | Zapier action |
-| --- | --- | --- | --- | --- |
-| [`workspace.get`](#workspace-get) | read | `workspace.read` | yes | no |
-| [`workspace.search`](#workspace-search) | read | `workspace.read` | yes | no |
-| [`companies.list`](#companies-list) | read | `workspace.read` | yes | no |
-| [`flows.list`](#flows-list) | read | `workspace.read` | yes | no |
-| [`flows.get`](#flows-get) | read | `workspace.read` | yes | no |
-| [`flows.capabilities.get`](#flows-capabilities-get) | read | `workspace.read` | yes | no |
-| [`flows.templates.list`](#flows-templates-list) | read | `workspace.read` | yes | no |
-| [`flows.questions.search`](#flows-questions-search) | read | `workspace.read` | yes | no |
-| [`flows.referenceTemplates.list`](#flows-referencetemplates-list) | read | `workspace.read` | yes | no |
-| [`flows.blueprint.get`](#flows-blueprint-get) | read | `workspace.read` | yes | no |
-| [`performance.operations.get`](#performance-operations-get) | read | `workspace.read` | yes | no |
-| [`glowMoments.send`](#glowmoments-send) | write | `workspace.write` | yes | no |
-| [`glowMoments.cycle.status.set`](#glowmoments-cycle-status-set) | write | `workspace.write` | yes | no |
-| [`teamPulse.send`](#teampulse-send) | write | `workspace.write` | yes | no |
-| [`teamPulse.cycle.status.set`](#teampulse-cycle-status-set) | write | `workspace.write` | yes | no |
-| [`checks.list`](#checks-list) | read | `workspace.read` | yes | no |
-| [`checks.analytics`](#checks-analytics) | read | `workspace.read` | yes | no |
-| [`checks.get`](#checks-get) | read | `workspace.read` | yes | no |
-| [`checks.report`](#checks-report) | read | `workspace.read` | yes | no |
-| [`checks.verifications.get`](#checks-verifications-get) | read | `workspace.read` | no | no |
-| [`checks.verifications.runAll`](#checks-verifications-runall) | write | `workspace.write` | no | yes |
-| [`checks.publicProfiles.get`](#checks-publicprofiles-get) | read | `workspace.read` | no | no |
-| [`checks.publicProfiles.find`](#checks-publicprofiles-find) | write | `workspace.write` | no | yes |
-| [`references.list`](#references-list) | read | `workspace.read` | yes | no |
-| [`references.get`](#references-get) | read | `workspace.read` | yes | no |
-| [`employees.list`](#employees-list) | read | `workspace.read` | yes | no |
-| [`employees.analytics`](#employees-analytics) | read | `workspace.read` | yes | no |
-| [`employees.get`](#employees-get) | read | `workspace.read` | yes | no |
-| [`employees.exitIntelligence.get`](#employees-exitintelligence-get) | read | `workspace.read` | no | no |
-| [`talents.list`](#talents-list) | read | `workspace.read` | yes | no |
-| [`talents.get`](#talents-get) | read | `workspace.read` | yes | no |
-| [`talents.references.list`](#talents-references-list) | read | `workspace.read` | yes | no |
-| [`autopilots.list`](#autopilots-list) | read | `workspace.read` | yes | no |
-| [`autopilots.get`](#autopilots-get) | read | `workspace.read` | yes | no |
-| [`insights.get`](#insights-get) | read | `workspace.read` | yes | no |
-| [`events.list`](#events-list) | read | `workspace.read` | no | no |
-| [`events.get`](#events-get) | read | `workspace.read` | no | no |
-| [`flows.draft.create`](#flows-draft-create) | write | `workspace.write` | yes | no |
-| [`flows.draft.revise`](#flows-draft-revise) | write | `workspace.write` | yes | no |
-| [`flows.status.set`](#flows-status-set) | write | `workspace.write` | yes | no |
-| [`flows.delete`](#flows-delete) | write | `workspace.write` | yes | no |
-| [`checks.status.set`](#checks-status-set) | write | `workspace.write` | yes | yes |
-| [`checks.delete`](#checks-delete) | write | `workspace.write` | yes | no |
-| [`employees.status.set`](#employees-status-set) | write | `workspace.write` | yes | yes |
-| [`employees.delete`](#employees-delete) | write | `workspace.write` | yes | no |
-| [`talents.status.set`](#talents-status-set) | write | `workspace.write` | yes | yes |
-| [`autopilots.create`](#autopilots-create) | write | `workspace.write` | yes | no |
-| [`autopilots.links.generate`](#autopilots-links-generate) | write | `workspace.write` | yes | no |
-| [`autopilots.status.set`](#autopilots-status-set) | write | `workspace.write` | yes | no |
-| [`autopilots.delete`](#autopilots-delete) | write | `workspace.write` | yes | no |
-| [`references.request`](#references-request) | write | `workspace.write` | yes | yes |
-| [`checks.bulkCreate`](#checks-bulkcreate) | write | `workspace.write` | yes | yes |
-| [`employees.bulkImport`](#employees-bulkimport) | write | `workspace.write` | yes | yes |
-| [`checks.addNote`](#checks-addnote) | write | `workspace.write` | yes | yes |
-| [`employees.addNote`](#employees-addnote) | write | `workspace.write` | yes | yes |
-| [`talents.addNote`](#talents-addnote) | write | `workspace.write` | yes | yes |
+| Operation | Kind | Access | Scope | MCP | Zapier action |
+| --- | --- | --- | --- | --- | --- |
+| [`workspace.get`](#workspace-get) | read | supported clients | `workspace.read` | yes | no |
+| [`workspace.search`](#workspace-search) | read | supported clients | `workspace.read` | yes | no |
+| [`companies.list`](#companies-list) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.list`](#flows-list) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.get`](#flows-get) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.capabilities.get`](#flows-capabilities-get) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.templates.list`](#flows-templates-list) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.questions.search`](#flows-questions-search) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.referenceTemplates.list`](#flows-referencetemplates-list) | read | supported clients | `workspace.read` | yes | no |
+| [`flows.blueprint.get`](#flows-blueprint-get) | read | supported clients | `workspace.read` | yes | no |
+| [`performance.operations.get`](#performance-operations-get) | read | supported clients | `workspace.read` | yes | no |
+| [`glowMoments.send`](#glowmoments-send) | write | supported clients | `workspace.write` | yes | no |
+| [`glowMoments.cycle.status.set`](#glowmoments-cycle-status-set) | write | supported clients | `workspace.write` | yes | no |
+| [`teamPulse.send`](#teampulse-send) | write | supported clients | `workspace.write` | yes | no |
+| [`teamPulse.cycle.status.set`](#teampulse-cycle-status-set) | write | supported clients | `workspace.write` | yes | no |
+| [`checks.list`](#checks-list) | read | supported clients | `workspace.read` | yes | no |
+| [`checks.analytics`](#checks-analytics) | read | supported clients | `workspace.read` | yes | no |
+| [`checks.get`](#checks-get) | read | supported clients | `workspace.read` | yes | no |
+| [`checks.report`](#checks-report) | read | supported clients | `workspace.read` | yes | no |
+| [`checks.verifications.get`](#checks-verifications-get) | read | official Jointl Zapier app only | `workspace.read` | no | no |
+| [`checks.verifications.runAll`](#checks-verifications-runall) | write | official Jointl Zapier app only | `workspace.write` | no | yes |
+| [`checks.publicProfiles.get`](#checks-publicprofiles-get) | read | official Jointl Zapier app only | `workspace.read` | no | no |
+| [`checks.publicProfiles.find`](#checks-publicprofiles-find) | write | official Jointl Zapier app only | `workspace.write` | no | yes |
+| [`references.list`](#references-list) | read | supported clients | `workspace.read` | yes | no |
+| [`references.get`](#references-get) | read | supported clients | `workspace.read` | yes | no |
+| [`employees.list`](#employees-list) | read | supported clients | `workspace.read` | yes | no |
+| [`employees.analytics`](#employees-analytics) | read | supported clients | `workspace.read` | yes | no |
+| [`employees.get`](#employees-get) | read | supported clients | `workspace.read` | yes | no |
+| [`employees.exitIntelligence.get`](#employees-exitintelligence-get) | read | official Jointl Zapier app only | `workspace.read` | no | no |
+| [`talents.list`](#talents-list) | read | supported clients | `workspace.read` | yes | no |
+| [`talents.get`](#talents-get) | read | supported clients | `workspace.read` | yes | no |
+| [`talents.references.list`](#talents-references-list) | read | supported clients | `workspace.read` | yes | no |
+| [`autopilots.list`](#autopilots-list) | read | supported clients | `workspace.read` | yes | no |
+| [`autopilots.get`](#autopilots-get) | read | supported clients | `workspace.read` | yes | no |
+| [`insights.get`](#insights-get) | read | supported clients | `workspace.read` | yes | no |
+| [`events.list`](#events-list) | read | official Jointl Zapier app only | `workspace.read` | no | no |
+| [`events.get`](#events-get) | read | official Jointl Zapier app only | `workspace.read` | no | no |
+| [`flows.draft.create`](#flows-draft-create) | write | supported clients | `workspace.write` | yes | no |
+| [`flows.draft.revise`](#flows-draft-revise) | write | supported clients | `workspace.write` | yes | no |
+| [`flows.status.set`](#flows-status-set) | write | supported clients | `workspace.write` | yes | no |
+| [`flows.delete`](#flows-delete) | write | supported clients | `workspace.write` | yes | no |
+| [`checks.status.set`](#checks-status-set) | write | supported clients | `workspace.write` | yes | yes |
+| [`checks.delete`](#checks-delete) | write | supported clients | `workspace.write` | yes | no |
+| [`employees.status.set`](#employees-status-set) | write | supported clients | `workspace.write` | yes | yes |
+| [`employees.delete`](#employees-delete) | write | supported clients | `workspace.write` | yes | no |
+| [`talents.status.set`](#talents-status-set) | write | supported clients | `workspace.write` | yes | yes |
+| [`autopilots.create`](#autopilots-create) | write | supported clients | `workspace.write` | yes | no |
+| [`autopilots.links.generate`](#autopilots-links-generate) | write | supported clients | `workspace.write` | yes | no |
+| [`autopilots.status.set`](#autopilots-status-set) | write | supported clients | `workspace.write` | yes | no |
+| [`autopilots.delete`](#autopilots-delete) | write | supported clients | `workspace.write` | yes | no |
+| [`references.request`](#references-request) | write | supported clients | `workspace.write` | yes | yes |
+| [`checks.bulkCreate`](#checks-bulkcreate) | write | supported clients | `workspace.write` | yes | yes |
+| [`employees.bulkImport`](#employees-bulkimport) | write | supported clients | `workspace.write` | yes | yes |
+| [`checks.addNote`](#checks-addnote) | write | supported clients | `workspace.write` | yes | yes |
+| [`employees.addNote`](#employees-addnote) | write | supported clients | `workspace.write` | yes | yes |
+| [`talents.addNote`](#talents-addnote) | write | supported clients | `workspace.write` | yes | yes |
 
 ## workspace.get
 
@@ -77,6 +77,7 @@ Use when: Call once at the start of a task that depends on workspace identity, c
 Returns: workspace ID, workspace name, member identity, accessible companies, and granted permission keys.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/workspace.get`
 - MCP: `jointl_workspace_get`
 - Confirmation: not required
@@ -130,6 +131,7 @@ Use when: Use for quick entity lookup from a name, email, attribute, company, ta
 Returns: ranked matches in `sourceRecords`, suggested next operations in `followUpOperations`, result counts, the applied limit, and `exhaustive: false`.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/workspace.search`
 - MCP: `jointl_workspace_search`
 - Confirmation: not required
@@ -214,6 +216,7 @@ Use when: Use before a scoped Flow, Employee import, or other action needs an ex
 Returns: a cursor-paginated list of company IDs, names, statuses, and creation timestamps.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/companies.list`
 - MCP: `jointl_companies_list`
 - Confirmation: not required
@@ -267,6 +270,7 @@ Use when: Use to browse or filter a Flow cohort; use flows.get for one Flow or f
 Returns: a cursor-paginated list of Flow summaries with activity, company, tags, type, status, and IDs.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.list`
 - MCP: `jointl_flows_list`
 - Confirmation: not required
@@ -327,6 +331,7 @@ Use when: Use for the operational details of one Flow; use flows.blueprint.get i
 Returns: the authorized Flow details, related company, job role, tags, sharing members, and automation status summaries.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.get`
 - MCP: `jointl_flows_get`
 - Confirmation: not required
@@ -375,6 +380,7 @@ Use when: Call before creating or substantially redesigning a Flow so the propos
 Returns: supported types and sections, authoring limits, current write access, the authoring protocol, and protected actions.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.capabilities.get`
 - MCP: `jointl_flows_capabilities_get`
 - Confirmation: not required
@@ -434,6 +440,7 @@ Use when: Use to browse one exact template category or inspect all questions in 
 Returns: template IDs and titles with complete question blocks for the returned templates, plus indicators telling the assistant to increase the limit or narrow the query when results were truncated.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.templates.list`
 - MCP: `jointl_flows_templates_list`
 - Confirmation: not required
@@ -487,6 +494,7 @@ Use when: Use first when finding reusable questions for a use case across one or
 Returns: relevance-ranked question and template IDs, prompts, types, options, matched terms, and search coverage details.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.questions.search`
 - MCP: `jointl_flows_questions_search`
 - Confirmation: not required
@@ -544,6 +552,7 @@ Use when: Use before requesting a reference so the action receives a valid templ
 Returns: ordered reference template IDs, titles, icons, and types configured on the Flow.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.referenceTemplates.list`
 - MCP: `jointl_flows_reference_templates_list`
 - Confirmation: not required
@@ -591,6 +600,7 @@ Use when: Use only before flows.draft.revise so the latest revision token and co
 Returns: the editable Flow metadata, expanded design, revision token, and indicators for settings that must be managed separately.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/flows.blueprint.get`
 - MCP: `jointl_flows_blueprint_get`
 - Confirmation: not required
@@ -640,6 +650,7 @@ Use when: Use after flows.get for a Performance Flow when the user needs cycle p
 Returns: the Performance configuration and recent cycles visible to the member; optional participant and scoreboard links include an explicit sharing warning.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/performance.operations.get`
 - MCP: `jointl_performance_operations_get`
 - Confirmation: not required
@@ -690,6 +701,7 @@ Use when: Use only when the user explicitly asks to send Glow Moments now; publi
 Returns: after confirmation, whether the Glow Moments send was queued and its scheduled time.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_glow_moments_send_prepare`
 - Confirmation: required
@@ -745,6 +757,7 @@ Use when: Use only after performance.operations.get when the user explicitly ask
 Returns: after confirmation, the cycle ID, Flow ID, previous status, resulting status, enabled state, and change flag.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_glow_moments_cycle_status_set_prepare`
 - Confirmation: required
@@ -806,6 +819,7 @@ Use when: Use only when the user explicitly asks to send Team Pulse now; publish
 Returns: after confirmation, whether the Team Pulse send was queued and its scheduled time.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_team_pulse_send_prepare`
 - Confirmation: required
@@ -861,6 +875,7 @@ Use when: Use only after performance.operations.get when the user explicitly ask
 Returns: after confirmation, the cycle ID, Flow ID, previous status, resulting status, enabled state, and change flag.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_team_pulse_cycle_status_set_prepare`
 - Confirmation: required
@@ -922,6 +937,7 @@ Use when: Use to browse or filter Checks and obtain applicant IDs; use checks.an
 Returns: a cursor-paginated list of authorized Check summaries, Flow context, statuses, progress, and IDs.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/checks.list`
 - MCP: `jointl_checks_list`
 - Confirmation: not required
@@ -978,6 +994,7 @@ Use when: Use first for top-candidate, ranking, strengths, weaknesses, or cohort
 Returns: per-Flow factual ranks, scores, evidence summaries, coverage and verification signals, cohort counts, pagination, and guidance for human review.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/checks.analytics`
 - MCP: `jointl_checks_analytics`
 - Confirmation: not required
@@ -1045,6 +1062,7 @@ Use when: Use after search, list, or analytics when one Check needs contextual d
 Returns: profile metadata and recent activity, evidenceIncluded, and either condensed pre-screening, matching, work and reference evidence or null.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/checks.get`
 - MCP: `jointl_checks_get`
 - Confirmation: not required
@@ -1093,6 +1111,7 @@ Use when: Use after checks.analytics for every candidate relevant to a comparati
 Returns: the itemized authorized Check report with factual narrative and measured evidence; it never returns a recommendation or reference responses the member cannot access.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/checks.report`
 - MCP: `jointl_checks_report`
 - Confirmation: not required
@@ -1155,6 +1174,7 @@ Use when: Use after a verification.completed or verification.failed Zapier event
 Returns: verification types available through the member’s permissions and workspace plan, the latest run status and findings for each type, and Check eligibility state.
 
 - Scope: `workspace.read`
+- Access: official Jointl Zapier app only
 - REST: `POST /api/v1/operations/checks.verifications.get`
 - MCP: not available
 - Confirmation: not required
@@ -1206,6 +1226,7 @@ Use when: Use when an external event should start the Run All Checks workflow; v
 Returns: one run group ID and the queued, reused, locked, or immediately completed result for each available verification type.
 
 - Scope: `workspace.write`
+- Access: official Jointl Zapier app only
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: not available
 - Confirmation: required
@@ -1262,6 +1283,7 @@ Use when: Use after a public_profiles.completed or public_profiles.failed Zapier
 Returns: the latest and previous completed discovery states, public profile matches available to the member, graph summary, and availability state.
 
 - Scope: `workspace.read`
+- Access: official Jointl Zapier app only
 - REST: `POST /api/v1/operations/checks.publicProfiles.get`
 - MCP: not available
 - Confirmation: not required
@@ -1311,6 +1333,7 @@ Use when: Use when an external event should start the Find Profiles workflow; pr
 Returns: the queued or reused run ID and status, or a rescore of an existing completed result with its match count.
 
 - Scope: `workspace.write`
+- Access: official Jointl Zapier app only
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: not available
 - Confirmation: required
@@ -1369,6 +1392,7 @@ Use when: Use to retrieve every reference for a Check or find a reference ID bef
 Returns: a cursor-paginated list of reference IDs, referee identity, type, status, and lifecycle times.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/references.list`
 - MCP: `jointl_references_list`
 - Confirmation: not required
@@ -1425,6 +1449,7 @@ Use when: Use after references.list or a reference.completed event when the comp
 Returns: the complete reference response available to the member and average reference metrics.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/references.get`
 - MCP: `jointl_references_get`
 - Confirmation: not required
@@ -1468,6 +1493,7 @@ Use when: Use to browse or filter Employees and obtain Employee IDs; use employe
 Returns: a cursor-paginated list of authorized Employee summaries with company, position, manager, tags, status, and IDs.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/employees.list`
 - MCP: `jointl_employees_list`
 - Confirmation: not required
@@ -1525,6 +1551,7 @@ Use when: Use first for best-performer, needs-attention, strengths, weaknesses, 
 Returns: factual visible-cohort ranks, performance scores, measured evidence, attention signals, counts, pagination, and guidance for human review.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/employees.analytics`
 - MCP: `jointl_employees_analytics`
 - Confirmation: not required
@@ -1590,6 +1617,7 @@ Use when: Use after search, list, or analytics when one Employee needs contextua
 Returns: profile, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/employees.get`
 - MCP: `jointl_employees_get`
 - Confirmation: not required
@@ -1638,6 +1666,7 @@ Use when: Use after an exit_intelligence.completed Zapier event, passing its req
 Returns: the visible Employee summary and zero or one non-cancelled Exit Intelligence request with its Flow, form, metrics, and answered questions.
 
 - Scope: `workspace.read`
+- Access: official Jointl Zapier app only
 - REST: `POST /api/v1/operations/employees.exitIntelligence.get`
 - MCP: not available
 - Confirmation: not required
@@ -1687,6 +1716,7 @@ Use when: Use to browse and filter the authorized Talent Pool and obtain profile
 Returns: a cursor-paginated list of scoped Talent Pool summaries, statuses, experience and evidence metrics allowed by the role.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/talents.list`
 - MCP: `jointl_talents_list`
 - Confirmation: not required
@@ -1746,6 +1776,7 @@ Use when: Use after search or talents.list for one profile; use talents.referenc
 Returns: profile, contact and extracted experience data, plus optional achievements, work, notes, answer signals and cross-verified attributes.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/talents.get`
 - MCP: `jointl_talents_get`
 - Confirmation: not required
@@ -1794,6 +1825,7 @@ Use when: Use only for itemized authorized reference responses on one Talent Poo
 Returns: normalized reference responses and average reference metrics, with third-party identities masked when required.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/talents.references.list`
 - MCP: `jointl_talents_references_list`
 - Confirmation: not required
@@ -1844,6 +1876,7 @@ Use when: Use to find an Autopilot group, inspect status and Check counts, or ob
 Returns: a cursor-paginated list of visible Autopilot summaries without shareable access links.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/autopilots.list`
 - MCP: `jointl_autopilots_list`
 - Confirmation: not required
@@ -1899,6 +1932,7 @@ Use when: Use only when the user needs to inspect one known Autopilot or retriev
 Returns: Autopilot status, Flow context, Check count, enabled sections, public links, and a sharing warning.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/autopilots.get`
 - MCP: `jointl_autopilots_get`
 - Confirmation: not required
@@ -1953,6 +1987,7 @@ Use when: Use for workspace activity and completion metrics, team performance ev
 Returns: the selected Insights dataset plus the applied view, inclusive UTC dates, and company, Flow, and role filters.
 
 - Scope: `workspace.read`
+- Access: supported API clients
 - REST: `POST /api/v1/operations/insights.get`
 - MCP: `jointl_insights_get`
 - Confirmation: not required
@@ -2018,6 +2053,7 @@ Use when: Use when Zapier tests or configures a trigger before new events are av
 Returns: newest-first trigger payloads with the same shape returned after a Zapier webhook notification.
 
 - Scope: `workspace.read`
+- Access: official Jointl Zapier app only
 - REST: `POST /api/v1/operations/events.list`
 - MCP: not available
 - Confirmation: not required
@@ -2083,6 +2119,7 @@ Use when: Use only after an instant Zapier hook receives an event ID.
 Returns: one authorized trigger payload; revoked or inaccessible records are not returned.
 
 - Scope: `workspace.read`
+- Access: official Jointl Zapier app only
 - REST: `POST /api/v1/operations/events.get`
 - MCP: not available
 - Confirmation: not required
@@ -2142,6 +2179,7 @@ Use when: Use after capabilities, companies, and relevant question/template disc
 Returns: after confirmation, the created draft Flow ID, revision, and saved design summary.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_flows_draft_create_prepare`
 - Confirmation: required
@@ -2207,6 +2245,7 @@ Use when: Use only after flows.blueprint.get when the user wants to replace supp
 Returns: after confirmation, the revised draft Flow ID, new revision, and saved design summary.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_flows_draft_revise_prepare`
 - Confirmation: required
@@ -2276,6 +2315,7 @@ Use when: Use only when the user explicitly asks to publish, activate, archive, 
 Returns: after confirmation, the Flow ID, previous status, resulting status, and whether the status change was applied.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_flows_status_set_prepare`
 - Confirmation: required
@@ -2335,6 +2375,7 @@ Use when: Use only when the user explicitly asks to permanently delete one known
 Returns: after confirmation, the deleted Flow ID, prior status, and deletion outcome.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_flows_delete_prepare`
 - Confirmation: required
@@ -2391,6 +2432,7 @@ Use when: Use only when the user explicitly asks to change one Check status; nev
 Returns: after confirmation, the Check ID, previous status, resulting status, and whether the change was applied.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_checks_status_set_prepare`
 - Confirmation: required
@@ -2450,6 +2492,7 @@ Use when: Use only when the user explicitly asks to permanently delete one known
 Returns: after confirmation, the deleted Check ID, prior status, and deletion outcome.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_checks_delete_prepare`
 - Confirmation: required
@@ -2506,6 +2549,7 @@ Use when: Use only when the user explicitly asks to mark a known Employee active
 Returns: after confirmation, the Employee ID, previous status, resulting status, and whether the change was applied.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_employees_status_set_prepare`
 - Confirmation: required
@@ -2568,6 +2612,7 @@ Use when: Use only when the user explicitly asks to permanently delete one known
 Returns: after confirmation, the deleted Employee ID, prior status, and deletion outcome.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_employees_delete_prepare`
 - Confirmation: required
@@ -2624,6 +2669,7 @@ Use when: Use only when the user explicitly asks to change one Talent Pool statu
 Returns: after confirmation, the Talent Pool profile ID, previous status, resulting status, and whether the change was applied.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_talents_status_set_prepare`
 - Confirmation: required
@@ -2683,6 +2729,7 @@ Use when: Use when the user explicitly asks to run a new Autopilot or generate a
 Returns: after confirmation, the Autopilot group ID, Flow context, newly generated public links, and a sharing warning.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_autopilots_create_prepare`
 - Confirmation: required
@@ -2742,6 +2789,7 @@ Use when: Use when the user explicitly asks for more links on an existing known 
 Returns: after confirmation, the existing group ID and only the newly generated public links with a sharing warning.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_autopilots_links_generate_prepare`
 - Confirmation: required
@@ -2802,6 +2850,7 @@ Use when: Use only when the user explicitly asks to archive, disable, restore, o
 Returns: after confirmation, the Autopilot group ID, previous status, resulting status, and whether the action was applied.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_autopilots_status_set_prepare`
 - Confirmation: required
@@ -2861,6 +2910,7 @@ Use when: Use only when the user explicitly asks to permanently delete one known
 Returns: after confirmation, deleted group ID, prior status, link and Check counts, and deletion outcome.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_autopilots_delete_prepare`
 - Confirmation: required
@@ -2919,6 +2969,7 @@ Use when: Use after resolving the Check and selecting a template from flows.refe
 Returns: after confirmation, the created reference ID and invitation delivery status.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_references_request_prepare`
 - Confirmation: required
@@ -2980,6 +3031,7 @@ Use when: Use after the client has parsed a file into validated fullName and ema
 Returns: after confirmation, the created count and each applicant ID with its invitation delivery status.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_checks_bulk_create_prepare`
 - Confirmation: required
@@ -3048,6 +3100,7 @@ Use when: Use after the client has parsed and validated Employee rows and resolv
 Returns: after confirmation, an import summary with created, updated, unchanged, and row-level outcomes.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_employees_bulk_import_prepare`
 - Confirmation: required
@@ -3138,6 +3191,7 @@ Use when: Use only when the user explicitly asks to add text to one authorized C
 Returns: after confirmation, whether the note was added.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_checks_add_note_prepare`
 - Confirmation: required
@@ -3191,6 +3245,7 @@ Use when: Use only when the user explicitly asks to add text to one authorized E
 Returns: after confirmation, whether the note was added.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_employees_add_note_prepare`
 - Confirmation: required
@@ -3244,6 +3299,7 @@ Use when: Use only when the user explicitly asks to add text to one authorized T
 Returns: after confirmation, whether the note was added.
 
 - Scope: `workspace.write`
+- Access: supported API clients
 - REST: `/api/v1/actions/prepare` → approval → `/api/v1/actions/confirm`
 - MCP: `jointl_talents_add_note_prepare`
 - Confirmation: required

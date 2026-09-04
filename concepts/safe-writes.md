@@ -14,8 +14,8 @@ Changing the target or input requires a new preparation. Re-check the response b
 current permissions and record state are evaluated again at confirmation. Destructive
 actions and at-most-once actions must never be retried speculatively.
 
-Zapier's `/actions/execute` path is available only to the installed Zapier app and its
-approved actions. It does not turn arbitrary writes into unattended actions; the
+Zapier's `/actions/execute` path is available only to the official Jointl Zapier app and
+its enabled actions. It does not turn arbitrary writes into unattended actions; the
 installation, operation, permissions, idempotency identity, and safety classification
 must all qualify.
 
