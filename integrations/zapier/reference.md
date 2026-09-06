@@ -1,11 +1,11 @@
 ---
 title: Zapier component reference
-description: Jointl for Zapier 1.0.0 supports 16 triggers, 7 searches, and 14 actions.
+description: Jointl for Zapier 1.0.0 supports 14 triggers, 8 searches, and 14 actions.
 ---
 
-Jointl for Zapier 1.0.0 supports 16 triggers, 7 searches, and 14 actions. It targets Zapier Platform 19.1.0.
+Jointl for Zapier 1.0.0 supports 14 triggers, 8 searches, and 14 actions. It targets Zapier Platform 19.1.0.
 
-All actions require Source Event ID even where it is omitted from the abbreviated tables below. The field provides the retry-safe identity described in the [Zapier guide](/integrations/zapier/index).
+Every write requires Unique Source Key, including the create-if-missing branch of Find Employee. The field provides the retry-safe identity described in the [Zapier guide](/integrations/zapier/index).
 
 ## Available components
 
@@ -14,10 +14,8 @@ All actions require Source Event ID even where it is omitted from the abbreviate
 | trigger | `new_check` | New Check | `events.list` / `events.get` |
 | trigger | `check_status_changed` | Check Status Changed | `events.list` / `events.get` |
 | trigger | `check_completed` | Check Completed | `events.list` / `events.get` |
-| trigger | `verification_check_completed` | Verification Check Completed | `events.list` / `events.get` |
-| trigger | `verification_check_failed` | Verification Check Failed | `events.list` / `events.get` |
-| trigger | `public_profile_discovery_completed` | Public Profile Discovery Completed | `events.list` / `events.get` |
-| trigger | `public_profile_discovery_failed` | Public Profile Discovery Failed | `events.list` / `events.get` |
+| trigger | `verification_check_finished` | Verification Check Finished | `events.list` / `events.get` |
+| trigger | `public_profile_discovery_finished` | Public Profile Discovery Finished | `events.list` / `events.get` |
 | trigger | `reference_completed` | Reference Completed | `events.list` / `events.get` |
 | trigger | `new_employee` | New Employee | `events.list` / `events.get` |
 | trigger | `employee_work_details_changed` | Employee Work Details Changed | `events.list` / `events.get` |
@@ -27,7 +25,8 @@ All actions require Source Event ID even where it is omitted from the abbreviate
 | trigger | `new_talent` | New Talent | `events.list` / `events.get` |
 | trigger | `talent_profile_submitted` | Talent Profile Submitted From Reference | `events.list` / `events.get` |
 | trigger | `talent_status_changed` | Talent Pool Status Changed | `events.list` / `events.get` |
-| search | `find_person` | Find Person | `workspace.search` |
+| search | `find_person` | Find People | `workspace.search` |
+| search | `find_employee` | Find Employee | `workspace.search` |
 | search | `find_check_report` | Find Check Report | `checks.report` |
 | search | `find_reference_response` | Find Reference Response | `references.get` |
 | search | `find_references_for_check` | Find References for Check | `references.list` |
@@ -363,17 +362,18 @@ Triggers when a candidate completes a Flow.
 }
 ```
 
-## Verification Check Completed
+## Verification Check Finished
 
-- Zapier key: `verification_check_completed`
+- Zapier key: `verification_check_finished`
 - Kind: trigger
 
-Triggers when one verification check finishes. Use Find Verification Results when a later step needs detailed findings.
+Triggers when one verification check completes or fails. Use Find Verification Results when a later step needs detailed findings.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
+| `run_status` | Run Result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
 | `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
 | `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
 
@@ -439,7 +439,7 @@ Triggers when one verification check finishes. Use Find Verification Results whe
   "employee_id": null,
   "entity_id": "check_id",
   "entity_type": "check",
-  "event_type": "verification.completed",
+  "event_type": "verification.finished",
   "exit_intelligence_request_id": null,
   "flow_id": "flow_id",
   "flow_title": "Example Hiring Flow",
@@ -467,17 +467,18 @@ Triggers when one verification check finishes. Use Find Verification Results whe
 }
 ```
 
-## Verification Check Failed
+## Public Profile Discovery Finished
 
-- Zapier key: `verification_check_failed`
+- Zapier key: `public_profile_discovery_finished`
 - Kind: trigger
 
-Triggers when one verification check cannot be completed.
+Triggers when a public-profile discovery run completes or fails. Use Find Public Profile Results to retrieve authorized matches.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
+| `run_status` | Run Result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
 | `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
 | `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
 
@@ -543,111 +544,7 @@ Triggers when one verification check cannot be completed.
   "employee_id": null,
   "entity_id": "check_id",
   "entity_type": "check",
-  "event_type": "verification.failed",
-  "exit_intelligence_request_id": null,
-  "flow_id": "flow_id",
-  "flow_title": "Example Hiring Flow",
-  "graph_cluster_count": null,
-  "graph_edge_count": null,
-  "graph_node_count": null,
-  "id": "evt_example",
-  "jointl_url": "https://join.tl/checks/check_id",
-  "occurred_at": "2026-01-01T12:00:00.000Z",
-  "position_title": "Software Engineer",
-  "previous_status": null,
-  "record_email": "alex@example.com",
-  "record_first_name": "Alex",
-  "record_last_name": "Example",
-  "record_name": "Alex Example",
-  "record_status": null,
-  "reference_id": null,
-  "run_group_id": "run_group_id",
-  "run_id": "run_id",
-  "run_outcome": "error",
-  "run_status": "failed",
-  "talent_id": null,
-  "verification_label": "Sanctions",
-  "verification_type": "sanctions"
-}
-```
-
-## Public Profile Discovery Completed
-
-- Zapier key: `public_profile_discovery_completed`
-- Kind: trigger
-
-Triggers when a new public-profile discovery run finishes. Use Find Public Profile Results to retrieve authorized matches.
-
-### Input fields
-
-| Key | Label | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
-| `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
-
-### Output fields
-
-| Key | Label | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `id` | Event ID | string | No |  |
-| `event_type` | Event Type | string | No |  |
-| `occurred_at` | Occurred At | datetime | No |  |
-| `entity_id` | Record ID | string | No |  |
-| `entity_type` | Record Type | string | No |  |
-| `check_id` | Check ID | string | No |  |
-| `reference_id` | Reference ID | string | No |  |
-| `employee_id` | Employee ID | string | No |  |
-| `talent_id` | Talent ID | string | No |  |
-| `exit_intelligence_request_id` | Exit Intelligence Request ID | string | No |  |
-| `flow_id` | Flow ID | string | No |  |
-| `company_ids` | Company IDs | string | No |  |
-| `changed_fields` | Changed Fields | string | No |  |
-| `previous_status` | Previous Status | string | No |  |
-| `current_status` | Current Status | string | No |  |
-| `run_id` | Run ID | string | No |  |
-| `run_group_id` | Run Group ID | string | No |  |
-| `verification_type` | Verification Type | string | No |  |
-| `verification_label` | Verification Label | string | No |  |
-| `run_status` | Run Status | string | No |  |
-| `run_outcome` | Run Outcome | string | No |  |
-| `graph_node_count` | Profile Graph Nodes | integer | No |  |
-| `graph_edge_count` | Profile Graph Edges | integer | No |  |
-| `graph_cluster_count` | Profile Graph Clusters | integer | No |  |
-| `jointl_url` | Jointl URL | string | No |  |
-| `record_name` | Record Name | string | No |  |
-| `record_first_name` | Record First Name | string | No |  |
-| `record_last_name` | Record Last Name | string | No |  |
-| `record_email` | Record Email | string | No |  |
-| `record_status` | Record Status | string | No |  |
-| `company_id` | Company ID | string | No |  |
-| `company_name` | Company Name | string | No |  |
-| `flow_title` | Flow Title | string | No |  |
-| `position_title` | Position Title | string | No |  |
-| `data` | Jointl Data | value | No |  |
-
-### Sample output
-
-```json
-{
-  "changed_fields": [],
-  "check_id": "check_id",
-  "company_id": "company_id",
-  "company_ids": [
-    "company_id"
-  ],
-  "company_name": "Example Company",
-  "current_status": null,
-  "data": {
-    "profile": {
-      "_id": "check_id",
-      "email": "alex@example.com",
-      "fullName": "Alex Example"
-    }
-  },
-  "employee_id": null,
-  "entity_id": "check_id",
-  "entity_type": "check",
-  "event_type": "public_profiles.completed",
+  "event_type": "public_profiles.finished",
   "exit_intelligence_request_id": null,
   "flow_id": "flow_id",
   "flow_title": "Example Hiring Flow",
@@ -669,110 +566,6 @@ Triggers when a new public-profile discovery run finishes. Use Find Public Profi
   "run_id": "run_id",
   "run_outcome": "profilesFound",
   "run_status": "completed",
-  "talent_id": null,
-  "verification_label": null,
-  "verification_type": null
-}
-```
-
-## Public Profile Discovery Failed
-
-- Zapier key: `public_profile_discovery_failed`
-- Kind: trigger
-
-Triggers when a public-profile discovery run cannot be completed.
-
-### Input fields
-
-| Key | Label | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
-| `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
-
-### Output fields
-
-| Key | Label | Type | Required | Notes |
-| --- | --- | --- | --- | --- |
-| `id` | Event ID | string | No |  |
-| `event_type` | Event Type | string | No |  |
-| `occurred_at` | Occurred At | datetime | No |  |
-| `entity_id` | Record ID | string | No |  |
-| `entity_type` | Record Type | string | No |  |
-| `check_id` | Check ID | string | No |  |
-| `reference_id` | Reference ID | string | No |  |
-| `employee_id` | Employee ID | string | No |  |
-| `talent_id` | Talent ID | string | No |  |
-| `exit_intelligence_request_id` | Exit Intelligence Request ID | string | No |  |
-| `flow_id` | Flow ID | string | No |  |
-| `company_ids` | Company IDs | string | No |  |
-| `changed_fields` | Changed Fields | string | No |  |
-| `previous_status` | Previous Status | string | No |  |
-| `current_status` | Current Status | string | No |  |
-| `run_id` | Run ID | string | No |  |
-| `run_group_id` | Run Group ID | string | No |  |
-| `verification_type` | Verification Type | string | No |  |
-| `verification_label` | Verification Label | string | No |  |
-| `run_status` | Run Status | string | No |  |
-| `run_outcome` | Run Outcome | string | No |  |
-| `graph_node_count` | Profile Graph Nodes | integer | No |  |
-| `graph_edge_count` | Profile Graph Edges | integer | No |  |
-| `graph_cluster_count` | Profile Graph Clusters | integer | No |  |
-| `jointl_url` | Jointl URL | string | No |  |
-| `record_name` | Record Name | string | No |  |
-| `record_first_name` | Record First Name | string | No |  |
-| `record_last_name` | Record Last Name | string | No |  |
-| `record_email` | Record Email | string | No |  |
-| `record_status` | Record Status | string | No |  |
-| `company_id` | Company ID | string | No |  |
-| `company_name` | Company Name | string | No |  |
-| `flow_title` | Flow Title | string | No |  |
-| `position_title` | Position Title | string | No |  |
-| `data` | Jointl Data | value | No |  |
-
-### Sample output
-
-```json
-{
-  "changed_fields": [],
-  "check_id": "check_id",
-  "company_id": "company_id",
-  "company_ids": [
-    "company_id"
-  ],
-  "company_name": "Example Company",
-  "current_status": null,
-  "data": {
-    "profile": {
-      "_id": "check_id",
-      "email": "alex@example.com",
-      "fullName": "Alex Example"
-    }
-  },
-  "employee_id": null,
-  "entity_id": "check_id",
-  "entity_type": "check",
-  "event_type": "public_profiles.failed",
-  "exit_intelligence_request_id": null,
-  "flow_id": "flow_id",
-  "flow_title": "Example Hiring Flow",
-  "graph_cluster_count": 3,
-  "graph_edge_count": 18,
-  "graph_node_count": 12,
-  "id": "evt_example",
-  "jointl_url": "https://join.tl/checks/check_id",
-  "occurred_at": "2026-01-01T12:00:00.000Z",
-  "position_title": "Software Engineer",
-  "previous_status": null,
-  "record_email": "alex@example.com",
-  "record_first_name": "Alex",
-  "record_last_name": "Example",
-  "record_name": "Alex Example",
-  "record_status": null,
-  "reference_id": null,
-  "run_group_id": null,
-  "run_id": "run_id",
-  "run_outcome": "error",
-  "run_status": "failed",
   "talent_id": null,
   "verification_label": null,
   "verification_type": null
@@ -1728,7 +1521,7 @@ Triggers when a Talent Pool profile moves to another status.
 }
 ```
 
-## Find Person
+## Find People
 
 - Zapier key: `find_person`
 - Kind: search
@@ -1740,7 +1533,7 @@ Finds up to 30 authorized people across Checks, Employees, Talent Pool profiles,
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `query` | Search Text | string | Yes | Enter a name, email, company, job title, tag, attribute, or other identifying text. |
+| `query` | Search Text | string | Yes | Enter a name, email, company, job title, tag, attribute, or other identifying text. To keep every returned match, set “If multiple search results are found?” to “Return all results as line items”. Results are limited to 30, not a complete workspace export. For one exact record, use the search button in that action’s Check, Employee, or Talent field. |
 | `person_source` | Person Source | string | No | Optionally search only one Jointl record type. Reference people require reference-response access, and Team Members follow Jointl’s owner-only global-search visibility. Default: "all". Choices: all, applicant, employee, member, reference, talent. |
 
 ### Output fields
@@ -1858,6 +1651,118 @@ Finds up to 30 authorized people across Checks, Employees, Talent Pool profiles,
   "talent_status": null,
   "team_member_id": null,
   "team_member_ids": []
+}
+```
+
+## Find Employee
+
+- Zapier key: `find_employee`
+- Kind: search
+- Jointl operation: `workspace.search`
+
+Finds one unambiguous authorized employee by name, email, or related text.
+
+### Input fields
+
+| Key | Label | Type | Required | Notes |
+| --- | --- | --- | --- | --- |
+| `query` | Search Text | string | Yes | Enter the employee's name, email, or identifying text. |
+
+### Output fields
+
+| Key | Label | Type | Required | Notes |
+| --- | --- | --- | --- | --- |
+| `id` | Employee ID | string | No |  |
+| `employee_id` | Employee ID | string | No |  |
+| `full_name` | Full Name | string | No |  |
+| `search_label` | Search Label | string | No |  |
+| `status` | Employee Status | string | No |  |
+| `jointl_url` | Jointl URL | string | No |  |
+| `email` | Work Email | string | No |  |
+| `position_id` | Work Record ID | string | No |  |
+| `company_id` | Company ID | string | No |  |
+| `company_name` | Company Name | string | No |  |
+| `position_title` | Position Title | string | No |  |
+| `start_date` | Start Date | string | No |  |
+| `end_date` | End Date | string | No |  |
+
+### Sample output
+
+```json
+{
+  "company_id": "company_id",
+  "company_name": "Example Company",
+  "email": "sam@example.com",
+  "employee_id": "employee_id",
+  "end_date": null,
+  "full_name": "Example Employee",
+  "id": "employee_id",
+  "jointl_url": "https://join.tl/employees/employee_id/overview",
+  "position_id": "position_id",
+  "position_title": "Engineer",
+  "search_label": "Example Employee",
+  "start_date": "2026-09-01",
+  "status": "active"
+}
+```
+
+### Create if no match is found
+
+Optionally enable create-if-missing in this search step. Leave it unchecked for read-only lookups. These additional fields apply only to creation; a matching employee is returned without modification.
+
+Jointl operation: `employees.bulkImport`.
+
+| Key | Label | Type | Required when creating | Notes |
+| --- | --- | --- | --- | --- |
+| `full_name` | Full Name | string | Yes |  |
+| `email` | Work Email | string | No |  |
+| `company_id` | Company | string | Yes | Choices: . |
+| `position_title` | Position Title | string | Yes |  |
+| `start_date` | Start Date | string | Yes | Use YYYY-MM-DD. |
+| `end_date` | End Date | string | No | Optional. Use YYYY-MM-DD. |
+| `manager_name` | Manager Full Name | string | No |  |
+| `tag_names` | Tags | string | No |  |
+| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+
+Creation output fields:
+
+| Key | Label | Type | Required | Notes |
+| --- | --- | --- | --- | --- |
+| `id` | Employee ID | string | No |  |
+| `employee_id` | Employee ID | string | No |  |
+| `full_name` | Full Name | string | No |  |
+| `email` | Work Email | string | No |  |
+| `status` | Employee Status | string | No |  |
+| `outcome` | Action Outcome | string | No |  |
+| `position_id` | Work Record ID | string | No |  |
+| `company_id` | Company ID | string | No |  |
+| `company_name` | Company Name | string | No |  |
+| `position_title` | Position Title | string | No |  |
+| `start_date` | Start Date | string | No |  |
+| `end_date` | End Date | string | No |  |
+| `jointl_url` | Jointl URL | string | No |  |
+| `execution_id` | Jointl Execution ID | string | No |  |
+| `replayed` | Replayed Existing Result | boolean | No |  |
+
+Creation sample:
+
+```json
+{
+  "company_id": "company_id",
+  "company_name": "Example Company",
+  "email": "sam@example.com",
+  "employee_id": "employee_id",
+  "end_date": null,
+  "execution_id": "execution_id",
+  "full_name": "Sam Example",
+  "id": "employee_id",
+  "jointl_url": "https://join.tl/employees/employee_id/overview",
+  "outcome": "created",
+  "position_id": "position_id",
+  "position_title": "Engineer",
+  "replayed": false,
+  "start_date": "2026-09-01",
+  "status": "active"
 }
 ```
 
@@ -2338,7 +2243,7 @@ Creates or updates up to 250 Employees in one retry-safe import using the existi
 | `↳ update_manager` | Update Manager | boolean | No | When true, Manager Full Name replaces the manager on a matching position. Leave the name blank to clear it; false preserves it. |
 | `↳ manager_name` | Manager Full Name | string | No |  |
 | `↳ replace_tags` | Replace Tags | boolean | No | When true, Tags replaces the tags on a matching position. Leave Tags blank to clear them; false preserves them. |
-| `↳ tag_names` | Tags | string | No | Map one text value per employee line and separate multiple tag names with commas. |
+| `↳ tag_names` | Tags | string | No | Map multiple tag values for this employee line. Commas inside a value are part of the tag name. |
 | `↳ gross_amount` | Gross Compensation | number | No |  |
 | `↳ net_amount` | Net Compensation | number | No |  |
 | `↳ currency` | Compensation Currency | string | No | Use a three-letter currency code such as USD or EUR. |
@@ -2528,7 +2433,7 @@ Changes one Check to a new status and cancels its pending lifecycle emails and r
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the unique Check source returned by Find Person. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, inProgress, new, rejected, selected, shortlisted. |
+| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Check step inserted by the Check field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, inProgress, new, rejected, selected, shortlisted. |
 | `new_status` | New Status | string | Yes | Selected is intentionally unavailable because selecting a candidate creates an employee through a separate Jointl workflow. Choices: archived, inProgress, new, rejected, shortlisted. |
 | `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
@@ -2573,7 +2478,7 @@ Marks one Employee active or left; leaving can close active positions and queue 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the unique Employee source returned by Find Person. Jointl rejects stale changes instead of overwriting a newer status. Choices: active, left. |
+| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Employee step inserted by the Employee field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: active, left. |
 | `new_status` | New Status | string | Yes | Choices: active, left. |
 | `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
@@ -2622,7 +2527,7 @@ Changes one Talent Pool profile to a new, shortlisted, or archived status.
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `talent_id` | Talent | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the unique Talent source returned by Find Person. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, new, shortlisted. |
+| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Talent step inserted by the Talent field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, new, shortlisted. |
 | `new_status` | New Status | string | Yes | Choices: archived, new, shortlisted. |
 | `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 

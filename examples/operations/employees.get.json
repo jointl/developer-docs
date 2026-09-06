@@ -14,7 +14,9 @@
     "data": {
       "evidence": {},
       "evidenceIncluded": false,
-      "profile": {}
+      "profile": {
+        "positionId": "positionid_example_01"
+      }
     },
     "requestId": "request_example_01"
   }

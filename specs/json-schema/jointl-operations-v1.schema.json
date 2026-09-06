@@ -2041,6 +2041,15 @@
         },
         "profile": {
           "additionalProperties": true,
+          "properties": {
+            "positionId": {
+              "description": "Current work record ID within the member’s visible positions; null when none exists.",
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
           "type": "object"
         }
       },
@@ -2297,10 +2306,8 @@
             "check.created",
             "check.status_changed",
             "check.completed",
-            "verification.completed",
-            "verification.failed",
-            "public_profiles.completed",
-            "public_profiles.failed",
+            "verification.finished",
+            "public_profiles.finished",
             "reference.completed",
             "employee.created",
             "employee.updated",
@@ -2345,6 +2352,13 @@
               "maxLength": 128,
               "minLength": 1,
               "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            },
+            "runStatus": {
+              "enum": [
+                "completed",
+                "failed"
+              ],
               "type": "string"
             }
           },

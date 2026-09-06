@@ -78,6 +78,7 @@
             "group": "Updates",
             "pages": [
               "changelog/index",
+              "changelog/2026-09-06",
               "changelog/2026-09-04",
               "changelog/v1.0.0"
             ]

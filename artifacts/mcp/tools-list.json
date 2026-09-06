@@ -2489,7 +2489,7 @@
           "openWorldHint": false,
           "readOnlyHint": true
         },
-        "description": "Return the profile, current work context, recent visible activity, and optional performance evidence for one authorized Employee. Use when: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata. Returns: profile, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence. Operation errors set isError to true and return a stable error code with a developer-facing message.",
+        "description": "Return the profile, current work context, recent visible activity, and optional performance evidence for one authorized Employee. Use when: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata. Returns: profile including positionId for the current visible work record, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence. Operation errors set isError to true and return a stable error code with a developer-facing message.",
         "inputSchema": {
           "additionalProperties": false,
           "properties": {
@@ -2529,6 +2529,15 @@
                 },
                 "profile": {
                   "additionalProperties": true,
+                  "properties": {
+                    "positionId": {
+                      "description": "Current work record ID within the member’s visible positions; null when none exists.",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
                   "type": "object"
                 }
               },
