@@ -290,7 +290,7 @@ Returns: a cursor-paginated list of Flow summaries with activity, company, tags,
 | `selectedCompanies` | array | No | Exact Jointl company IDs from companies.list; empty means every authorized company. |
 | `selectedFlowStatus` | array | No | Exact Flow statuses; empty means every authorized status. |
 | `selectedTags` | array | No | Exact Jointl tag IDs; empty means every tag. |
-| `type` | `HIRING_REVIEW` | `PERFORMANCE` | `EXIT_INTELLIGENCE` | No | Optionally return one exact enabled Flow type. |
+| `type` | `HIRING_REVIEW` \| `PERFORMANCE` \| `EXIT_INTELLIGENCE` | No | Optionally return one exact enabled Flow type. |
 
 ### Request example
 
@@ -452,7 +452,7 @@ Returns: template IDs and titles with complete question blocks for the returned 
 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
-| `kind` | `preScreening` | `assessmentQuestions` | `assessmentTests` | `references` | `exitIntelligence` | `teamPulse` | Yes | One exact template category to browse. |
+| `kind` | `preScreening` \| `assessmentQuestions` \| `assessmentTests` \| `references` \| `exitIntelligence` \| `teamPulse` | Yes | One exact template category to browse. |
 | `limit` | integer | No | See the JSON Schema definition. |
 | `query` | string | No | See the JSON Schema definition. |
 
@@ -771,7 +771,7 @@ Returns: after confirmation, the cycle ID, Flow ID, previous status, resulting s
 | --- | --- | --- | --- |
 | `cycleId` | string | Yes | See the JSON Schema definition. |
 | `enabled` | boolean | Yes | False cancels pending delivery and incomplete requests; true restores the cycle where possible. |
-| `expectedStatus` | `SCHEDULED` | `SENT` | `CANCELLED` | Yes | Current Glow Moments cycle status read from performance.operations.get. |
+| `expectedStatus` | `SCHEDULED` \| `SENT` \| `CANCELLED` | Yes | Current Glow Moments cycle status read from performance.operations.get. |
 
 ### Request example
 
@@ -889,7 +889,7 @@ Returns: after confirmation, the cycle ID, Flow ID, previous status, resulting s
 | --- | --- | --- | --- |
 | `cycleId` | string | Yes | See the JSON Schema definition. |
 | `enabled` | boolean | Yes | False cancels pending delivery and incomplete requests; true restores the cycle where possible. |
-| `expectedStatus` | `SCHEDULED` | `PROCESSING` | `SENT` | `CANCELLED` | `FAILED` | Yes | Current Team Pulse cycle status read from performance.operations.get. |
+| `expectedStatus` | `SCHEDULED` \| `PROCESSING` \| `SENT` \| `CANCELLED` \| `FAILED` | Yes | Current Team Pulse cycle status read from performance.operations.get. |
 
 ### Request example
 
@@ -1169,7 +1169,7 @@ Applicable shared errors: `invalidInput`, `notAuthorized`, `rateLimited`. See [s
 
 Return the verification types available to the member and their latest results for one authorized Check. Image content is not returned.
 
-Use when: Use after a verification.completed or verification.failed Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details.
+Use when: Use after a verification.finished Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details.
 
 Returns: verification types available through the member’s permissions and workspace plan, the latest run status and findings for each type, and Check eligibility state.
 
@@ -1278,7 +1278,7 @@ Applicable shared errors: `invalidInput`, `notAuthorized`, `rateLimited`, `confi
 
 Return the latest public-profile discovery results visible for one authorized Check. Image content is not returned.
 
-Use when: Use after a public_profiles.completed or public_profiles.failed Zapier event, or to inspect a previously completed public-profile discovery run.
+Use when: Use after a public_profiles.finished Zapier event, or to inspect a previously completed public-profile discovery run.
 
 Returns: the latest and previous completed discovery states, public profile matches available to the member, graph summary, and availability state.
 
@@ -1614,7 +1614,7 @@ Return the profile, current work context, recent visible activity, and optional 
 
 Use when: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata.
 
-Returns: profile, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence.
+Returns: profile including positionId for the current visible work record, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence.
 
 - Scope: `workspace.read`
 - Access: supported API clients
@@ -1649,7 +1649,9 @@ Returns: profile, position, company, manager, tags and compensation-access metad
   "data": {
     "evidence": {},
     "evidenceIncluded": false,
-    "profile": {}
+    "profile": {
+      "positionId": "positionid_example_01"
+    }
   },
   "requestId": "request_example_01"
 }
@@ -2004,7 +2006,7 @@ Returns: the selected Insights dataset plus the applied view, inclusive UTC date
 | `selectedFlows` | array | No | Exact authorized Flow IDs; empty means every authorized Flow for this view. |
 | `selectedRoles` | array | No | Exact Employee role-title labels; empty means every authorized role. |
 | `startDate` | string | No | Inclusive UTC start date in YYYY-MM-DD. Omit both dates for the trailing six-month default. |
-| `view` | `general` | `performance` | `exitIntelligence` | No | general maps to /insights, performance to /insights?view=performance, and exitIntelligence to /insights?view=exit-intelligence. |
+| `view` | `general` \| `performance` \| `exitIntelligence` | No | general maps to /insights, performance to /insights?view=performance, and exitIntelligence to /insights?view=exit-intelligence. |
 
 ### Request example
 
@@ -2065,7 +2067,7 @@ Returns: newest-first trigger payloads with the same shape returned after a Zapi
 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
-| `eventType` | `check.created` | `check.status_changed` | `check.completed` | `verification.completed` | `verification.failed` | `public_profiles.completed` | `public_profiles.failed` | `reference.completed` | `employee.created` | `employee.updated` | `employee.status_changed` | `exit_intelligence.requested` | `exit_intelligence.completed` | `talent.created` | `talent.updated` | `talent.status_changed` | Yes | See the JSON Schema definition. |
+| `eventType` | `check.created` \| `check.status_changed` \| `check.completed` \| `verification.finished` \| `public_profiles.finished` \| `reference.completed` \| `employee.created` \| `employee.updated` \| `employee.status_changed` \| `exit_intelligence.requested` \| `exit_intelligence.completed` \| `talent.created` \| `talent.updated` \| `talent.status_changed` | Yes | See the JSON Schema definition. |
 | `filters` | object | No | See the JSON Schema definition. |
 | `limit` | integer | No | See the JSON Schema definition. |
 
@@ -2327,9 +2329,9 @@ Returns: after confirmation, the Flow ID, previous status, resulting status, and
 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
-| `expectedStatus` | `ACTIVE` | `DRAFT` | `ARCHIVED` | Yes | Current status read from flows.get or flows.blueprint.get; used for concurrency safety. |
+| `expectedStatus` | `ACTIVE` \| `DRAFT` \| `ARCHIVED` | Yes | Current status read from flows.get or flows.blueprint.get; used for concurrency safety. |
 | `flowId` | string | Yes | See the JSON Schema definition. |
-| `status` | `ACTIVE` | `ARCHIVED` | Yes | Publish/restore as ACTIVE or archive as ARCHIVED. Returning a Flow to DRAFT is unsupported. |
+| `status` | `ACTIVE` \| `ARCHIVED` | Yes | Publish/restore as ACTIVE or archive as ARCHIVED. Returning a Flow to DRAFT is unsupported. |
 
 ### Request example
 
@@ -2387,7 +2389,7 @@ Returns: after confirmation, the deleted Flow ID, prior status, and deletion out
 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
-| `expectedStatus` | `ACTIVE` | `DRAFT` | `ARCHIVED` | Yes | Current status read from flows.get or flows.blueprint.get; used to prevent a stale destructive action. |
+| `expectedStatus` | `ACTIVE` \| `DRAFT` \| `ARCHIVED` | Yes | Current status read from flows.get or flows.blueprint.get; used to prevent a stale destructive action. |
 | `flowId` | string | Yes | See the JSON Schema definition. |
 
 ### Request example
@@ -2445,8 +2447,8 @@ Returns: after confirmation, the Check ID, previous status, resulting status, an
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `applicantId` | string | Yes | See the JSON Schema definition. |
-| `expectedStatus` | `new` | `archived` | `inProgress` | `shortlisted` | `rejected` | `selected` | Yes | Current status read from checks.get or checks.list; used for concurrency safety. |
-| `status` | `new` | `archived` | `inProgress` | `shortlisted` | `rejected` | Yes | New Check status. selected is intentionally excluded because selection creates an Employee. |
+| `expectedStatus` | `new` \| `archived` \| `inProgress` \| `shortlisted` \| `rejected` \| `selected` | Yes | Current status read from checks.get or checks.list; used for concurrency safety. |
+| `status` | `new` \| `archived` \| `inProgress` \| `shortlisted` \| `rejected` | Yes | New Check status. selected is intentionally excluded because selection creates an Employee. |
 
 ### Request example
 
@@ -2505,7 +2507,7 @@ Returns: after confirmation, the deleted Check ID, prior status, and deletion ou
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `applicantId` | string | Yes | See the JSON Schema definition. |
-| `expectedStatus` | `new` | `archived` | `inProgress` | `shortlisted` | `rejected` | `selected` | Yes | Current status read from checks.get or checks.list; used to prevent a stale destructive action. |
+| `expectedStatus` | `new` \| `archived` \| `inProgress` \| `shortlisted` \| `rejected` \| `selected` | Yes | Current status read from checks.get or checks.list; used to prevent a stale destructive action. |
 
 ### Request example
 
@@ -2563,10 +2565,10 @@ Returns: after confirmation, the Employee ID, previous status, resulting status,
 | --- | --- | --- | --- |
 | `employeeId` | string | Yes | See the JSON Schema definition. |
 | `exitIntelligenceFlowId` | string | No | Optional active Exit Intelligence Flow to launch after marking the Employee left. |
-| `expectedStatus` | `active` | `left` | Yes | Current status read from employees.get or employees.list; used for concurrency safety. |
+| `expectedStatus` | `active` \| `left` | Yes | Current status read from employees.get or employees.list; used for concurrency safety. |
 | `positionEndAt` | string | No | One leaving date to apply to every active position. Do not combine with positionEndDates. |
 | `positionEndDates` | array | No | When marking left, provide an end date for every active position returned by employees.get. |
-| `status` | `active` | `left` | Yes | See the JSON Schema definition. |
+| `status` | `active` \| `left` | Yes | See the JSON Schema definition. |
 
 ### Request example
 
@@ -2625,7 +2627,7 @@ Returns: after confirmation, the deleted Employee ID, prior status, and deletion
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `employeeId` | string | Yes | See the JSON Schema definition. |
-| `expectedStatus` | `active` | `left` | Yes | Current status read from employees.get or employees.list; used to prevent a stale destructive action. |
+| `expectedStatus` | `active` \| `left` | Yes | Current status read from employees.get or employees.list; used to prevent a stale destructive action. |
 
 ### Request example
 
@@ -2681,8 +2683,8 @@ Returns: after confirmation, the Talent Pool profile ID, previous status, result
 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
-| `expectedStatus` | `new` | `archived` | `shortlisted` | Yes | Current status read from talents.get or talents.list; used for concurrency safety. |
-| `status` | `new` | `archived` | `shortlisted` | Yes | See the JSON Schema definition. |
+| `expectedStatus` | `new` \| `archived` \| `shortlisted` | Yes | Current status read from talents.get or talents.list; used for concurrency safety. |
+| `status` | `new` \| `archived` \| `shortlisted` | Yes | See the JSON Schema definition. |
 | `talentId` | string | Yes | See the JSON Schema definition. |
 
 ### Request example
@@ -2863,8 +2865,8 @@ Returns: after confirmation, the Autopilot group ID, previous status, resulting 
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `autopilotGroupId` | string | Yes | See the JSON Schema definition. |
-| `expectedStatus` | `ACTIVE` | `ARCHIVED` | Yes | See the JSON Schema definition. |
-| `status` | `ACTIVE` | `ARCHIVED` | Yes | See the JSON Schema definition. |
+| `expectedStatus` | `ACTIVE` \| `ARCHIVED` | Yes | See the JSON Schema definition. |
+| `status` | `ACTIVE` \| `ARCHIVED` | Yes | See the JSON Schema definition. |
 
 ### Request example
 
@@ -2923,7 +2925,7 @@ Returns: after confirmation, deleted group ID, prior status, link and Check coun
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `autopilotGroupId` | string | Yes | See the JSON Schema definition. |
-| `expectedStatus` | `ACTIVE` | `ARCHIVED` | Yes | Current status read from autopilots.get or autopilots.list; used to prevent a stale destructive action. |
+| `expectedStatus` | `ACTIVE` \| `ARCHIVED` | Yes | Current status read from autopilots.get or autopilots.list; used to prevent a stale destructive action. |
 
 ### Request example
 
@@ -3113,7 +3115,7 @@ Returns: after confirmation, an import summary with created, updated, unchanged,
 | Field | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `employees` | array | Yes | See the JSON Schema definition. |
-| `mode` | `upsert` | `create` | `update` | No | upsert applies Jointl Employee matching; create rejects existing matches; update requires exact employeeId and positionId values. |
+| `mode` | `upsert` \| `create` \| `update` | No | upsert applies Jointl Employee matching; create rejects existing matches; update requires exact employeeId and positionId values. |
 
 ### Request example
 
