@@ -1616,7 +1616,7 @@ paths:
 
         Return the verification types available to the member and their latest results for one authorized Check. Image content is not returned.
 
-        Use when: Use after a verification.completed or verification.failed Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details. Returns: verification types available through the member’s permissions and workspace plan, the latest run status and findings for each type, and Check eligibility state.
+        Use when: Use after a verification.finished Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details. Returns: verification types available through the member’s permissions and workspace plan, the latest run status and findings for each type, and Check eligibility state.
       security:
         - JointlOAuth:
             - workspace.read
@@ -1687,7 +1687,7 @@ paths:
       x-jointl-destructive: false
       x-jointl-retry-safety: safe-read
       x-jointl-standing-automation: false
-      x-jointl-prerequisites: Use after a verification.completed or verification.failed Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details
+      x-jointl-prerequisites: Use after a verification.finished Zapier event, or to inspect which verification types are available, active, complete, locked, or missing required details
       x-jointl-side-effects: Read-only.
   /api/v1/operations/checks.publicProfiles.get:
     post:
@@ -1700,7 +1700,7 @@ paths:
 
         Return the latest public-profile discovery results visible for one authorized Check. Image content is not returned.
 
-        Use when: Use after a public_profiles.completed or public_profiles.failed Zapier event, or to inspect a previously completed public-profile discovery run. Returns: the latest and previous completed discovery states, public profile matches available to the member, graph summary, and availability state.
+        Use when: Use after a public_profiles.finished Zapier event, or to inspect a previously completed public-profile discovery run. Returns: the latest and previous completed discovery states, public profile matches available to the member, graph summary, and availability state.
       security:
         - JointlOAuth:
             - workspace.read
@@ -1770,7 +1770,7 @@ paths:
       x-jointl-destructive: false
       x-jointl-retry-safety: safe-read
       x-jointl-standing-automation: false
-      x-jointl-prerequisites: Use after a public_profiles.completed or public_profiles.failed Zapier event, or to inspect a previously completed public-profile discovery run
+      x-jointl-prerequisites: Use after a public_profiles.finished Zapier event, or to inspect a previously completed public-profile discovery run
       x-jointl-side-effects: Read-only.
   /api/v1/operations/references.list:
     post:
@@ -2109,7 +2109,7 @@ paths:
       description: |-
         Return the profile, current work context, recent visible activity, and optional performance evidence for one authorized Employee.
 
-        Use when: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata. Returns: profile, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence.
+        Use when: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata. Returns: profile including positionId for the current visible work record, position, company, manager, tags and compensation-access metadata, plus optional Team Pulse, Glow Moments, exit, and work evidence.
       security:
         - JointlOAuth:
             - workspace.read
@@ -2146,7 +2146,8 @@ paths:
                 data:
                   evidence: {}
                   evidenceIncluded: false
-                  profile: {}
+                  profile:
+                    positionId: positionid_example_01
                 requestId: request_example_01
         "400":
           $ref: "#/components/responses/BadRequest"
@@ -3673,15 +3674,12 @@ components:
       type: object
       properties:
         eventType:
-          type: string
           enum:
             - check.created
             - check.status_changed
             - check.completed
-            - verification.completed
-            - verification.failed
-            - public_profiles.completed
-            - public_profiles.failed
+            - verification.finished
+            - public_profiles.finished
             - reference.completed
             - employee.created
             - employee.updated
@@ -3691,14 +3689,42 @@ components:
             - talent.created
             - talent.updated
             - talent.status_changed
+          type: string
         filters:
-          type: object
+          additionalProperties: false
           properties:
+            changedField:
+              enum:
+                - full_name
+                - email
+                - work_record
+                - company
+                - position_title
+                - manager
+                - tags
+                - start_date
+                - end_date
+                - compensation
+                - profile
+                - status
+                - other
+              type: string
             companyId:
+              maxLength: 128
+              minLength: 1
+              pattern: ^[A-Za-z0-9_-]+$
               type: string
             flowId:
+              maxLength: 128
+              minLength: 1
+              pattern: ^[A-Za-z0-9_-]+$
               type: string
-          additionalProperties: false
+            runStatus:
+              enum:
+                - completed
+                - failed
+              type: string
+          type: object
         targetUrl:
           type: string
           format: uri
@@ -3712,10 +3738,57 @@ components:
         id:
           type: string
         eventType:
+          enum:
+            - check.created
+            - check.status_changed
+            - check.completed
+            - verification.finished
+            - public_profiles.finished
+            - reference.completed
+            - employee.created
+            - employee.updated
+            - employee.status_changed
+            - exit_intelligence.requested
+            - exit_intelligence.completed
+            - talent.created
+            - talent.updated
+            - talent.status_changed
           type: string
         filters:
-          type: object
           additionalProperties: false
+          properties:
+            changedField:
+              enum:
+                - full_name
+                - email
+                - work_record
+                - company
+                - position_title
+                - manager
+                - tags
+                - start_date
+                - end_date
+                - compensation
+                - profile
+                - status
+                - other
+              type: string
+            companyId:
+              maxLength: 128
+              minLength: 1
+              pattern: ^[A-Za-z0-9_-]+$
+              type: string
+            flowId:
+              maxLength: 128
+              minLength: 1
+              pattern: ^[A-Za-z0-9_-]+$
+              type: string
+            runStatus:
+              enum:
+                - completed
+                - failed
+              type: string
+          type: object
         createdAt:
           type: string
           format: date-time
@@ -5564,6 +5637,12 @@ components:
           type: boolean
         profile:
           additionalProperties: true
+          properties:
+            positionId:
+              description: Current work record ID within the member’s visible positions; null when none exists.
+              type:
+                - string
+                - "null"
           type: object
       required:
         - profile
@@ -6007,10 +6086,8 @@ components:
             - check.created
             - check.status_changed
             - check.completed
-            - verification.completed
-            - verification.failed
-            - public_profiles.completed
-            - public_profiles.failed
+            - verification.finished
+            - public_profiles.finished
             - reference.completed
             - employee.created
             - employee.updated
@@ -6050,6 +6127,11 @@ components:
               maxLength: 128
               minLength: 1
               pattern: ^[A-Za-z0-9_-]+$
+              type: string
+            runStatus:
+              enum:
+                - completed
+                - failed
               type: string
           type: object
         limit:

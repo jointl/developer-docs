@@ -16,7 +16,7 @@
     "result": {
       "content": [
         {
-          "text": "{\"result\":{\"evidence\":{},\"evidenceIncluded\":false,\"profile\":{}}}",
+          "text": "{\"result\":{\"evidence\":{},\"evidenceIncluded\":false,\"profile\":{\"positionId\":\"positionid_example_01\"}}}",
           "type": "text"
         }
       ],
@@ -24,7 +24,9 @@
         "result": {
           "evidence": {},
           "evidenceIncluded": false,
-          "profile": {}
+          "profile": {
+            "positionId": "positionid_example_01"
+          }
         }
       }
     }

@@ -68,6 +68,7 @@
     "assets/logo-dark.svg",
     "assets/logo.svg",
     "changelog/2026-09-04.md",
+    "changelog/2026-09-06.md",
     "changelog/index.md",
     "changelog/v1.0.0.md",
     "concepts/authentication.md",
@@ -174,8 +175,8 @@
     "mcpTools": 50,
     "operations": 56,
     "zapierActions": 14,
-    "zapierSearches": 7,
-    "zapierTriggers": 16
+    "zapierSearches": 8,
+    "zapierTriggers": 14
   },
   "formats": {
     "arazzo": "1.1.0",
