@@ -1,0 +1,29 @@
+{
+  "applicableErrors": [
+    "invalidInput",
+    "notAuthorized",
+    "rateLimited"
+  ],
+  "operationId": "employees.exitIntelligence.list",
+  "request": {
+    "input": {
+      "employeeId": "employeeid_example_01"
+    }
+  },
+  "success": {
+    "data": {
+      "hasMore": false,
+      "items": [
+        {
+          "_id": "_id_example_01",
+          "completedAt": "2026-01-15",
+          "createdAt": "2026-01-15",
+          "flowId": "flowid_example_01",
+          "flowTitle": "Example title"
+        }
+      ],
+      "nextCursor": null
+    },
+    "requestId": "request_example_01"
+  }
+}

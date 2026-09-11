@@ -2179,6 +2179,92 @@ paths:
       x-jointl-standing-automation: false
       x-jointl-prerequisites: Use after search, list, or analytics when one Employee needs contextual or performance detail; set includeEvidence=false only for lightweight profile metadata
       x-jointl-side-effects: Read-only.
+  /api/v1/operations/employees.exitIntelligence.list:
+    post:
+      tags:
+        - Zapier app endpoints
+      operationId: executeEmployeesExitIntelligenceList
+      summary: List Exit Intelligence requests
+      description: |-
+        Available only to the official Jointl Zapier app.
+
+        List visible, non-cancelled Exit Intelligence request identities for one authorized Employee without answers, metrics, or public access tokens.
+
+        Use when: Use to select an exact request before employees.exitIntelligence.get; paginate using the returned cursor. Returns: a cursor-paginated list of request IDs, Flow IDs and titles, creation dates, and completion dates.
+      security:
+        - JointlOAuth:
+            - workspace.read
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployeesExitIntelligenceListInput"
+            example:
+              employeeId: employeeid_example_01
+      responses:
+        "200":
+          description: Operation completed.
+          headers:
+            X-Request-Id:
+              $ref: "#/components/headers/RequestId"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/EmployeesExitIntelligenceListResult"
+                  requestId:
+                    type: string
+                    description: Request correlation identifier.
+                required:
+                  - data
+                  - requestId
+                additionalProperties: false
+              example:
+                data:
+                  hasMore: false
+                  items:
+                    - _id: _id_example_01
+                      completedAt: 2026-01-15
+                      createdAt: 2026-01-15
+                      flowId: flowid_example_01
+                      flowTitle: Example title
+                  nextCursor: null
+                requestId: request_example_01
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "413":
+          $ref: "#/components/responses/TooLarge"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        "503":
+          $ref: "#/components/responses/Unavailable"
+      x-jointl-logical-operation: employees.exitIntelligence.list
+      x-jointl-scope: workspace.read
+      x-jointl-audiences:
+        - rest
+        - zapier
+      x-jointl-app-bound-to:
+        - ZAPIER
+      x-jointl-mcp-exposed: false
+      x-jointl-confirmation-required: false
+      x-jointl-destructive: false
+      x-jointl-retry-safety: safe-read
+      x-jointl-standing-automation: false
+      x-jointl-prerequisites: Use to select an exact request before employees.exitIntelligence.get; paginate using the returned cursor
+      x-jointl-side-effects: Read-only.
   /api/v1/operations/employees.exitIntelligence.get:
     post:
       tags:
@@ -5648,6 +5734,75 @@ components:
         - profile
         - evidenceIncluded
         - evidence
+      type: object
+    EmployeesExitIntelligenceListInput:
+      additionalProperties: false
+      properties:
+        cursor:
+          additionalProperties: false
+          properties:
+            createdAt:
+              anyOf:
+                - format: date-time
+                  type: string
+                - format: date-time
+                  type: string
+            id:
+              maxLength: 128
+              minLength: 1
+              pattern: ^[A-Za-z0-9_-]+$
+              type: string
+          required:
+            - createdAt
+            - id
+          type: object
+        employeeId:
+          maxLength: 128
+          minLength: 1
+          pattern: ^[A-Za-z0-9_-]+$
+          type: string
+        limit:
+          default: 100
+          maximum: 200
+          minimum: 1
+          type: integer
+      required:
+        - employeeId
+      type: object
+    EmployeesExitIntelligenceListResult:
+      additionalProperties: true
+      properties:
+        hasMore:
+          type: boolean
+        items:
+          items:
+            additionalProperties: true
+            properties:
+              _id:
+                type: string
+              completedAt:
+                type:
+                  - string
+                  - "null"
+              createdAt:
+                type: string
+              flowId:
+                type: string
+              flowTitle:
+                type:
+                  - string
+                  - "null"
+            type: object
+          type: array
+        nextCursor:
+          additionalProperties: true
+          type:
+            - object
+            - "null"
+      required:
+        - items
+        - hasMore
+        - nextCursor
       type: object
     EmployeesExitIntelligenceGetInput:
       additionalProperties: false

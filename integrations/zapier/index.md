@@ -25,7 +25,7 @@ guess entity data from the ID, or cache it beyond the workflow's needs.
 
 **Verification Check Finished** runs when one verification check completes or fails.
 **Public Profile Discovery Finished** runs when a new public-profile discovery run
-completes or fails. Both triggers require **Run Result**: Completed (the default),
+completes or fails. Both triggers require **Run result**: Completed (the default),
 Failed, or Completed or Failed. Jointl applies this setting before sending a webhook
 and when returning test records in the Zap editor.
 
@@ -41,11 +41,11 @@ When using the subscription API, choose `verification.finished` or
 Omit that filter to receive both results. It is supported only for these two event types.
 The former separate Completed and Failed trigger keys are replaced by the Finished
 triggers; existing Zaps using those keys must select the replacement trigger and
-their intended Run Result before being turned on again.
+their intended Run result before being turned on again.
 
-## Unique Source Key
+## Unique source key
 
-Every write action requires a **Unique Source Key**. Map an immutable identifier for
+Every write action requires a **Unique source key**. Map an immutable identifier for
 the event or submission that caused the Zap run, rather than a reusable person's ID.
 Reuse it only to retry the same logical action with the same payload. Jointl derives
 a protected idempotency identity from it; a different payload under the same identity
@@ -70,7 +70,7 @@ when looking up an employee for a status change or another update.
 
 Find Employee returns the current work record chosen by Jointl from the member's
 visible positions, not simply the last work-history entry. Its Work Record ID
-matches `profile.positionId` from `employees.get`; use the Work Record dropdown
+matches `profile.positionId` from `employees.get`; use the **Work record** dropdown
 in **Update Employee** when you intend to change a different position.
 
 Single-record actions accept ordinary fields and return one resource. Bulk actions

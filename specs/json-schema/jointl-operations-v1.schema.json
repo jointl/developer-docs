@@ -2006,6 +2006,106 @@
       ],
       "type": "object"
     },
+    "EmployeesExitIntelligenceListInput": {
+      "additionalProperties": false,
+      "properties": {
+        "cursor": {
+          "additionalProperties": false,
+          "properties": {
+            "createdAt": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "format": "date-time",
+                  "type": "string"
+                }
+              ]
+            },
+            "id": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "createdAt",
+            "id"
+          ],
+          "type": "object"
+        },
+        "employeeId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9_-]+$",
+          "type": "string"
+        },
+        "limit": {
+          "default": 100,
+          "maximum": 200,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "employeeId"
+      ],
+      "type": "object"
+    },
+    "EmployeesExitIntelligenceListResult": {
+      "additionalProperties": true,
+      "properties": {
+        "hasMore": {
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "additionalProperties": true,
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "completedAt": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "createdAt": {
+                "type": "string"
+              },
+              "flowId": {
+                "type": "string"
+              },
+              "flowTitle": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "nextCursor": {
+          "additionalProperties": true,
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "items",
+        "hasMore",
+        "nextCursor"
+      ],
+      "type": "object"
+    },
     "EmployeesGetInput": {
       "additionalProperties": false,
       "properties": {

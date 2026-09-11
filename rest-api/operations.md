@@ -1,9 +1,9 @@
 ---
 title: Jointl operation reference
-description: The Jointl API provides 31 read operations and 25 protected write operations.
+description: The Jointl API provides 32 read operations and 25 protected write operations.
 ---
 
-The Jointl API provides 31 read operations and 25 protected write operations. Use the bundled OpenAPI and JSON Schema files for exact field constraints and nested data models.
+The Jointl API provides 32 read operations and 25 protected write operations. Use the bundled OpenAPI and JSON Schema files for exact field constraints and nested data models.
 
 Read operations use `POST /api/v1/operations/{operationId}`. Writes use `POST /api/v1/actions/prepare`, an explicit human approval checkpoint, and `POST /api/v1/actions/confirm`. The Zapier-only execute route is identified where applicable.
 
@@ -39,6 +39,7 @@ Read operations use `POST /api/v1/operations/{operationId}`. Writes use `POST /a
 | [`employees.list`](#employees-list) | read | supported clients | `workspace.read` | yes | no |
 | [`employees.analytics`](#employees-analytics) | read | supported clients | `workspace.read` | yes | no |
 | [`employees.get`](#employees-get) | read | supported clients | `workspace.read` | yes | no |
+| [`employees.exitIntelligence.list`](#employees-exitintelligence-list) | read | official Jointl Zapier app only | `workspace.read` | no | no |
 | [`employees.exitIntelligence.get`](#employees-exitintelligence-get) | read | official Jointl Zapier app only | `workspace.read` | no | no |
 | [`talents.list`](#talents-list) | read | supported clients | `workspace.read` | yes | no |
 | [`talents.get`](#talents-get) | read | supported clients | `workspace.read` | yes | no |
@@ -1658,6 +1659,64 @@ Returns: profile including positionId for the current visible work record, posit
 ```
 
 Applicable shared errors: `invalidInput`, `notAuthorized`, `rateLimited`. See [shared errors](/examples/shared/errors.json) and the complete [operation example](/examples/operations/employees.get.json).
+
+## employees.exitIntelligence.list
+
+List visible, non-cancelled Exit Intelligence request identities for one authorized Employee without answers, metrics, or public access tokens.
+
+Use when: Use to select an exact request before employees.exitIntelligence.get; paginate using the returned cursor.
+
+Returns: a cursor-paginated list of request IDs, Flow IDs and titles, creation dates, and completion dates.
+
+- Scope: `workspace.read`
+- Access: official Jointl Zapier app only
+- REST: `POST /api/v1/operations/employees.exitIntelligence.list`
+- MCP: not available
+- Confirmation: not required
+- Destructive: no
+- Retry safety: `safe-read`
+- Zapier automation: not available
+
+### Input
+
+| Field | Type | Required | Meaning |
+| --- | --- | --- | --- |
+| `cursor` | object | No | See the JSON Schema definition. |
+| `employeeId` | string | Yes | See the JSON Schema definition. |
+| `limit` | integer | No | See the JSON Schema definition. |
+
+### Request example
+
+```json
+{
+  "input": {
+    "employeeId": "employeeid_example_01"
+  }
+}
+```
+
+### Success example
+
+```json
+{
+  "data": {
+    "hasMore": false,
+    "items": [
+      {
+        "_id": "_id_example_01",
+        "completedAt": "2026-01-15",
+        "createdAt": "2026-01-15",
+        "flowId": "flowid_example_01",
+        "flowTitle": "Example title"
+      }
+    ],
+    "nextCursor": null
+  },
+  "requestId": "request_example_01"
+}
+```
+
+Applicable shared errors: `invalidInput`, `notAuthorized`, `rateLimited`. See [shared errors](/examples/shared/errors.json) and the complete [operation example](/examples/operations/employees.exitIntelligence.list.json).
 
 ## employees.exitIntelligence.get
 

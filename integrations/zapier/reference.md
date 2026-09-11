@@ -5,7 +5,7 @@ description: Jointl for Zapier 1.0.0 supports 14 triggers, 8 searches, and 14 ac
 
 Jointl for Zapier 1.0.0 supports 14 triggers, 8 searches, and 14 actions. It targets Zapier Platform 19.1.0.
 
-Every write requires Unique Source Key, including the create-if-missing branch of Find Employee. The field provides the retry-safe identity described in the [Zapier guide](/integrations/zapier/index).
+Every write requires Unique source key, including the create-if-missing branch of Find Employee. The field provides the retry-safe identity described in the [Zapier guide](/integrations/zapier/index).
 
 ## Available components
 
@@ -53,7 +53,7 @@ Every write requires Unique Source Key, including the create-if-missing branch o
 - Zapier key: `new_check`
 - Kind: trigger
 
-Triggers when a new Check is created.
+Triggers when a new check is created.
 
 ### Input fields
 
@@ -157,7 +157,7 @@ Triggers when a new Check is created.
 - Zapier key: `check_status_changed`
 - Kind: trigger
 
-Triggers when a Check moves to another status.
+Triggers when a check changes status.
 
 ### Input fields
 
@@ -263,7 +263,7 @@ Triggers when a Check moves to another status.
 - Zapier key: `check_completed`
 - Kind: trigger
 
-Triggers when a candidate completes a Flow.
+Triggers when a candidate completes a flow.
 
 ### Input fields
 
@@ -367,13 +367,13 @@ Triggers when a candidate completes a Flow.
 - Zapier key: `verification_check_finished`
 - Kind: trigger
 
-Triggers when one verification check completes or fails. Use Find Verification Results when a later step needs detailed findings.
+Triggers when a verification check completes or fails.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `run_status` | Run Result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
+| `run_status` | Run result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
 | `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
 | `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
 
@@ -472,13 +472,13 @@ Triggers when one verification check completes or fails. Use Find Verification R
 - Zapier key: `public_profile_discovery_finished`
 - Kind: trigger
 
-Triggers when a public-profile discovery run completes or fails. Use Find Public Profile Results to retrieve authorized matches.
+Triggers when public profile discovery completes or fails.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `run_status` | Run Result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
+| `run_status` | Run result | string | Yes | Choose whether this Zap should run for completed runs, failed runs, or both. Default: "completed". Choices: any, completed, failed. |
 | `flow_id` | Flow | string | No | Optional. Trigger only for this Flow. Choices: . |
 | `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
 
@@ -691,7 +691,7 @@ Triggers when a referee submits a reference response.
 - Zapier key: `new_employee`
 - Kind: trigger
 
-Triggers when a new Employee is created.
+Triggers when a new employee is created.
 
 ### Input fields
 
@@ -794,14 +794,14 @@ Triggers when a new Employee is created.
 - Zapier key: `employee_work_details_changed`
 - Kind: trigger
 
-Triggers when the selected Employee profile or work-detail field changes.
+Triggers when a selected employee detail changes.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `company_id` | Company | string | No | Optional. Trigger only for this company. Choices: . |
-| `changed_field` | Changed Field | string | Yes | Choose the exact category of employee change that should trigger this Zap. Choices: company, compensation, email, end_date, full_name, manager, position_title, start_date, tags, work_record. |
+| `changed_field` | Changed field | string | Yes | Choose the exact category of employee change that should trigger this Zap. Choices: company, compensation, email, end_date, full_name, manager, position_title, start_date, tags, work_record. |
 
 ### Output fields
 
@@ -900,7 +900,7 @@ Triggers when the selected Employee profile or work-detail field changes.
 - Zapier key: `employee_status_changed`
 - Kind: trigger
 
-Triggers when an Employee moves to another status.
+Triggers when an employee changes status.
 
 ### Input fields
 
@@ -1005,7 +1005,7 @@ Triggers when an Employee moves to another status.
 - Zapier key: `exit_intelligence_request_created`
 - Kind: trigger
 
-Triggers when an Exit Intelligence request is created and its invitation is queued.
+Triggers when an exit intelligence request invitation is queued.
 
 ### Input fields
 
@@ -1109,7 +1109,7 @@ Triggers when an Exit Intelligence request is created and its invitation is queu
 - Zapier key: `exit_intelligence_completed`
 - Kind: trigger
 
-Triggers when an Employee completes an Exit Intelligence request. Use Find Exit Intelligence Result to retrieve authorized answers.
+Triggers when an employee completes an exit intelligence request.
 
 ### Input fields
 
@@ -1213,7 +1213,7 @@ Triggers when an Employee completes an Exit Intelligence request. Use Find Exit 
 - Zapier key: `new_talent`
 - Kind: trigger
 
-Triggers when a new profile enters the Talent Pool.
+Triggers when a new profile enters the talent pool.
 
 ### Input fields
 
@@ -1316,7 +1316,7 @@ Triggers when a new profile enters the Talent Pool.
 - Zapier key: `talent_profile_submitted`
 - Kind: trigger
 
-Triggers when a referee submits updated Talent Pool profile details.
+Triggers when a referee submits talent pool profile details.
 
 ### Input fields
 
@@ -1421,7 +1421,7 @@ Triggers when a referee submits updated Talent Pool profile details.
 - Zapier key: `talent_status_changed`
 - Kind: trigger
 
-Triggers when a Talent Pool profile moves to another status.
+Triggers when a talent pool profile changes status.
 
 ### Input fields
 
@@ -1527,14 +1527,14 @@ Triggers when a Talent Pool profile moves to another status.
 - Kind: search
 - Jointl operation: `workspace.search`
 
-Finds up to 30 authorized people across Checks, Employees, Talent Pool profiles, References, and Team Members.
+Finds up to 30 authorized people across checks, employees, talent pool profiles, references, and team members.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `query` | Search Text | string | Yes | Enter a name, email, company, job title, tag, attribute, or other identifying text. To keep every returned match, set “If multiple search results are found?” to “Return all results as line items”. Results are limited to 30, not a complete workspace export. For one exact record, use the search button in that action’s Check, Employee, or Talent field. |
-| `person_source` | Person Source | string | No | Optionally search only one Jointl record type. Reference people require reference-response access, and Team Members follow Jointl’s owner-only global-search visibility. Default: "all". Choices: all, applicant, employee, member, reference, talent. |
+| `query` | Search text | string | Yes | Enter a name, email, company, job title, tag, attribute, or other identifying text. To keep every returned match, set “If multiple search results are found?” to “Return all results as line items”. Results are limited to 30, not a complete workspace export. For one exact record, use the search button in that action’s Check, Employee, or Talent field. |
+| `person_source` | Person source | string | No | Optionally search only one Jointl record type. Reference people require reference-response access, and Team Members follow Jointl’s owner-only global-search visibility. Default: "all". Choices: all, applicant, employee, member, reference, talent. |
 
 ### Output fields
 
@@ -1627,7 +1627,7 @@ Finds up to 30 authorized people across Checks, Employees, Talent Pool profiles,
     {
       "company_name": null,
       "context": "Candidate Example",
-      "jointl_url": "https://join.tl/checks/parent_check_id/references/reference_id",
+      "jointl_url": "https://join.tl/checks/parent_check_id/references/responses/reference_id",
       "parent_check_id": "parent_check_id",
       "record_id": "reference_id",
       "source_entity_type": "reference",
@@ -1666,7 +1666,7 @@ Finds one unambiguous authorized employee by name, email, or related text.
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `query` | Search Text | string | Yes | Enter the employee's name, email, or identifying text. |
+| `query` | Search text | string | Yes | Enter the employee's name, email, or identifying text. |
 
 ### Output fields
 
@@ -1714,15 +1714,15 @@ Jointl operation: `employees.bulkImport`.
 
 | Key | Label | Type | Required when creating | Notes |
 | --- | --- | --- | --- | --- |
-| `full_name` | Full Name | string | Yes |  |
-| `email` | Work Email | string | No |  |
+| `full_name` | Full name | string | Yes |  |
+| `email` | Work email | string | No |  |
 | `company_id` | Company | string | Yes | Choices: . |
-| `position_title` | Position Title | string | Yes |  |
-| `start_date` | Start Date | string | Yes | Use YYYY-MM-DD. |
-| `end_date` | End Date | string | No | Optional. Use YYYY-MM-DD. |
-| `manager_name` | Manager Full Name | string | No |  |
+| `position_title` | Position title | string | Yes |  |
+| `start_date` | Start date | string | Yes | Use YYYY-MM-DD. |
+| `end_date` | End date | string | No | Optional. Use YYYY-MM-DD. |
+| `manager_name` | Manager full name | string | No |  |
 | `tag_names` | Tags | string | No |  |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 Creation output fields:
 
@@ -1772,7 +1772,7 @@ Creation sample:
 - Kind: search
 - Jointl operation: `checks.report`
 
-Finds the full authorized factual report for one Check.
+Finds the full authorized factual report for one check.
 
 ### Input fields
 
@@ -1833,7 +1833,7 @@ Finds one complete authorized reference response.
 - Kind: search
 - Jointl operation: `references.list`
 
-Finds every authorized reference request and completed response for one Check as separate Zapier search results.
+Finds all authorized reference requests and completed responses for one check.
 
 ### Input fields
 
@@ -1866,7 +1866,7 @@ Finds every authorized reference request and completed response for one Check as
   "completed_at": "2026-09-01T12:00:00.000Z",
   "created_at": "2026-08-30T09:00:00.000Z",
   "id": "reference_id",
-  "jointl_url": "https://join.tl/checks/check_id/references/reference_id",
+  "jointl_url": "https://join.tl/checks/check_id/references/responses/reference_id",
   "referee_company_name": "Example Co",
   "referee_email": "morgan@example.com",
   "referee_job_title": "Engineering Manager",
@@ -1884,7 +1884,7 @@ Finds every authorized reference request and completed response for one Check as
 - Kind: search
 - Jointl operation: `checks.verifications.get`
 
-Finds the available verification types and latest authorized results for one Check.
+Finds the available verification types and latest authorized results for one check.
 
 ### Input fields
 
@@ -1914,7 +1914,7 @@ Finds the available verification types and latest authorized results for one Che
 - Kind: search
 - Jointl operation: `checks.publicProfiles.get`
 
-Finds the latest authorized public-profile discovery results for one Check.
+Finds the latest authorized public profile discovery results for one check.
 
 ### Input fields
 
@@ -1944,14 +1944,14 @@ Finds the latest authorized public-profile discovery results for one Check.
 - Kind: search
 - Jointl operation: `employees.exitIntelligence.get`
 
-Finds the latest or one exact authorized Exit Intelligence result for an Employee.
+Finds the latest or one exact authorized exit intelligence result for an employee.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | Choices: . |
-| `exit_intelligence_request_id` | Exit Intelligence Request ID | string | No | Map this from an Exit Intelligence trigger to retrieve that exact request. Leave blank to retrieve the latest visible request. |
+| `exit_intelligence_request_id` | Exit intelligence request | string | No | Choose a request or map its ID from an Exit Intelligence trigger to retrieve that exact request. Leave blank to retrieve the latest visible request. Choices: . |
 
 ### Output fields
 
@@ -1990,16 +1990,16 @@ Finds the latest or one exact authorized Exit Intelligence result for an Employe
 - Kind: action
 - Jointl operation: `checks.bulkCreate`
 
-Creates one Check and sends the invitation configured by the selected Flow.
+Creates one check and sends the invitation configured by the selected flow.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `flow_id` | Flow | string | Yes | Choices: . |
-| `full_name` | Candidate Full Name | string | Yes |  |
-| `email` | Candidate Email | string | Yes |  |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `full_name` | Candidate full name | string | Yes |  |
+| `email` | Candidate email | string | Yes |  |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2041,7 +2041,7 @@ Creates one Check and sends the invitation configured by the selected Flow.
 - Kind: action
 - Jointl operation: `checks.bulkCreate`
 
-Creates up to 250 Checks in one retry-safe import and sends the invitations configured by the selected Flow.
+Creates up to 250 checks and sends the invitations configured by the selected flow.
 
 ### Input fields
 
@@ -2049,9 +2049,9 @@ Creates up to 250 Checks in one retry-safe import and sends the invitations conf
 | --- | --- | --- | --- | --- |
 | `flow_id` | Flow | string | Yes | Choices: . |
 | `applicants` | Candidates | line items | Yes |  |
-| `↳ full_name` | Candidate Full Name | string | Yes | Map aligned name and email line items from a prior step. One run accepts 1–250 candidates. |
-| `↳ email` | Candidate Email | string | Yes |  |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `↳ full_name` | Candidate full name | string | Yes | Map aligned name and email line items from a prior step. One run accepts 1–250 candidates. |
+| `↳ email` | Candidate email | string | Yes |  |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2108,19 +2108,19 @@ Creates up to 250 Checks in one retry-safe import and sends the invitations conf
 - Kind: action
 - Jointl operation: `references.request`
 
-Creates and sends one manual reference request for a Check.
+Creates and sends one manual reference request for a check.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Choices: . |
-| `template_id` | Reference Template | string | Yes | Choices: . |
-| `referee_name` | Referee Full Name | string | Yes |  |
-| `referee_email` | Referee Email | string | Yes |  |
-| `referee_phone` | Referee Mobile Phone | string | No | Use an international E.164 number, for example +14155552671. |
-| `phone_message_consent` | Referee Consented to SMS | boolean | No | Default: "false". |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `template_id` | Reference template | string | Yes | Choices: . |
+| `referee_name` | Referee full name | string | Yes |  |
+| `referee_email` | Referee email | string | Yes |  |
+| `referee_phone` | Referee mobile phone | string | No | Use an international E.164 number, for example +14155552671. |
+| `phone_message_consent` | Referee consented to SMS | boolean | No | Default: "false". |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2144,7 +2144,7 @@ Creates and sends one manual reference request for a Check.
   "execution_id": "execution_id",
   "id": "reference_id",
   "invitation_status": "queued",
-  "jointl_url": "https://join.tl/checks/check_id/references/reference_id",
+  "jointl_url": "https://join.tl/checks/check_id/references/responses/reference_id",
   "referee_email": "morgan@example.com",
   "referee_name": "Morgan Example",
   "reference_id": "reference_id",
@@ -2158,25 +2158,25 @@ Creates and sends one manual reference request for a Check.
 - Kind: action
 - Jointl operation: `employees.bulkImport`
 
-Updates one exact Employee work record while preserving the Employee’s other work records.
+Updates one employee work record while preserving the employee’s other work records.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | Choices: . |
-| `position_id` | Work Record | string | Yes | Choose the exact existing work record to update. Other work records are preserved. Choices: . |
-| `full_name` | Full Name | string | Yes |  |
-| `email` | Work Email | string | No |  |
+| `position_id` | Work record | string | Yes | Choose the exact existing work record to update. Other work records are preserved. Choices: . |
+| `full_name` | Full name | string | Yes |  |
+| `email` | Work email | string | No |  |
 | `company_id` | Company | string | Yes | Choices: . |
-| `position_title` | Position Title | string | Yes |  |
-| `start_date` | Start Date | string | Yes | Use YYYY-MM-DD. |
-| `end_date` | End Date | string | No | Optional. Use YYYY-MM-DD. |
-| `update_manager` | Update Manager | boolean | No | When true, Manager Full Name replaces the manager on this work record. Leave the name blank to clear it; false preserves it. |
-| `manager_name` | Manager Full Name | string | No |  |
-| `replace_tags` | Replace Tags | boolean | No | When true, Tags replaces the tags on this work record. Leave Tags blank to clear them; false preserves them. |
+| `position_title` | Position title | string | Yes |  |
+| `start_date` | Start date | string | Yes | Use YYYY-MM-DD. |
+| `end_date` | End date | string | No | Optional. Use YYYY-MM-DD. |
+| `update_manager` | Update manager | boolean | No | When true, Manager Full Name replaces the manager on this work record. Leave the name blank to clear it; false preserves it. |
+| `manager_name` | Manager full name | string | No |  |
+| `replace_tags` | Replace tags | boolean | No | When true, Tags replaces the tags on this work record. Leave Tags blank to clear them; false preserves them. |
 | `tag_names` | Tags | string | No |  |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2226,30 +2226,30 @@ Updates one exact Employee work record while preserving the Employee’s other w
 - Kind: action
 - Jointl operation: `employees.bulkImport`
 
-Creates or updates up to 250 Employees in one retry-safe import using the existing Employee matching rules.
+Creates or updates up to 250 employees using the existing employee matching rules.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
-| `default_company_id` | Default Company | string | No | Optional fallback for employee lines without their own Company. This is convenient when every employee belongs to the same company. Choices: . |
+| `default_company_id` | Default company | string | No | Optional fallback for employee lines without their own Company. This is convenient when every employee belongs to the same company. Choices: . |
 | `employees` | Employees | line items | Yes |  |
-| `↳ full_name` | Full Name | string | Yes | Map aligned employee line items from a prior step. One run accepts 1–250 rows; repeated identities can add positions. |
-| `↳ email` | Work Email | string | No |  |
+| `↳ full_name` | Full name | string | Yes | Map aligned employee line items from a prior step. One run accepts 1–250 rows; repeated identities can add positions. |
+| `↳ email` | Work email | string | No |  |
 | `↳ company_id` | Company | string | No | Overrides Default Company for this employee line. Choices: . |
-| `↳ position_title` | Position Title | string | Yes |  |
-| `↳ start_date` | Start Date | string | Yes | Use YYYY-MM-DD. |
-| `↳ end_date` | End Date | string | No | Optional. Use YYYY-MM-DD. |
-| `↳ update_manager` | Update Manager | boolean | No | When true, Manager Full Name replaces the manager on a matching position. Leave the name blank to clear it; false preserves it. |
-| `↳ manager_name` | Manager Full Name | string | No |  |
-| `↳ replace_tags` | Replace Tags | boolean | No | When true, Tags replaces the tags on a matching position. Leave Tags blank to clear them; false preserves them. |
+| `↳ position_title` | Position title | string | Yes |  |
+| `↳ start_date` | Start date | string | Yes | Use YYYY-MM-DD. |
+| `↳ end_date` | End date | string | No | Optional. Use YYYY-MM-DD. |
+| `↳ update_manager` | Update manager | boolean | No | When true, Manager Full Name replaces the manager on a matching position. Leave the name blank to clear it; false preserves it. |
+| `↳ manager_name` | Manager full name | string | No |  |
+| `↳ replace_tags` | Replace tags | boolean | No | When true, Tags replaces the tags on a matching position. Leave Tags blank to clear them; false preserves them. |
 | `↳ tag_names` | Tags | string | No | Map multiple tag values for this employee line. Commas inside a value are part of the tag name. |
-| `↳ gross_amount` | Gross Compensation | number | No |  |
-| `↳ net_amount` | Net Compensation | number | No |  |
-| `↳ currency` | Compensation Currency | string | No | Use a three-letter currency code such as USD or EUR. |
-| `↳ pay_period` | Compensation Pay Period | string | No | Choices: annual, daily, hourly, monthly, weekly. |
-| `↳ compensation_effective_date` | Compensation Effective Date | string | No | Optional. Uses Start Date when omitted; otherwise use YYYY-MM-DD. |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `↳ gross_amount` | Gross compensation | number | No |  |
+| `↳ net_amount` | Net compensation | number | No |  |
+| `↳ currency` | Compensation currency | string | No | Use a three-letter currency code such as USD or EUR. |
+| `↳ pay_period` | Compensation pay period | string | No | Choices: annual, daily, hourly, monthly, weekly. |
+| `↳ compensation_effective_date` | Compensation effective date | string | No | Optional. Uses Start Date when omitted; otherwise use YYYY-MM-DD. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2317,14 +2317,14 @@ Creates or updates up to 250 Employees in one retry-safe import using the existi
 - Kind: action
 - Jointl operation: `checks.verifications.runAll`
 
-Starts every verification available and eligible for one Check; active runs and completed results that cannot be repeated are reused.
+Starts all available verification checks for one check, reusing active runs and results that cannot be repeated.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Jointl uses the applicant details stored on this Check. Verification types that require unavailable details are skipped. Choices: . |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2373,20 +2373,20 @@ Starts every verification available and eligible for one Check; active runs and 
 - Kind: action
 - Jointl operation: `checks.publicProfiles.find`
 
-Starts public-profile discovery for a Check, or reuses or rescores an existing completed run when applicable.
+Starts public profile discovery for a check, or reuses or rescores an existing run when applicable.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Jointl automatically uses this Check’s name, email, saved location, and confirmed profile links. Choices: . |
-| `full_name` | Known Full Name | string | No | Optional. Use only a known full-name spelling that should override the Check name for this search. |
-| `aliases` | Known Aliases | string | No | Optional. Add up to eight known alternate names; do not add speculative identities. |
-| `cities` | Relevant Cities | string | No |  |
-| `states` | Relevant States or Regions | string | No |  |
-| `relevant_countries` | Relevant Countries | string | No | Optional. Use two-letter country codes such as US, GB, or TR. |
-| `profile_urls` | Known Profile URLs | string | No | Optional. Add up to 16 public profile URLs already known to belong to this person. |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `full_name` | Known full name | string | No | Optional. Use only a known full-name spelling that should override the Check name for this search. |
+| `aliases` | Known aliases | string | No | Optional. Add up to eight known alternate names; do not add speculative identities. |
+| `cities` | Relevant cities | string | No |  |
+| `states` | Relevant states or regions | string | No |  |
+| `relevant_countries` | Relevant countries | string | No | Optional. Use two-letter country codes such as US, GB, or TR. |
+| `profile_urls` | Known profile URLs | string | No | Optional. Add up to 16 public profile URLs already known to belong to this person. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2426,16 +2426,16 @@ Starts public-profile discovery for a Check, or reuses or rescores an existing c
 - Kind: action
 - Jointl operation: `checks.status.set`
 
-Changes one Check to a new status and cancels its pending lifecycle emails and reminders.
+Changes a check’s status and cancels its pending lifecycle emails and reminders.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Check step inserted by the Check field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, inProgress, new, rejected, selected, shortlisted. |
-| `new_status` | New Status | string | Yes | Selected is intentionally unavailable because selecting a candidate creates an employee through a separate Jointl workflow. Choices: archived, inProgress, new, rejected, shortlisted. |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `current_status` | Current status | string | Yes | Map the current status from the trigger or the Find Check step inserted by the Check field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, inProgress, new, rejected, selected, shortlisted. |
+| `new_status` | New status | string | Yes | Selected is intentionally unavailable because selecting a candidate creates an employee through a separate Jointl workflow. Choices: archived, inProgress, new, rejected, shortlisted. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2471,16 +2471,16 @@ Changes one Check to a new status and cancels its pending lifecycle emails and r
 - Kind: action
 - Jointl operation: `employees.status.set`
 
-Marks one Employee active or left; leaving can close active positions and queue an Exit Intelligence request.
+Marks an employee active or left, closing positions and optionally queuing an exit intelligence request when leaving.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Employee step inserted by the Employee field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: active, left. |
-| `new_status` | New Status | string | Yes | Choices: active, left. |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `current_status` | Current status | string | Yes | Map the current status from the trigger or the Find Employee step inserted by the Employee field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: active, left. |
+| `new_status` | New status | string | Yes | Choices: active, left. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2520,16 +2520,16 @@ Marks one Employee active or left; leaving can close active positions and queue 
 - Kind: action
 - Jointl operation: `talents.status.set`
 
-Changes one Talent Pool profile to a new, shortlisted, or archived status.
+Changes a talent pool profile to a new, shortlisted, or archived status.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `talent_id` | Talent | string | Yes | Choices: . |
-| `current_status` | Current Status | string | Yes | Map the current status from the trigger or the Find Talent step inserted by the Talent field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, new, shortlisted. |
-| `new_status` | New Status | string | Yes | Choices: archived, new, shortlisted. |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `current_status` | Current status | string | Yes | Map the current status from the trigger or the Find Talent step inserted by the Talent field’s search button. Jointl rejects stale changes instead of overwriting a newer status. Choices: archived, new, shortlisted. |
+| `new_status` | New status | string | Yes | Choices: archived, new, shortlisted. |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2565,15 +2565,15 @@ Changes one Talent Pool profile to a new, shortlisted, or archived status.
 - Kind: action
 - Jointl operation: `employees.status.set`
 
-Creates or reuses an Exit Intelligence request for an Employee already marked Left and queues its invitation.
+Creates or reuses an exit intelligence request for an employee already marked left and queues its invitation.
 
 ### Input fields
 
 | Key | Label | Type | Required | Notes |
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | The employee must already be marked Left with no active positions. Use Change Employee Status when the employee is still active. Choices: . |
-| `exit_intelligence_flow_id` | Exit Intelligence Flow | string | Yes | Choose an active Exit Intelligence Flow available for one of this employee’s companies. Choices: . |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `exit_intelligence_flow_id` | Exit intelligence flow | string | Yes | Choose an active Exit Intelligence Flow available for one of this employee’s companies. Choices: . |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2609,7 +2609,7 @@ Creates or reuses an Exit Intelligence request for an Employee already marked Le
 - Kind: action
 - Jointl operation: `checks.addNote`
 
-Adds a note to one Check.
+Adds a note to one check.
 
 ### Input fields
 
@@ -2617,8 +2617,8 @@ Adds a note to one Check.
 | --- | --- | --- | --- | --- |
 | `check_id` | Check | string | Yes | Choices: . |
 | `text` | Note | text | Yes |  |
-| `visible_to_team` | Visible to Team | boolean | No | Default: "false". |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `visible_to_team` | Visible to team | boolean | No | Default: "false". |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2652,7 +2652,7 @@ Adds a note to one Check.
 - Kind: action
 - Jointl operation: `employees.addNote`
 
-Adds a note to one Employee.
+Adds a note to one employee.
 
 ### Input fields
 
@@ -2660,8 +2660,8 @@ Adds a note to one Employee.
 | --- | --- | --- | --- | --- |
 | `employee_id` | Employee | string | Yes | Choices: . |
 | `text` | Note | text | Yes |  |
-| `visible_to_team` | Visible to Team | boolean | No | Default: "false". |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `visible_to_team` | Visible to team | boolean | No | Default: "false". |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
@@ -2695,7 +2695,7 @@ Adds a note to one Employee.
 - Kind: action
 - Jointl operation: `talents.addNote`
 
-Adds a note to one Talent.
+Adds a note to one talent.
 
 ### Input fields
 
@@ -2703,8 +2703,8 @@ Adds a note to one Talent.
 | --- | --- | --- | --- | --- |
 | `talent_id` | Talent | string | Yes | Choices: . |
 | `text` | Note | text | Yes |  |
-| `visible_to_team` | Visible to Team | boolean | No | Default: "false". |
-| `source_key` | Unique Source Key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
+| `visible_to_team` | Visible to team | boolean | No | Default: "false". |
+| `source_key` | Unique source key | string | Yes | Map a stable unique key from the event, submission, row change, or execution that started this Zap. Jointl uses it to prevent duplicate writes across retries. |
 
 ### Output fields
 
